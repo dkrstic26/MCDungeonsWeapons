@@ -106,7 +106,7 @@ public enum WhipsID implements IMeleeWeaponID, IInnateEnchantment {
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
             case WHIP_WHIP -> null;
-            case WHIP_VINE_WHIP -> Map.of(EnchantsRegistry.JUNGLE_POISON, 1);
+            case WHIP_VINE_WHIP -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.JUNGLE_POISON), 1);
         };
     }
 

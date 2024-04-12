@@ -119,12 +119,12 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Unique
     private void mcdw$applySmite(float amount, LivingEntity user, LivingEntity target, ItemStack itemStack) {
-        if (itemStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, itemStack) > 0
+        if (itemStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.SMITING), itemStack) > 0
                 && !(EnchantmentHelper.getLevel(Enchantments.SMITE, itemStack) > 0))) {
-            int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, itemStack);
+            int smitingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.SMITING), itemStack);
             if (target.isUndead()) {
                 EnchantmentEffects.causeSmitingAttack(user, target,
-                        3.0f * level, amount);
+                        3.0f * smitingLevel, amount);
             }
         }
     }
@@ -140,7 +140,7 @@ public abstract class LivingEntityMixin extends Entity {
         if(!(attacker instanceof PlayerEntity attackingPlayer))
             return;
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BUZZY_BEE).mcdw$getIsEnabled()
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BUSY_BEE).mcdw$getIsEnabled()
                 && ((IBeeSummoning)attackingPlayer).isReadyForBeeSummon(attackingPlayer.age)) {
             ItemStack mainHandStack = attackingPlayer.getMainHandStack();
             ItemStack offHandStack = attackingPlayer.getOffHandStack();
@@ -168,10 +168,10 @@ public abstract class LivingEntityMixin extends Entity {
                 return;
 
             if (user.getOffHandStack() != null
-                    && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack()) > 0)
+                    && (EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.DIPPING_POISON), user.getOffHandStack()) > 0)
             ) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack());
-                if (level > 0) {
+                int dippingPoisonLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.DIPPING_POISON), user.getOffHandStack());
+                if (dippingPoisonLevel > 0) {
                     List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getMainHandStack());
                     if (!(potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH)) {
                         return;
@@ -201,7 +201,7 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "applyDamage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setHealth(F)V"))
     public void mcdw$applySharedPainDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (source.getSource() instanceof PlayerEntity player) {
-            int sharedPainLevel = EnchantmentEffects.mcdw$getEnchantmentLevel(EnchantsRegistry.SHARED_PAIN, player, false);
+            int sharedPainLevel = EnchantmentEffects.mcdw$getEnchantmentLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.SHARED_PAIN), player, false);
             if (sharedPainLevel <= 0) return;
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SHARED_PAIN).mcdw$getIsEnabled()) {
                 if ((Object) this instanceof LivingEntity target) {

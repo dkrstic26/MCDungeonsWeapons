@@ -12,7 +12,6 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.StatusEffectsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -49,7 +48,7 @@ public abstract class BowItemMixin{
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
     public void mcdw$onStoppedUsingBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BONUS_SHOT).mcdw$getIsEnabled()){
-            int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
+            int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.BONUS_SHOT), stack);
             if (bonusShotLevel > 0){
                 float damageMultiplier = 0.03F + (bonusShotLevel * 0.07F);
                 float arrowVelocity = RangedAttackHelper.getVanillaOrModdedBowArrowVelocity(stack, remainingUseTicks);
@@ -59,7 +58,7 @@ public abstract class BowItemMixin{
             }
         }
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.MULTI_SHOT).mcdw$getIsEnabled()) {
-            int multiShotLevel = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, stack);
+            int multiShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.MULTI_SHOT), stack);
             if (multiShotLevel > 0) {
                 PersistentProjectileEntity projectile = ProjectileEffectHelper.mcdw$createAbstractArrow(user);
                 LivingEntity target = user.getAttacking();
@@ -109,7 +108,7 @@ public abstract class BowItemMixin{
         }
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
-            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, bowStack);
+            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ACCELERATE), bowStack);
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
                 int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
@@ -124,7 +123,7 @@ public abstract class BowItemMixin{
         }
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled()) {
-            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, bowStack);
+            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.OVERCHARGE), bowStack);
             if (overchargeLevel > 0) {
                 overcharge = Math.min((value / 20) - 1, overchargeLevel);
                 value = overcharge == overchargeLevel ? value : value % 20;

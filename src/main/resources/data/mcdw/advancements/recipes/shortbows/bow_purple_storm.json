@@ -1,70 +1,76 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:bow_shortbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_purple_storm"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_string": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_string":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:string"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_purple_dye": {
-      "conditions": {
-        "items": [
+    "has_purple_dye":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:purple_dye"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_iron_ingot": {
-      "conditions": {
-        "items": [
+    "has_iron_ingot":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:iron_ingot"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_base_bow": {
-      "conditions": {
-        "items": [
+    "has_base_bow":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "mcdw:bow_shortbow"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:bow_purple_storm"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:bow_purple_storm"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_string",
       "has_purple_dye",
@@ -73,8 +79,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:bow_purple_storm"
     ]
   }

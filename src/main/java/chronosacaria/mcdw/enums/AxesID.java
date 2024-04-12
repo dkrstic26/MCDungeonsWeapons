@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -107,13 +108,13 @@ public enum AxesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Map<Enchantment, Integer> getInnateEnchantments() {
+    public @Nullable Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case AXE_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1);
+            case AXE_ANCHOR -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.GRAVITY), 1);
             case AXE_AXE -> null;
-            case AXE_ENCRUSTED_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1, EnchantsRegistry.JUNGLE_POISON, 1);
+            case AXE_ENCRUSTED_ANCHOR -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.GRAVITY), 1, EnchantsRegistry.enchantments.get(EnchantmentsID.JUNGLE_POISON), 1);
             case AXE_FIREBRAND -> Map.of(Enchantments.FIRE_ASPECT, 1);
-            case AXE_HIGHLAND -> Map.of(EnchantsRegistry.STUNNING, 1);
+            case AXE_HIGHLAND -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.STUNNING), 1);
         };
     }
 

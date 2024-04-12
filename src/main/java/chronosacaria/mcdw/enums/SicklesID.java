@@ -107,8 +107,8 @@ public enum SicklesID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SICKLE_LAST_LAUGH_GOLD, SICKLE_LAST_LAUGH_SILVER -> Map.of(EnchantsRegistry.PROSPECTOR, 1);
-            case SICKLE_NIGHTMARES_BITE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
+            case SICKLE_LAST_LAUGH_GOLD, SICKLE_LAST_LAUGH_SILVER -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.PROSPECTOR), 1);
+            case SICKLE_NIGHTMARES_BITE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.POISON_CLOUD), 1);
             case SICKLE_SICKLE -> null;
         };
     }

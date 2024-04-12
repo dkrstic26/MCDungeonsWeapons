@@ -1,34 +1,34 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_snow_bow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "sBS",
-        "sbS",
-        "sBS"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:string"
-        },
-        "s": {
-            "item": "minecraft:snow_block"
-        },
-        "B": {
-            "item": "minecraft:blue_dye"
-        },
-        "b":{
-            "item": "minecraft:bow"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "sBS",
+    "sbS",
+    "sBS"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:string"
     },
-    "result": {
-        "item": "mcdw:bow_snow_bow",
-        "count": 1
+    "s":{
+      "item":"minecraft:snow_block"
+    },
+    "B":{
+      "item":"minecraft:blue_dye"
+    },
+    "b":{
+      "item":"minecraft:bow"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_snow_bow",
+    "count":1
+  }
 }

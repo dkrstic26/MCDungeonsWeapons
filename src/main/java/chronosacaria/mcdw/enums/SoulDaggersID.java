@@ -108,9 +108,9 @@ public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SOUL_DAGGER_ETERNAL_KNIFE -> Map.of(EnchantsRegistry.SOUL_SIPHON, 1);
+            case SOUL_DAGGER_ETERNAL_KNIFE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.SOUL_SIPHON), 1);
             case SOUL_DAGGER_SOUL_KNIFE -> null;
-            case SOUL_DAGGER_TRUTHSEEKER -> Map.of(EnchantsRegistry.COMMITTED, 1);
+            case SOUL_DAGGER_TRUTHSEEKER -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.COMMITTED), 1);
         };
     }
 

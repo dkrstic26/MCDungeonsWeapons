@@ -1,82 +1,82 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "mcdw:item_enabled",
-      "values": [
-        "mcdw:bow_bubble_bow"
-      ]
-    }
-  ],
-  "parent": "minecraft:recipes/root",
-    "criteria": {
-        "has_water_bucket": {
-            "conditions": {
-                "items": [
+    "fabric:load_conditions":[
+        {
+            "condition":"mcdw:item_enabled",
+            "values":[
+                "mcdw:bow_bubble_bow"
+            ]
+        }
+    ],
+    "parent":"minecraft:recipes/root",
+    "criteria":{
+        "has_water_bucket":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:water_bucket"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_prismarine_shard": {
-            "conditions": {
-                "items": [
+        "has_prismarine_shard":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:prismarine_shard"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_string": {
-            "conditions": {
-                "items": [
+        "has_string":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:string"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_prismarine_crystals": {
-            "conditions": {
-                "items": [
+        "has_prismarine_crystals":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:prismarine_crystals"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_bow": {
-            "conditions": {
-                "items": [
+        "has_bow":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:bow"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_the_recipe": {
-            "conditions": {
-                "recipe": "mcdw:bow_bubble_bow"
+        "has_the_recipe":{
+            "conditions":{
+                "recipe":"mcdw:bow_bubble_bow"
             },
-            "trigger": "minecraft:recipe_unlocked"
+            "trigger":"minecraft:recipe_unlocked"
         }
     },
-    "requirements": [
+    "requirements":[
         [
             "has_water_bucket",
             "has_prismarine_shard",
@@ -86,8 +86,8 @@
             "has_the_recipe"
         ]
     ],
-    "rewards": {
-        "recipes": [
+    "rewards":{
+        "recipes":[
             "mcdw:bow_bubble_bow"
         ]
     }

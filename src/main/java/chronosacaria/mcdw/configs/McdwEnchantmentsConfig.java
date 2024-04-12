@@ -108,7 +108,7 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 )
         );
         ENCHANTMENT_CONFIG.put(
-                EnchantmentsID.BUZZY_BEE,
+                EnchantmentsID.BUSY_BEE,
                 new EnchantmentIDConfigHelper(
                         true,
                         false,
@@ -299,7 +299,7 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 )
         );
         ENCHANTMENT_CONFIG.put(
-                EnchantmentsID.POISONING,
+                EnchantmentsID.JUNGLE_POISON,
                 new EnchantmentIDConfigHelper(
                         true,
                         true,
@@ -337,8 +337,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.MULTI_SHOT,
                 new EnchantmentIDConfigHelper(
                         true,
-                        true,
-                        true,
+                        false,
+                        false,
                         1,
                         null
                 )

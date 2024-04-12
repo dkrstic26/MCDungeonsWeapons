@@ -187,6 +187,7 @@
   "enchantment.mcdw.anima_conduit": "灵魂输导",
   "enchantment.mcdw.bonus_shot": "奖励射击",
   "enchantment.mcdw.burst_bowstring": "爆裂弓弦",
+  "enchantment.mcdw.busy_bee": "忙碌蜜蜂",
   "enchantment.mcdw.chain_reaction": "链锁反应",
   "enchantment.mcdw.chains": "链锁",
   "enchantment.mcdw.charge": "冲锋",
@@ -207,6 +208,7 @@
   "enchantment.mcdw.jungle_poison": "丛林毒药",
   "enchantment.mcdw.leeching": "吸血",
   "enchantment.mcdw.levitation_shot": "漂浮射击",
+  "enchantment.mcdw.multi_shot": "多重射击",
   "enchantment.mcdw.overcharge": "多级蓄力",
   "enchantment.mcdw.pain_cycle": "痛苦循环",
   "enchantment.mcdw.phantoms_mark": "幻翼的印记",
@@ -827,7 +829,6 @@
   "tooltip_note_item.mcdw.dualwield": "双持",
   "tooltip_note_item.mcdw.longbow": "长弓",
   "tooltip_note_item.mcdw.shortbow": "短弓",
-  "tooltip_ench_item.mcdw.beestinger_1": "忙碌蜜蜂",
 
   "death.attack.electricShock": "%s被电死了。",
 
@@ -836,6 +837,7 @@
   "enchantment.mcdw.anima_conduit.desc": "每吸收一个经验球都会回复少量生命。",
   "enchantment.mcdw.bonus_shot.desc": "射击时有几率向附近的敌人射出第二支箭矢。",
   "enchantment.mcdw.burst_bowstring.desc": "跳时射击周围的敌人，每次跳每级会消耗1支箭矢。造成满蓄力射击的40%伤害。 ",
+  "enchantment.mcdw.busy_bee.desc": "手持蜜蜂毒刺，攻击敌人，召唤蜜蜂与你并肩作战。",
   "enchantment.mcdw.chain_reaction.desc": "有几率向命中的目标射出箭矢。",
   "enchantment.mcdw.chains.desc": "有几率把生物拉在一起并让它们减速。",
   "enchantment.mcdw.charge.desc": "攻击敌人时有几率获得加速效果",
@@ -856,6 +858,7 @@
   "enchantment.mcdw.jungle_poison.desc": "有几率对目标施加中毒效果。",
   "enchantment.mcdw.leeching.desc": "击败目标后，获得基于目标最大生命值一部分的治疗。",
   "enchantment.mcdw.levitation_shot.desc": "你的射击会让目标漂浮，类似于潜影贝的效果。",
+  "enchantment.mcdw.multi_shot.desc": "如果你受到多个敌人的攻击，你会向类似的方向发射额外的箭。",
   "enchantment.mcdw.overcharge.desc": "长按远程攻击键为弓蓄力两倍、三倍甚至四倍的伤害，每次蓄力都会提升一倍。",
   "enchantment.mcdw.pain_cycle.desc": "攻击会消耗生命以堆叠苦痛。叠加5次后，你的痛苦会爆发于下一次攻击中。",
   "enchantment.mcdw.phantoms_mark.desc": "根据魔咒等级对目标施加发光效果。",
@@ -884,4 +887,4 @@
   "enchantment.mcdw.void_shot.desc": "有几率对根据魔咒等级造成多倍伤害。",
   "enchantment.mcdw.weakening.desc": "有几率在目标周围生成虚弱之雾。",
   "enchantment.mcdw.wild_rage.desc": "攻击敌人有概率让其发怒，并将仇恨覆盖到所有生物上。"
-  }
+}

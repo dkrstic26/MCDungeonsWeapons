@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:sword_claymore",
         "mcdw:sword_obsidian_claymore"
       ]
     }

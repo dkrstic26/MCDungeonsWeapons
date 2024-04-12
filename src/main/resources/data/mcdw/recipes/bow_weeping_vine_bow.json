@@ -1,28 +1,28 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_weeping_vine_bow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " /S",
-        "/ S",
-        " /S"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:weeping_vines"
-        },
-        "/": {
-            "item": "minecraft:crimson_planks"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    " /S",
+    "/ S",
+    " /S"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:weeping_vines"
     },
-    "result": {
-        "item": "mcdw:bow_weeping_vine_bow",
-        "count": 1
+    "/":{
+      "item":"minecraft:crimson_planks"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_weeping_vine_bow",
+    "count":1
+  }
 }

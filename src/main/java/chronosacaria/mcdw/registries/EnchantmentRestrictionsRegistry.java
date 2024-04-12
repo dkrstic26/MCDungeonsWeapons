@@ -10,14 +10,14 @@ import net.minecraft.enchantment.Enchantments;
 
 public class EnchantmentRestrictionsRegistry {
     public static void register() {
-        // Individual Enchantment Permissions
+        // Permit individual enchantments for specific items
         EnchantmentRestriction.permit(Enchantments.FIRE_ASPECT, itemStack -> itemStack.getItem() instanceof McdwAxe || itemStack.getItem() instanceof McdwDoubleAxe);
         EnchantmentRestriction.permit(Enchantments.EFFICIENCY, itemStack -> itemStack.isOf(SwordsID.SWORD_MECHANIZED_SAWBLADE.getItem()));
 
-        // Enchantment Type Permissions
+        // Permit specific enchantment types for certain items
         EnchantmentRestriction.permitTarget((enchantment, itemStack) -> enchantment instanceof DamageEnchantment && itemStack.getItem() instanceof McdwSpear);
 
-        // Individual Enchantment Prohibitions
+        // Prohibit individual enchantments for specific items
         EnchantmentRestriction.prohibit(Enchantments.EFFICIENCY, itemStack -> itemStack.isOf(SwordsID.SWORD_BROKEN_SAWBLADE.getItem()));
     }
 }

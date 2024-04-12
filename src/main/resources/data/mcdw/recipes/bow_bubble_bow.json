@@ -1,37 +1,37 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_bubble_bow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "WPS",
-        "CBS",
-        "WPS"
-    ],
-    "key": {
-        "W": {
-            "item": "minecraft:water_bucket"
-        },
-        "P": {
-            "item": "minecraft:prismarine_shard"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "C": {
-            "item": "minecraft:prismarine_crystals"
-        },
-        "B": {
-            "item": "minecraft:bow"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "WPS",
+    "CBS",
+    "WPS"
+  ],
+  "key":{
+    "W":{
+      "item":"minecraft:water_bucket"
     },
-    "result": {
-        "item": "mcdw:bow_bubble_bow",
-        "count": 1
+    "P":{
+      "item":"minecraft:prismarine_shard"
+    },
+    "S":{
+      "item":"minecraft:string"
+    },
+    "C":{
+      "item":"minecraft:prismarine_crystals"
+    },
+    "B":{
+      "item":"minecraft:bow"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_bubble_bow",
+    "count":1
+  }
 }

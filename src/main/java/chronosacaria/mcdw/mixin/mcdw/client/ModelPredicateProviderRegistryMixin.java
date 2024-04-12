@@ -34,7 +34,7 @@ public class ModelPredicateProviderRegistryMixin {
         } else {
             int useTicks = stack.getMaxUseTime() - entity.getItemUseTimeLeft();
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
-                int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
+                int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ACCELERATE), stack);
                 if (accelerateLevel > 0) {
                     StatusEffectInstance accelerateInstance = entity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
                     int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
@@ -42,7 +42,7 @@ public class ModelPredicateProviderRegistryMixin {
                 }
             }
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled()) {
-                int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, stack);
+                int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.OVERCHARGE), stack);
                 if (overchargeLevel > 0) {
                     int overcharge = Math.min((useTicks / 20) - 1, overchargeLevel);
                     useTicks = overcharge == overchargeLevel ? useTicks : (useTicks % 20);
@@ -63,7 +63,7 @@ public class ModelPredicateProviderRegistryMixin {
         } else {
             int useTicks = stack.getMaxUseTime() - entity.getItemUseTimeLeft();
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
-                int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
+                int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ACCELERATE), stack);
                 if (accelerateLevel > 0) {
                     StatusEffectInstance accelerateInstance = entity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
                     int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;

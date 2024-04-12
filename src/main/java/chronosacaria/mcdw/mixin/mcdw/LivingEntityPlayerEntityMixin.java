@@ -96,7 +96,7 @@ public class LivingEntityPlayerEntityMixin {
 
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FREEZING).mcdw$getIsEnabled())
                     EnchantmentEffects.applyFreezing(attackingEntity, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISONING).mcdw$getIsEnabled())
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.JUNGLE_POISON).mcdw$getIsEnabled())
                     EnchantmentEffects.applyPoisoning(attackingEntity, victim, isOffHandAttack);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISON_CLOUD).mcdw$getIsEnabled())
                     EnchantmentEffects.applyPoisonCloud(attackingEntity, victim, isOffHandAttack);

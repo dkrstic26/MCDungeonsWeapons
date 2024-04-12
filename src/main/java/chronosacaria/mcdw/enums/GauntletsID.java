@@ -108,8 +108,8 @@ public enum GauntletsID implements IMeleeWeaponID, IInnateEnchantment {
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
             case GAUNTLET_GAUNTLET -> null;
-            case GAUNTLET_MAULERS -> Map.of(EnchantsRegistry.RAMPAGING, 1);
-            case GAUNTLET_SOUL_FISTS -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
+            case GAUNTLET_MAULERS -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.RAMPAGING), 1);
+            case GAUNTLET_SOUL_FISTS -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.ENIGMA_RESONATOR), 1);
         };
     }
 

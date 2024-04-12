@@ -14,7 +14,7 @@ public class PainCycleStatusEffect extends StatusEffect {
         Registry.register(Registries.STATUS_EFFECT, new Identifier(Mcdw.MOD_ID, id), this);
     }
 
-    private int lastPain = 0;
+    private int painCounter = 0;
 
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier){
@@ -24,10 +24,10 @@ public class PainCycleStatusEffect extends StatusEffect {
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         super.applyUpdateEffect(entity, amplifier);
-        lastPain++;
-        if (lastPain == 300) {
+        painCounter++;
+        if (painCounter == 300) {
             entity.damage(entity.getWorld().getDamageSources().magic(), 2);
-            lastPain = 0;
+            painCounter = 0;
         }
     }
 }

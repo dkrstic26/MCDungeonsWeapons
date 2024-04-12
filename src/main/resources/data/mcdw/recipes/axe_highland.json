@@ -1,31 +1,37 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:axe_axe"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:axe_highland"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "II ",
-        "IA ",
-        " / "
-    ],
-    "key": {
-        "/": {
-            "item": "minecraft:stick"
-        },
-        "A": {
-            "item": "mcdw:axe_axe"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "II ",
+    "IA ",
+    " / "
+  ],
+  "key":{
+    "/":{
+      "item":"minecraft:stick"
     },
-    "result": {
-        "item": "mcdw:axe_highland",
-        "count": 1
+    "A":{
+      "item":"mcdw:axe_axe"
+    },
+    "I":{
+      "item":"minecraft:iron_ingot"
     }
+  },
+  "result":{
+    "item":"mcdw:axe_highland",
+    "count":1
+  }
 }

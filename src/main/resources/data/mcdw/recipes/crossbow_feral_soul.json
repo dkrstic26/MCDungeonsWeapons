@@ -1,37 +1,43 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_soul_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_feral_soul_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "OsO",
-        "sCs",
-        "SBS"
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_soul_crossbow"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "O": {
-            "item": "minecraft:soul_sand"
-        },
-        "s": {
-            "item": "minecraft:soul_soil"
-        },
-        "B": {
-            "item": "minecraft:bone"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "OsO",
+    "sCs",
+    "SBS"
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_soul_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_feral_soul_crossbow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "O":{
+      "item":"minecraft:soul_sand"
+    },
+    "s":{
+      "item":"minecraft:soul_soil"
+    },
+    "B":{
+      "item":"minecraft:bone"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_feral_soul_crossbow",
+    "count":1
+  }
 }

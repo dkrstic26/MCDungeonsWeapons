@@ -1,31 +1,31 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:dagger_moon"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "  I",
-        " II",
-        "/L "
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "/": {
-            "item": "minecraft:gold_ingot"
-        },
-        "L": {
-            "item": "minecraft:leather"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "  I",
+    " II",
+    "/L "
+  ],
+  "key":{
+    "I":{
+      "item":"minecraft:iron_ingot"
     },
-    "result": {
-        "item": "mcdw:dagger_moon",
-        "count": 1
+    "/":{
+      "item":"minecraft:gold_ingot"
+    },
+    "L":{
+      "item":"minecraft:leather"
     }
+  },
+  "result":{
+    "item":"mcdw:dagger_moon",
+    "count":1
+  }
 }

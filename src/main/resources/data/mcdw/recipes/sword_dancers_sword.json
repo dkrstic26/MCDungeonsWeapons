@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:sword_cutlass",
         "mcdw:sword_dancers_sword"
       ]
     }

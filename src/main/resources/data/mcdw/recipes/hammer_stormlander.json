@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:hammer_great_hammer",
         "mcdw:hammer_stormlander"
       ]
     }

@@ -12,15 +12,12 @@ import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 
 public class PoisonCloudEnchantment extends AOEEnchantment {
 
     public PoisonCloudEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISON_CLOUD).mcdw$getIsEnabled()) {
-            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("poison_cloud"), this);
             ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
                 // For loop creates first 3 levels of enchanted books
                 for (int i = 1; i <= getMaxLevel(); i++)

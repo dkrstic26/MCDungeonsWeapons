@@ -1,31 +1,37 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_scatter_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_harp_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "OOO",
-        "OCO",
-        "SSS"
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_scatter_crossbow"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "O": {
-            "item": "minecraft:gold_ingot"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "OOO",
+    "OCO",
+    "SSS"
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_scatter_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_harp_crossbow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "O":{
+      "item":"minecraft:gold_ingot"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_harp_crossbow",
+    "count":1
+  }
 }

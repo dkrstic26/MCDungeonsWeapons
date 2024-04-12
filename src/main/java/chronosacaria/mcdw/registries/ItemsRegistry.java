@@ -40,19 +40,19 @@ public class ItemsRegistry {
     public static final EnumMap<ItemsID, Item> MCDW_ITEMS = new EnumMap<>(ItemsID.class);
 
     public static void register() {
-        for (IMcdwWeaponID mcdwWeaponID : IMcdwWeaponID.values()) {
-            if (mcdwWeaponID.isEnabled()) {
-                Item weapon = mcdwWeaponID.makeWeapon();
-                registerItem(mcdwWeaponID.toString().toLowerCase(Locale.ROOT), weapon);
+        for (IMcdwWeaponID weaponID : IMcdwWeaponID.values()) {
+            if (weaponID.isEnabled()) {
+                Item weapon = weaponID.makeWeapon();
+                registerItem(weaponID.toString().toLowerCase(Locale.ROOT), weapon);
             }
         }
 
-        for (ItemsID itemsID : ItemsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(itemsID))
+        for (ItemsID itemID : ItemsID.values()) {
+            if (!CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(itemID))
                 continue;
-            Item item = itemsID.makeItem(new Item.Settings());
-            registerItem(itemsID.toString().toLowerCase(Locale.ROOT), item);
-            ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(itemsID.getItem()));
+            Item item = itemID.makeItem(new Item.Settings());
+            registerItem(itemID.toString().toLowerCase(Locale.ROOT), item);
+            ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(itemID.getItem()));
         }
     }
 

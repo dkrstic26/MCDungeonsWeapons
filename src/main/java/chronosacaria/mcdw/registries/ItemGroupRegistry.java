@@ -23,15 +23,30 @@ public class ItemGroupRegistry {
     public static void register() {
         Registry.register(Registries.ITEM_GROUP, MELEE, FabricItemGroup.builder()
                 .displayName(Text.translatable("itemGroup.mcdw.weapons/melee"))
-                .icon(() -> new ItemStack(SwordsID.SWORD_HEARTSTEALER.getItem()))
+                .icon(() -> {
+                    if(SwordsID.SWORD_HEARTSTEALER.getItem() != null) {
+                        return new ItemStack(SwordsID.SWORD_HEARTSTEALER.getItem());
+                    }
+                    return new ItemStack(Items.IRON_SWORD);
+                })
                 .build());
         Registry.register(Registries.ITEM_GROUP, RANGED, FabricItemGroup.builder()
                 .displayName(Text.translatable("itemGroup.mcdw.weapons/ranged"))
-                .icon(() -> new ItemStack(LongbowsID.BOW_LONGBOW.getItem()))
+                .icon(() -> {
+                    if(LongbowsID.BOW_LONGBOW.getItem() != null) {
+                        return new ItemStack(LongbowsID.BOW_LONGBOW.getItem());
+                    }
+                    return new ItemStack(Items.BOW);
+                })
                 .build());
         Registry.register(Registries.ITEM_GROUP, SHIELDS, FabricItemGroup.builder()
                 .displayName(Text.translatable("itemGroup.mcdw.weapons/shields"))
-                .icon(() -> new ItemStack(ShieldsID.SHIELD_ROYAL_GUARD.getItem()))
+                .icon(() -> {
+                    if (ShieldsID.SHIELD_ROYAL_GUARD.getItem() != null) {
+                        return new ItemStack(ShieldsID.SHIELD_ROYAL_GUARD.getItem());
+                    }
+                    return new ItemStack(Items.SHIELD);
+                })
                 .build());
         Registry.register(Registries.ITEM_GROUP, ENCHANTMENTS, FabricItemGroup.builder()
                 .displayName(Text.translatable("itemGroup.mcdw.enchantments"))

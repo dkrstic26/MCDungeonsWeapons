@@ -1,31 +1,37 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:dagger_dagger"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:dagger_fangs_of_frost"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "BSB",
-        "B/B",
-        "BBB"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:snow_block"
-        },
-        "B": {
-            "item": "minecraft:blue_ice"
-        },
-        "/": {
-            "item": "mcdw:dagger_dagger"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "BSB",
+    "B/B",
+    "BBB"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:snow_block"
     },
-    "result": {
-        "item": "mcdw:dagger_fangs_of_frost",
-        "count": 1
+    "B":{
+      "item":"minecraft:blue_ice"
+    },
+    "/":{
+      "item":"mcdw:dagger_dagger"
     }
+  },
+  "result":{
+    "item":"mcdw:dagger_fangs_of_frost",
+    "count":1
+  }
 }

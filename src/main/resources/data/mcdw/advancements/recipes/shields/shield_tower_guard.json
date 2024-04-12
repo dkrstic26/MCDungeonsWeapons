@@ -1,58 +1,58 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:shield_tower_guard"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_iron_ingot": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_iron_ingot":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:iron_ingot"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_gold_ingot": {
-      "conditions": {
-        "items": [
+    "has_gold_ingot":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:gold_ingot"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_copper_ingot": {
-      "conditions": {
-        "items": [
+    "has_copper_ingot":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:copper_ingot"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:shield_tower_guard"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:shield_tower_guard"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_iron_ingot",
       "has_gold_ingot",
@@ -60,8 +60,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:shield_tower_guard"
     ]
   }

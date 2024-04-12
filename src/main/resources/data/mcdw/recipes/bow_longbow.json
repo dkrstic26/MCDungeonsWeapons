@@ -1,28 +1,28 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_longbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "//S",
-        "/ S",
-        "//S"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:string"
-        },
-        "/": {
-            "item": "minecraft:stick"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "//S",
+    "/ S",
+    "//S"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:string"
     },
-    "result": {
-        "item": "mcdw:bow_longbow",
-        "count": 1
+    "/":{
+      "item":"minecraft:stick"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_longbow",
+    "count":1
+  }
 }

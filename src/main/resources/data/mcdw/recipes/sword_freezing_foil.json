@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:sword_rapier",
         "mcdw:sword_freezing_foil"
       ]
     }

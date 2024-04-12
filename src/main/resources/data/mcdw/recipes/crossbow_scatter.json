@@ -1,31 +1,31 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_scatter_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "OCO",
-        "SSS",
-        "SSS"
-    ],
-    "key": {
-        "C": {
-            "item": "minecraft:crossbow"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "O": {
-            "item": "minecraft:oak_planks"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "OCO",
+    "SSS",
+    "SSS"
+  ],
+  "key":{
+    "C":{
+      "item":"minecraft:crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_scatter_crossbow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "O":{
+      "item":"minecraft:oak_planks"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_scatter_crossbow",
+    "count":1
+  }
 }

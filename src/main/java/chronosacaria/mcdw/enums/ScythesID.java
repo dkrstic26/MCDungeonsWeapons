@@ -108,9 +108,9 @@ public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SCYTHE_FROST_SCYTHE, SCYTHE_SKULL_SCYTHE -> Map.of(EnchantsRegistry.FREEZING, 1);
-            case SCYTHE_JAILORS_SCYTHE -> Map.of(EnchantsRegistry.CHAINS, 1);
-            case SCYTHE_SOUL_SCYTHE -> Map.of(EnchantsRegistry.SOUL_DEVOURER, 1);
+            case SCYTHE_FROST_SCYTHE, SCYTHE_SKULL_SCYTHE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.FREEZING), 1);
+            case SCYTHE_JAILORS_SCYTHE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.CHAINS), 1);
+            case SCYTHE_SOUL_SCYTHE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.SOUL_DEVOURER), 1);
         };
     }
 

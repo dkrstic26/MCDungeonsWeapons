@@ -1,37 +1,43 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:axe_axe"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:axe_firebrand"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "#AF",
-        " /B",
-        " B "
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:iron_ingot"
-        },
-        "/": {
-            "item": "minecraft:blaze_rod"
-        },
-        "A": {
-            "item": "mcdw:axe_axe"
-        },
-        "F": {
-            "item": "minecraft:fire_charge"
-        },
-        "B": {
-            "item": "minecraft:blaze_powder"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "#AF",
+    " /B",
+    " B "
+  ],
+  "key":{
+    "#":{
+      "item":"minecraft:iron_ingot"
     },
-    "result": {
-        "item": "mcdw:axe_firebrand",
-        "count": 1
+    "/":{
+      "item":"minecraft:blaze_rod"
+    },
+    "A":{
+      "item":"mcdw:axe_axe"
+    },
+    "F":{
+      "item":"minecraft:fire_charge"
+    },
+    "B":{
+      "item":"minecraft:blaze_powder"
     }
+  },
+  "result":{
+    "item":"mcdw:axe_firebrand",
+    "count":1
+  }
 }

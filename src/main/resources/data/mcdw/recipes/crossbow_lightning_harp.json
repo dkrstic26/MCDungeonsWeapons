@@ -1,31 +1,37 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_harp_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_lightning_harp_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "OOO",
-        "OCO",
-        " c "
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_harp_crossbow"
-        },
-        "O": {
-            "item": "minecraft:gray_dye"
-        },
-        "c": {
-            "item": "minecraft:creeper_head"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "OOO",
+    "OCO",
+    " c "
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_harp_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_lightning_harp_crossbow",
-        "count": 1
+    "O":{
+      "item":"minecraft:gray_dye"
+    },
+    "c":{
+      "item":"minecraft:creeper_head"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_lightning_harp_crossbow",
+    "count":1
+  }
 }

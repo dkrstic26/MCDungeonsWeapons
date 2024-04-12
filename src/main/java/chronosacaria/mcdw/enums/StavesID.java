@@ -108,8 +108,8 @@ public enum StavesID implements IMeleeWeaponID, IInnateEnchantment {
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
             case STAFF_BATTLESTAFF -> null;
-            case STAFF_BATTLESTAFF_OF_TERROR -> Map.of(EnchantsRegistry.EXPLODING, 1);
-            case STAFF_GROWING_STAFF -> Map.of(EnchantsRegistry.COMMITTED, 1);
+            case STAFF_BATTLESTAFF_OF_TERROR -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.EXPLODING), 1);
+            case STAFF_GROWING_STAFF -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.COMMITTED), 1);
         };
     }
 

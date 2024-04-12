@@ -54,7 +54,7 @@ public class CrossbowItemMixin {
 
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BONUS_SHOT).mcdw$getIsEnabled()) {
-                int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, crossbow);
+                int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.BONUS_SHOT), crossbow);
                 if (bonusShotLevel > 0) {
                     float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);
 
@@ -77,7 +77,7 @@ public class CrossbowItemMixin {
         ItemStack crossbowStack = livingEntity.getActiveItem();
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
-            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, crossbowStack);
+            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ACCELERATE), crossbowStack);
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
                 int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;

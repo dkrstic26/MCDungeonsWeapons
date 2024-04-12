@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:sword_diamond_sword_var"
+      ]
+    }
+  ],
   "type": "minecraft:smithing_transform",
   "addition": {
     "item": "minecraft:netherite_ingot"

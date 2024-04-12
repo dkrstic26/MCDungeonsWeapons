@@ -1,34 +1,40 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_harpoon_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_nautical_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "gGP",
-        " CG",
-        "g g"
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_harpoon_crossbow"
-        },
-        "G": {
-            "item": "minecraft:gold_block"
-        },
-        "g": {
-            "item": "minecraft:gold_ingot"
-        },
-        "P": {
-            "item": "minecraft:prismarine_crystals"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "gGP",
+    " CG",
+    "g g"
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_harpoon_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_nautical_crossbow",
-        "count": 1
+    "G":{
+      "item":"minecraft:gold_block"
+    },
+    "g":{
+      "item":"minecraft:gold_ingot"
+    },
+    "P":{
+      "item":"minecraft:prismarine_crystals"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_nautical_crossbow",
+    "count":1
+  }
 }

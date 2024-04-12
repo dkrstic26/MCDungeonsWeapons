@@ -3,7 +3,8 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
-        "mcdw:spear_spear"
+        "mcdw:spear_spear",
+        "mcdw:dagger_dagger"
       ]
     }
   ],

@@ -1,167 +1,141 @@
 package chronosacaria.mcdw.registries;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.enchantments.*;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+
+import java.util.EnumMap;
+import java.util.Locale;
 
 public class EnchantsRegistry {
-    public static Enchantment AMBUSH;
-    public static Enchantment ANIMA_CONDUIT;
-    public static Enchantment CHAINS;
-    public static Enchantment COMMITTED;
-    public static Enchantment CRITICAL_HIT;
-    public static Enchantment ECHO;
-    public static Enchantment ENIGMA_RESONATOR;
-    public static Enchantment EXPLODING;
-    public static Enchantment FREEZING;
-    public static Enchantment GRAVITY;
-    public static Enchantment GUARDING_STRIKE;
-    public static Enchantment ILLAGERS_BANE;
-    public static Enchantment JUNGLE_POISON;
-    public static Enchantment LEECHING;
-    public static Enchantment PAIN_CYCLE;
-    public static Enchantment POISON_CLOUD;
-    public static Enchantment PROSPECTOR;
-    public static Enchantment RADIANCE;
-    public static Enchantment RAMPAGING;
-    public static Enchantment REFRESHMENT;
-    public static Enchantment RUSHDOWN;
-    public static Enchantment SHARED_PAIN;
-    public static Enchantment SHOCKWAVE;
-    public static Enchantment SMITING;
-    public static Enchantment SOUL_DEVOURER;
-    public static Enchantment SOUL_SIPHON;
-    public static Enchantment STUNNING;
-    public static Enchantment SWIRLING;
-    public static Enchantment THUNDERING;
-    public static Enchantment VOID_STRIKE;
-    public static Enchantment WEAKENING;
 
-    public static Enchantment ACCELERATE;
-    public static Enchantment BONUS_SHOT;
-    public static Enchantment BURST_BOWSTRING;
-    public static Enchantment CHAIN_REACTION;
-    public static Enchantment CHARGE;
-    public static Enchantment COBWEB_SHOT;
-    public static Enchantment DIPPING_POISON;
-    public static Enchantment DYNAMO;
-    public static Enchantment FUSE_SHOT;
-    public static Enchantment GROWING;
-    public static Enchantment LEVITATION_SHOT;
-    public static Enchantment OVERCHARGE;
-    public static Enchantment PHANTOMS_MARK;
-    public static Enchantment REPLENISH;
-    public static Enchantment RICOCHET;
-    public static Enchantment SHADOW_BARB;
-    public static Enchantment SHADOW_SHOT;
-    public static Enchantment TEMPO_THEFT;
-    public static Enchantment VOID_SHOT;
-    public static Enchantment WILD_RAGE;
-
+    public static final EnumMap<EnchantmentsID, Enchantment> enchantments = new EnumMap<>(EnchantmentsID.class);
     public static void register() {
-        AMBUSH = new AmbushEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        ANIMA_CONDUIT = new AnimaConduitEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        CRITICAL_HIT = new CriticalHitEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        CHAINS = new ChainsEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        COMMITTED = new CommittedEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        ECHO = new EchoEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        ENIGMA_RESONATOR = new EnigmaResonatorEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        EXPLODING = new ExplodingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        FREEZING = new FreezingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        GRAVITY = new GravityEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        GUARDING_STRIKE = new GuardingStrikeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        ILLAGERS_BANE = new IllagersBaneEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        JUNGLE_POISON = new JunglePoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        LEECHING = new LeechingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        PAIN_CYCLE = new PainCycleEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        POISON_CLOUD = new PoisonCloudEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        PROSPECTOR = new ProspectorEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RADIANCE = new RadianceEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RAMPAGING = new RampagingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        REFRESHMENT = new RefreshmentEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RUSHDOWN = new RushdownEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SHARED_PAIN = new SharedPainEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SHOCKWAVE = new ShockwaveEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SMITING = new SmitingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SOUL_DEVOURER = new SoulDevourerEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SOUL_SIPHON = new SoulSiphonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        STUNNING = new StunningEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SWIRLING = new SwirlingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        THUNDERING = new ThunderingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        VOID_STRIKE = new VoidStrikeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        WEAKENING = new WeakeningEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        for (EnchantmentsID enchantmentsID : EnchantmentsID.values()) {
 
-        ACCELERATE = new AccelerateEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        BONUS_SHOT = new BonusShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        BURST_BOWSTRING = new BurstBowstringEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        CHAIN_REACTION = new ChainReactionEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        CHARGE = new ChargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        COBWEB_SHOT = new CobwebShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+            if (!Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(enchantmentsID).mcdw$getIsEnabled())
+                continue;
+
+            Enchantment enchantment = switch (enchantmentsID) {
+                case AMBUSH -> new AmbushEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                         new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        DIPPING_POISON = new DippingPoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        DYNAMO = new DynamoEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        FUSE_SHOT = new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        GROWING = new GrowingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        LEVITATION_SHOT = new LevitationShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        OVERCHARGE = new OverchargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        PHANTOMS_MARK = new PhantomsMarkEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        REPLENISH = new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RICOCHET = new RicochetEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SHADOW_SHOT = new ShadowShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SHADOW_BARB = new ShadowBarbEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        TEMPO_THEFT = new TempoTheftEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        VOID_SHOT = new VoidShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        WILD_RAGE = new WildRageEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case ANIMA_CONDUIT -> new AnimaConduitEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case BUSY_BEE -> new BusyBeeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case CRITICAL_HIT -> new CriticalHitEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case CHAINS -> new ChainsEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case COMMITTED -> new CommittedEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case ECHO -> new EchoEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case ENIGMA_RESONATOR -> new EnigmaResonatorEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case EXPLODING -> new ExplodingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case FREEZING -> new FreezingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case GRAVITY -> new GravityEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case GUARDING_STRIKE -> new GuardingStrikeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case ILLAGERS_BANE -> new IllagersBaneEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case JUNGLE_POISON -> new JunglePoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case LEECHING -> new LeechingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case PAIN_CYCLE -> new PainCycleEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case POISON_CLOUD -> new PoisonCloudEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case PROSPECTOR -> new ProspectorEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case RADIANCE -> new RadianceEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case RAMPAGING -> new RampagingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case REFRESHMENT -> new RefreshmentEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case RUSHDOWN -> new RushdownEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case SHARED_PAIN -> new SharedPainEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case SHOCKWAVE -> new ShockwaveEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case SMITING -> new SmitingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case SOUL_DEVOURER -> new SoulDevourerEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case SOUL_SIPHON -> new SoulSiphonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case STUNNING -> new StunningEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case SWIRLING -> new SwirlingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case THUNDERING -> new ThunderingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case VOID_STRIKE -> new VoidStrikeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case WEAKENING -> new WeakeningEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+
+                case ACCELERATE -> new AccelerateEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case BONUS_SHOT -> new BonusShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case BURST_BOWSTRING -> new BurstBowstringEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case CHAIN_REACTION -> new ChainReactionEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case CHARGE -> new ChargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case COBWEB_SHOT -> new CobwebShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case DIPPING_POISON -> new DippingPoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case DYNAMO -> new DynamoEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case FUSE_SHOT -> new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case GROWING -> new GrowingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case LEVITATION_SHOT -> new LevitationShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case MULTI_SHOT -> new MultishotBowEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case OVERCHARGE -> new OverchargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case PHANTOMS_MARK -> new PhantomsMarkEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case REPLENISH -> new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case RICOCHET -> new RicochetEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case SHADOW_SHOT -> new ShadowShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case SHADOW_BARB -> new ShadowBarbEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case TEMPO_THEFT -> new TempoTheftEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case VOID_SHOT -> new VoidShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                case WILD_RAGE -> new WildRageEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+            };
+            enchantments.put(enchantmentsID, enchantment);
+            registerEnchantment(enchantmentsID.toString().toLowerCase(Locale.ROOT), enchantment);
+        }
+    }
+
+    private static void registerEnchantment(String id, Enchantment enchantment) {
+        Registry.register(Registries.ENCHANTMENT, Mcdw.ID(id), enchantment);
     }
 }

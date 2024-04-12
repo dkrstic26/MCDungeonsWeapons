@@ -1,31 +1,31 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_bonebow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "GBS",
-        "GBS",
-        "GBS"
-    ],
-    "key": {
-        "B": {
-            "item": "minecraft:bone"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "G": {
-            "item": "minecraft:gold_ingot"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "GBS",
+    "GBS",
+    "GBS"
+  ],
+  "key":{
+    "B":{
+      "item":"minecraft:bone"
     },
-    "result": {
-        "item": "mcdw:bow_bonebow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "G":{
+      "item":"minecraft:gold_ingot"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_bonebow",
+    "count":1
+  }
 }

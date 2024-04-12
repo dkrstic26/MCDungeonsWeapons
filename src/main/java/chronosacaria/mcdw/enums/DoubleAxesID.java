@@ -106,9 +106,9 @@ public enum DoubleAxesID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case DOUBLE_AXE_CURSED -> Map.of(EnchantsRegistry.EXPLODING, 1);
+            case DOUBLE_AXE_CURSED -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.EXPLODING), 1);
             case DOUBLE_AXE_DOUBLE -> null;
-            case DOUBLE_AXE_WHIRLWIND -> Map.of(EnchantsRegistry.SHOCKWAVE, 1);
+            case DOUBLE_AXE_WHIRLWIND -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.SHOCKWAVE), 1);
         };
     }
 

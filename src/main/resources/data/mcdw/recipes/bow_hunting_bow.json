@@ -1,34 +1,34 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_hunting_bow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "nLS",
-        " BS",
-        "nLS"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:string"
-        },
-        "n": {
-            "item": "minecraft:iron_nugget"
-        },
-        "B": {
-            "item": "minecraft:bow"
-        },
-        "L": {
-            "item": "minecraft:leather"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "nLS",
+    " BS",
+    "nLS"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:string"
     },
-    "result": {
-        "item": "mcdw:bow_hunting_bow",
-        "count": 1
+    "n":{
+      "item":"minecraft:iron_nugget"
+    },
+    "B":{
+      "item":"minecraft:bow"
+    },
+    "L":{
+      "item":"minecraft:leather"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_hunting_bow",
+    "count":1
+  }
 }

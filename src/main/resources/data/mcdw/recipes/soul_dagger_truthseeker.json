@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:sword_iron_sword_var",
         "mcdw:soul_dagger_truthseeker"
       ]
     }

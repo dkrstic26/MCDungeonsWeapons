@@ -1,40 +1,46 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:bow_trickbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_pink_scoundrel"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "RMS",
-        "PTS",
-        "GMS"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:string"
-        },
-        "R": {
-            "item": "minecraft:redstone_block"
-        },
-        "P": {
-            "item": "minecraft:pink_dye"
-        },
-        "M": {
-            "item": "minecraft:magenta_dye"
-        },
-        "T": {
-            "item": "mcdw:bow_trickbow"
-        },
-        "G": {
-            "item": "minecraft:gunpowder"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "RMS",
+    "PTS",
+    "GMS"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:string"
     },
-    "result": {
-        "item": "mcdw:bow_pink_scoundrel",
-        "count": 1
+    "R":{
+      "item":"minecraft:redstone_block"
+    },
+    "P":{
+      "item":"minecraft:pink_dye"
+    },
+    "M":{
+      "item":"minecraft:magenta_dye"
+    },
+    "T":{
+      "item":"mcdw:bow_trickbow"
+    },
+    "G":{
+      "item":"minecraft:gunpowder"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_pink_scoundrel",
+    "count":1
+  }
 }

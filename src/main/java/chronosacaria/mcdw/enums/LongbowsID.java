@@ -126,7 +126,7 @@ public enum LongbowsID implements IRangedWeaponID, IInnateEnchantment {
         return switch (this) {
             case BOW_LONGBOW -> null;
             case BOW_GUARDIAN_BOW -> Map.of(Enchantments.POWER, 2);
-            case BOW_RED_SNAKE -> Map.of(Enchantments.POWER, 1, EnchantsRegistry.FUSE_SHOT, 1);
+            case BOW_RED_SNAKE -> Map.of(Enchantments.POWER, 1, EnchantsRegistry.enchantments.get(EnchantmentsID.FUSE_SHOT), 1);
         };
     }
 

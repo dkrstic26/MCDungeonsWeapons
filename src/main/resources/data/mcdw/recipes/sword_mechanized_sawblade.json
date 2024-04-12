@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:sword_broken_sawblade",
         "mcdw:sword_mechanized_sawblade"
       ]
     }

@@ -108,7 +108,7 @@ public enum SpearsID implements IMeleeWeaponID, IInnateEnchantment {
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
             case SPEAR_SPEAR -> null;
-            case SPEAR_WHISPERING_SPEAR -> Map.of(EnchantsRegistry.ECHO, 1);
+            case SPEAR_WHISPERING_SPEAR -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.ECHO), 1);
             case SPEAR_FORTUNE -> Map.of(Enchantments.LOOTING, 1);
         };
     }

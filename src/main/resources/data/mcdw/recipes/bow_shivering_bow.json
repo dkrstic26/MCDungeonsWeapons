@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:bow_nocturnal_bow",
         "mcdw:bow_shivering_bow"
       ]
     }

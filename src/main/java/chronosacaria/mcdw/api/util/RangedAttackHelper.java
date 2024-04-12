@@ -24,7 +24,7 @@ public class RangedAttackHelper {
 
     public static float getVanillaBowChargeTime(ItemStack stack){
         int quickChargeLevel = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
-        //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
+        //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ACCELERATE, stack);
 
         float bowChargeTime = 30 * (Math.max(20.0F - 5 * quickChargeLevel, 0));
         long lastFiredtime = (long)(McdwBow.getPullProgress(22) * (Math.max(20.0F - 5 * quickChargeLevel, 0)));
@@ -38,7 +38,7 @@ public class RangedAttackHelper {
 
     public static float getShortBowChargeTime(ItemStack stack){
         int quickChargeLevel = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
-        //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
+        //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ACCELERATE, stack);
 
         float bowChargeTime = 15 * (Math.max(10.0F - 5 * quickChargeLevel, 0));
         long lastFiredtime = (long)(McdwShortbow.getPullProgress(11) * (Math.max(10.0F - 5 * quickChargeLevel, 0)));

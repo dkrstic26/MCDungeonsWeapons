@@ -1,34 +1,40 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_burst_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_corrupted_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "NNB",
-        "NcS",
-        "BSS"
-    ],
-    "key": {
-        "c": {
-            "item": "mcdw:crossbow_burst_crossbow"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "N": {
-            "item": "minecraft:nether_star"
-        },
-        "B": {
-            "item": "minecraft:nether_brick"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "NNB",
+    "NcS",
+    "BSS"
+  ],
+  "key":{
+    "c":{
+      "item":"mcdw:crossbow_burst_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_corrupted_crossbow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "N":{
+      "item":"minecraft:nether_star"
+    },
+    "B":{
+      "item":"minecraft:nether_brick"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_corrupted_crossbow",
+    "count":1
+  }
 }

@@ -114,11 +114,11 @@ public enum HammersID implements IMeleeWeaponID, IInnateEnchantment {
         return switch (this) {
             case HAMMER_BONECLUB -> Map.of(Enchantments.KNOCKBACK, 1);
             case HAMMER_GREAT_HAMMER, HAMMER_MACE -> null;
-            case HAMMER_FLAIL -> Map.of(EnchantsRegistry.CHAINS, 1);
-            case HAMMER_BONE_CUDGEL -> Map.of(Enchantments.KNOCKBACK, 1, EnchantsRegistry.ILLAGERS_BANE, 1);
-            case HAMMER_GRAVITY -> Map.of(EnchantsRegistry.GRAVITY, 1);
-            case HAMMER_STORMLANDER -> Map.of(EnchantsRegistry.THUNDERING, 1);
-            case HAMMER_SUNS_GRACE -> Map.of(EnchantsRegistry.RADIANCE, 1);
+            case HAMMER_FLAIL -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.CHAINS), 1);
+            case HAMMER_BONE_CUDGEL -> Map.of(Enchantments.KNOCKBACK, 1, EnchantsRegistry.enchantments.get(EnchantmentsID.ILLAGERS_BANE), 1);
+            case HAMMER_GRAVITY -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.GRAVITY), 1);
+            case HAMMER_STORMLANDER -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.THUNDERING), 1);
+            case HAMMER_SUNS_GRACE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.RADIANCE), 1);
         };
     }
 

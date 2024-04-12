@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -114,19 +115,19 @@ public enum DaggersID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Map<Enchantment, Integer> getInnateEnchantments() {
+    public @Nullable Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case DAGGER_BACKSTABBER -> Map.of(EnchantsRegistry.AMBUSH, 1);
-            case DAGGER_CHILL_GALE_KNIFE -> Map.of(EnchantsRegistry.RUSHDOWN, 1, EnchantsRegistry.FREEZING, 1);
-            case DAGGER_FANGS_OF_FROST -> Map.of(EnchantsRegistry.FREEZING, 1);
+            case DAGGER_BACKSTABBER -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.AMBUSH), 1);
+            case DAGGER_CHILL_GALE_KNIFE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.RUSHDOWN), 1, EnchantsRegistry.enchantments.get(EnchantmentsID.FREEZING), 1);
+            case DAGGER_FANGS_OF_FROST -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.FREEZING), 1);
             case DAGGER_DAGGER -> null;
-            case DAGGER_TEMPEST_KNIFE -> Map.of(EnchantsRegistry.RUSHDOWN, 1);
-            case DAGGER_MOON -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
-            case DAGGER_RESOLUTE_TEMPEST_KNIFE -> Map.of(EnchantsRegistry.COMMITTED, 1 , EnchantsRegistry.RUSHDOWN, 1);
-            case DAGGER_SHEAR_DAGGER -> Map.of(EnchantsRegistry.SWIRLING, 1);
-            case DAGGER_SWIFT_STRIKER -> Map.of(EnchantsRegistry.AMBUSH, 1, EnchantsRegistry.ECHO, 1);
-            case DAGGER_THE_BEGINNING -> Map.of(EnchantsRegistry.LEECHING, 1);
-            case DAGGER_THE_END, DAGGER_VOID_TOUCHED_BLADE -> Map.of(EnchantsRegistry.VOID_STRIKE, 1);
+            case DAGGER_TEMPEST_KNIFE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.RUSHDOWN), 1);
+            case DAGGER_MOON -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.ENIGMA_RESONATOR), 1);
+            case DAGGER_RESOLUTE_TEMPEST_KNIFE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.COMMITTED), 1 , EnchantsRegistry.enchantments.get(EnchantmentsID.RUSHDOWN), 1);
+            case DAGGER_SHEAR_DAGGER -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.SWIRLING), 1);
+            case DAGGER_SWIFT_STRIKER -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.AMBUSH), 1, EnchantsRegistry.enchantments.get(EnchantmentsID.ECHO), 1);
+            case DAGGER_THE_BEGINNING -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.LEECHING), 1);
+            case DAGGER_THE_END, DAGGER_VOID_TOUCHED_BLADE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.VOID_STRIKE), 1);
         };
     }
 

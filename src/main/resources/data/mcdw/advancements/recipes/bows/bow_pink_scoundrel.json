@@ -1,94 +1,100 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:bow_trickbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_pink_scoundrel"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_string": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_string":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:string"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_redstone_block": {
-      "conditions": {
-        "items": [
+    "has_redstone_block":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:redstone_block"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_pink_dye": {
-      "conditions": {
-        "items": [
+    "has_pink_dye":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:pink_dye"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_magenta_dye": {
-      "conditions": {
-        "items": [
+    "has_magenta_dye":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:magenta_dye"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_gunpowder": {
-      "conditions": {
-        "items": [
+    "has_gunpowder":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:gunpowder"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_base_bow": {
-      "conditions": {
-        "items": [
+    "has_base_bow":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "mcdw:bow_trickbow"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:bow_pink_scoundrel"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:bow_pink_scoundrel"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_string",
       "has_redstone_block",
@@ -99,8 +105,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:bow_pink_scoundrel"
     ]
   }

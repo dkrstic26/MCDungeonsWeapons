@@ -1,27 +1,33 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:dagger_dagger"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:dagger_shear_dagger"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "  I",
-        " / "
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:shears"
-        },
-        "/": {
-            "item": "mcdw:dagger_dagger"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "  I",
+    " / "
+  ],
+  "key":{
+    "I":{
+      "item":"minecraft:shears"
     },
-    "result": {
-        "item": "mcdw:dagger_shear_dagger",
-        "count": 1
+    "/":{
+      "item":"mcdw:dagger_dagger"
     }
+  },
+  "result":{
+    "item":"mcdw:dagger_shear_dagger",
+    "count":1
+  }
 }

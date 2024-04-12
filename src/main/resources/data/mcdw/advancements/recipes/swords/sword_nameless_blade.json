@@ -1,43 +1,41 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:sword_nameless_blade"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_polished_blackstone": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_polished_blackstone":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:polished_blackstone"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:sword_nameless_blade"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:sword_nameless_blade"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_polished_blackstone",
-
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:sword_nameless_blade"
     ]
   }

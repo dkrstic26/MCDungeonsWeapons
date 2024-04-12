@@ -43,13 +43,13 @@ public class McdwClient implements ClientModInitializer {
             if (livingEntity == null) {
                 return 0.0F;
             } else if (item instanceof McdwBow bow) {
-                return drawSpeedModification(itemStack, livingEntity, bow.getDrawSpeed());
+                return calculateDrawSpeed(itemStack, livingEntity, bow.getDrawSpeed());
             } else if (item instanceof McdwShortbow shortbow) {
-                return drawSpeedModification(itemStack, livingEntity, shortbow.getDrawSpeed());
+                return calculateDrawSpeed(itemStack, livingEntity, shortbow.getDrawSpeed());
             } else if (item instanceof McdwLongbow longbow) {
-                return drawSpeedModification(itemStack, livingEntity, longbow.getDrawSpeed());
+                return calculateDrawSpeed(itemStack, livingEntity, longbow.getDrawSpeed());
             } else if (item instanceof McdwCrossbow crossbow) {
-                return drawSpeedModification(itemStack, livingEntity, crossbow.getDrawSpeed());
+                return calculateDrawSpeed(itemStack, livingEntity, crossbow.getDrawSpeed());
             }
             return 0.0F;
         });
@@ -91,10 +91,10 @@ public class McdwClient implements ClientModInitializer {
                         livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F
         );
     }
-    private static float drawSpeedModification(ItemStack itemStack, LivingEntity livingEntity, float drawSpeed) {
+    private static float calculateDrawSpeed(ItemStack itemStack, LivingEntity livingEntity, float drawSpeed) {
         int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
-            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
+            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ACCELERATE), itemStack);
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
                 int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
@@ -103,7 +103,7 @@ public class McdwClient implements ClientModInitializer {
             }
         }
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled()) {
-            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
+            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.OVERCHARGE), itemStack);
             if (overchargeLevel > 0) {
                 int overcharge = (int) Math.min((useTicks / drawSpeed) - 1, overchargeLevel);
                 useTicks = overcharge == overchargeLevel ? useTicks : (int) (useTicks % drawSpeed);

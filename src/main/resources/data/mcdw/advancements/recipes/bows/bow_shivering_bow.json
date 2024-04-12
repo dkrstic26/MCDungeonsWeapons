@@ -1,54 +1,60 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:bow_nocturnal_bow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_shivering_bow"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_blue_ice": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_blue_ice":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:blue_ice"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_base_bow": {
-      "conditions": {
-        "items": [
+    "has_base_bow":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "mcdw:bow_nocturnal_bow"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:bow_shivering_bow"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:bow_shivering_bow"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_blue_ice",
       "has_base_bow",
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:bow_shivering_bow"
     ]
   }

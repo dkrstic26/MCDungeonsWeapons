@@ -1,28 +1,34 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_dual_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_baby_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "PPP",
-        " C ",
-        " P "
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_dual_crossbow"
-        },
-        "P": {
-            "item": "minecraft:magenta_dye"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "PPP",
+    " C ",
+    " P "
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_dual_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_baby_crossbow",
-        "count": 1
+    "P":{
+      "item":"minecraft:magenta_dye"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_baby_crossbow",
+    "count":1
+  }
 }

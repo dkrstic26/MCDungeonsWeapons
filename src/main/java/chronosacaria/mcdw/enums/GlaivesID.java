@@ -107,9 +107,9 @@ public enum GlaivesID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case GLAIVE_CACKLING_BROOM, GLAIVE_GRAVE_BANE -> Map.of(EnchantsRegistry.SMITING, 1);
+            case GLAIVE_CACKLING_BROOM, GLAIVE_GRAVE_BANE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.SMITING), 1);
             case GLAIVE_GLAIVE -> null;
-            case GLAIVE_VENOM_GLAIVE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
+            case GLAIVE_VENOM_GLAIVE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.POISON_CLOUD), 1);
         };
     }
 
