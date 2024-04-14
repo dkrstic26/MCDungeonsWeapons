@@ -5,8 +5,6 @@ import chronosacaria.mcdw.enums.*;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
@@ -41,7 +39,7 @@ public class ItemsRegistry {
 
     public static void register() {
         for (IMcdwWeaponID weaponID : IMcdwWeaponID.values()) {
-            if (weaponID.isEnabled()) {
+            if (weaponID.getIsEnabled()) {
                 Item weapon = weaponID.makeWeapon();
                 registerItem(weaponID.toString().toLowerCase(Locale.ROOT), weapon);
             }
@@ -60,14 +58,4 @@ public class ItemsRegistry {
         Registry.register(Registries.ITEM, ID(id), item);
     }
 
-    public static ToolMaterial stringToMaterial(String material) {
-        return switch (material) {
-            case "wood" -> ToolMaterials.WOOD;
-            case "stone" -> ToolMaterials.STONE;
-            case "gold" -> ToolMaterials.GOLD;
-            case "diamond" -> ToolMaterials.DIAMOND;
-            case "netherite" -> ToolMaterials.NETHERITE;
-            default -> ToolMaterials.IRON;
-        };
-    }
 }

@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwShield;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
@@ -13,21 +14,19 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShieldsID implements IShieldID {
-    SHIELD_ROYAL_GUARD(ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot"),
-    SHIELD_TOWER_GUARD(ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot", "minecraft:copper_ingot"),
-    SHIELD_VANGUARD(ToolMaterials.DIAMOND, "minecraft:planks", "minecraft:iron_ingot");
+    SHIELD_ROYAL_GUARD(true, ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot"),
+    SHIELD_TOWER_GUARD(true, ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot", "minecraft:copper_ingot"),
+    SHIELD_VANGUARD(true, ToolMaterials.DIAMOND, "minecraft:planks", "minecraft:iron_ingot");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final String[] repairIngredient;
 
     @SuppressWarnings("SameParameterValue")
-    ShieldsID(ToolMaterial material, String... repairIngredient) {
+    ShieldsID(boolean isEnabled, ToolMaterial material, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<ShieldsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.SHIELDS_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -43,9 +42,9 @@ public enum ShieldsID implements IShieldID {
         return CONFIG.mcdwNewStatsConfig.shieldStats;
     }
 
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
-    }
+    @Override
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.shieldStats.get(this).isEnabled;    }
 
     @Override
     public McdwShield getItem() {
@@ -82,8 +81,13 @@ public enum ShieldsID implements IShieldID {
     }
 
     @Override
+    public ShieldStats getShieldStats() {
+        return new IShieldID.ShieldStats().shieldStats(isEnabled, CleanlinessHelper.materialToString(material), repairIngredient);
+    }
+
+    @Override
     public McdwShield makeWeapon() {
-        McdwShield mcdwShield = new McdwShield(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material), this.getWeaponItemStats().repairIngredient);
+        McdwShield mcdwShield = new McdwShield(CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material), this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwShield);
         return mcdwShield;

@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwGauntlet;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -20,25 +20,23 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GauntletsID implements IMeleeWeaponID, IInnateEnchantment {
-    GAUNTLET_GAUNTLET(ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
-    GAUNTLET_MAULERS(ToolMaterials.DIAMOND,1, -1.5f, "minecraft:diamond"),
-    GAUNTLET_SOUL_FISTS(ToolMaterials.NETHERITE,0, -1.5f, "minecraft:netherite_scrap");
+    GAUNTLET_GAUNTLET(true, ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
+    GAUNTLET_MAULERS(true, ToolMaterials.DIAMOND,1, -1.5f, "minecraft:diamond"),
+    GAUNTLET_SOUL_FISTS(true, ToolMaterials.NETHERITE,0, -1.5f, "minecraft:netherite_scrap");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
     @SuppressWarnings("SameParameterValue")
-    GauntletsID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    GauntletsID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<GauntletsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.GAUNTLETS_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -55,8 +53,8 @@ public enum GauntletsID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.gauntletStats.get(this).isEnabled;
     }
 
     @Override
@@ -103,13 +101,17 @@ public enum GauntletsID implements IMeleeWeaponID, IInnateEnchantment {
     public String[] getRepairIngredient() {
         return repairIngredient;
     }
+    @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case GAUNTLET_GAUNTLET -> null;
-            case GAUNTLET_MAULERS -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.RAMPAGING), 1);
-            case GAUNTLET_SOUL_FISTS -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.ENIGMA_RESONATOR), 1);
+            case GAUNTLET_GAUNTLET -> Map.of();
+            case GAUNTLET_MAULERS -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.RAMPAGING);
+            case GAUNTLET_SOUL_FISTS -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.ENIGMA_RESONATOR);
         };
     }
 
@@ -120,7 +122,7 @@ public enum GauntletsID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwGauntlet makeWeapon() {
-        McdwGauntlet mcdwGauntlet = new McdwGauntlet(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwGauntlet mcdwGauntlet = new McdwGauntlet(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwGauntlet);

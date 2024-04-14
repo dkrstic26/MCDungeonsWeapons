@@ -75,7 +75,7 @@ public class LootTablesRegistry {
             }
 
             if (id.equals(EntityType.WITCH.getLootTableId()) && source.isBuiltin()) {
-                if (GlaivesID.GLAIVE_CACKLING_BROOM.isEnabled()) {
+                if (GlaivesID.GLAIVE_CACKLING_BROOM.getIsEnabled()) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, GlaivesID.GLAIVE_CACKLING_BROOM.getItem(), 1, 0.2F);
                     tableBuilder.pool(lootPoolBuilder.build());
@@ -83,14 +83,14 @@ public class LootTablesRegistry {
             }
 
             if (id.equals(EntityType.WITHER.getLootTableId()) && source.isBuiltin()) {
-                if (BowsID.BOW_ANCIENT_BOW.isEnabled()) {
+                if (BowsID.BOW_ANCIENT_BOW.getIsEnabled()) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, BowsID.BOW_ANCIENT_BOW.getItem(), 1, 0.1F);
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
             }
 
-            if (CONFIG.mcdwNewlootConfig.WEAPONS_ENABLED_IN_LOOTTABLES.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+            if (CONFIG.mcdwNewlootConfig.WEAPONS_ENABLED_IN_LOOTTABLES.get(SettingsID.ENABLE_WEAPONS_IN_LOOT_TABLES)) {
                 LootPool.Builder lootPoolBuilder = LootPool.builder();
                 lootPoolBuilder.rolls(ConstantLootNumberProvider.create(1));
                 lootPoolBuilder.conditionally(RandomChanceLootCondition.builder(CONFIG.mcdwNewlootConfig.findWeaponChance));
@@ -122,7 +122,7 @@ public class LootTablesRegistry {
     }
 
     public static void addWeaponById(LootPool.Builder lootPoolBuilder, IMcdwWeaponID weaponID) {
-        if (weaponID.isEnabled())
+        if (weaponID.getIsEnabled())
             addWeapon(lootPoolBuilder, weaponID.getItem(), weaponID.getItemSpawnRate());
     }
 

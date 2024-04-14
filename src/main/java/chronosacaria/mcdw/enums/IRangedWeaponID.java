@@ -18,20 +18,26 @@ public interface IRangedWeaponID extends IMcdwWeaponID {
 
     IRangedWeaponID.RangedStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
+    boolean getIsEnabled();
     ToolMaterial getMaterial();
+    @SuppressWarnings("unused")
     double getProjectileDamage();
     int getDrawSpeed();
     float getRange();
     String[] getRepairIngredient();
 
+    RangedStats getRangedStats();
+
     class RangedStats {
+        public boolean isEnabled;
         public String material;
         public double projectileDamage;
         public int drawSpeed;
         public float range;
         String[] repairIngredient;
 
-        public RangedStats rangedStats(String material, double projectileDamage, int drawSpeed, float range, String[] repairIngredient) {
+        public RangedStats rangedStats(boolean isEnabled, String material, double projectileDamage, int drawSpeed, float range, String[] repairIngredient) {
+            this.isEnabled = isEnabled;
             this.material = material;
             if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
                 this.projectileDamage = projectileDamage;

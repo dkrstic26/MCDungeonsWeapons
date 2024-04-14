@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enums;
 
 import net.minecraft.item.Item;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -29,7 +30,11 @@ public interface IMcdwWeaponID {
         return arrayFather.stream().flatMap(Stream::of).toArray(IRangedWeaponID[]::new);
     }
 
-    Boolean isEnabled();
+    static IShieldID[] shieldValues() {
+        return Arrays.stream(ShieldsID.values()).toArray(IShieldID[]::new);
+    }
+
+    boolean getIsEnabled();
 
     Item getItem();
 

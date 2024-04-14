@@ -6,13 +6,17 @@ import chronosacaria.mcdw.bases.McdwLongbow;
 import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.enums.SettingsID;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.sound.SoundCategory;
@@ -23,6 +27,8 @@ import net.minecraft.util.Identifier;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public class CleanlinessHelper {
     static final Random random = new Random();
@@ -185,5 +191,49 @@ public class CleanlinessHelper {
         if (wildRageLevel > 0){
             ppe.mcdw$setWildRageLevel(wildRageLevel);
         }
+    }
+
+    public static Map<Enchantment, Integer> mcdw$checkInnateEnchantmentEnabled(int level, Object... enchantments) {
+        LinkedHashMap<Enchantment, Integer> enchantmentIntegerLinkedHashMap = new LinkedHashMap<>();
+        for (Object enchantment : enchantments) {
+            if (enchantment instanceof EnchantmentsID id) {
+                if (CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(id).mcdw$getIsEnabled()
+                        && CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
+                    enchantmentIntegerLinkedHashMap.put(EnchantsRegistry.enchantments.get(id), level);
+                }
+            } else if (enchantment instanceof Enchantment vanillaEnchantment
+                    && CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
+                enchantmentIntegerLinkedHashMap.put(vanillaEnchantment, level);
+            }
+        }
+        return enchantmentIntegerLinkedHashMap;
+    }
+
+    public static String materialToString(ToolMaterial toolMaterial) {
+        if (toolMaterial == ToolMaterials.WOOD)
+            return "wood";
+        else if (toolMaterial == ToolMaterials.STONE)
+            return "stone";
+        else if (toolMaterial == ToolMaterials.GOLD)
+            return "gold";
+        else if (toolMaterial == ToolMaterials.IRON)
+            return "iron";
+        else if (toolMaterial == ToolMaterials.DIAMOND)
+            return "diamond";
+        else if (toolMaterial == ToolMaterials.NETHERITE)
+            return "netherite";
+        else
+            return "none";
+    }
+
+    public static ToolMaterial stringToMaterial(String material) {
+        return switch (material) {
+            case "wood" -> ToolMaterials.WOOD;
+            case "stone" -> ToolMaterials.STONE;
+            case "gold" -> ToolMaterials.GOLD;
+            case "diamond" -> ToolMaterials.DIAMOND;
+            case "netherite" -> ToolMaterials.NETHERITE;
+            default -> ToolMaterials.IRON;
+        };
     }
 }

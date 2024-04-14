@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwHammer;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
@@ -21,29 +21,27 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum HammersID implements IMeleeWeaponID, IInnateEnchantment {
-    HAMMER_BONECLUB(ToolMaterials.IRON,7, -3.2f, "minecraft:bone_block"),
-    HAMMER_BONE_CUDGEL(ToolMaterials.NETHERITE,7, -3.2f, "minecraft:netherite_scrap"),
-    HAMMER_FLAIL(ToolMaterials.IRON,5, -2.8f, "minecraft:iron_ingot"),
-    HAMMER_GRAVITY(ToolMaterials.DIAMOND,6, -3.2f, "minecraft:diamond"),
-    HAMMER_GREAT_HAMMER(ToolMaterials.IRON,6, -3.2f, "minecraft:iron_ingot"),
-    HAMMER_MACE(ToolMaterials.IRON,5, -2.8f, "minecraft:iron_ingot"),
-    HAMMER_STORMLANDER(ToolMaterials.DIAMOND,7, -3.2f, "minecraft:diamond"),
-    HAMMER_SUNS_GRACE(ToolMaterials.DIAMOND,4, -2.8f, "minecraft:diamond");
+    HAMMER_BONECLUB(true, ToolMaterials.IRON,7, -3.2f, "minecraft:bone_block"),
+    HAMMER_BONE_CUDGEL(true, ToolMaterials.NETHERITE,7, -3.2f, "minecraft:netherite_scrap"),
+    HAMMER_FLAIL(true, ToolMaterials.IRON,5, -2.8f, "minecraft:iron_ingot"),
+    HAMMER_GRAVITY(true, ToolMaterials.DIAMOND,6, -3.2f, "minecraft:diamond"),
+    HAMMER_GREAT_HAMMER(true, ToolMaterials.IRON,6, -3.2f, "minecraft:iron_ingot"),
+    HAMMER_MACE(true, ToolMaterials.IRON,5, -2.8f, "minecraft:iron_ingot"),
+    HAMMER_STORMLANDER(true, ToolMaterials.DIAMOND,7, -3.2f, "minecraft:diamond"),
+    HAMMER_SUNS_GRACE(true, ToolMaterials.DIAMOND,4, -2.8f, "minecraft:diamond");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
-    HammersID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    HammersID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<HammersID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.HAMMERS_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -60,8 +58,8 @@ public enum HammersID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.hammerStats.get(this).isEnabled;
     }
 
     @Override
@@ -110,15 +108,20 @@ public enum HammersID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case HAMMER_BONECLUB -> Map.of(Enchantments.KNOCKBACK, 1);
-            case HAMMER_GREAT_HAMMER, HAMMER_MACE -> null;
-            case HAMMER_FLAIL -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.CHAINS), 1);
-            case HAMMER_BONE_CUDGEL -> Map.of(Enchantments.KNOCKBACK, 1, EnchantsRegistry.enchantments.get(EnchantmentsID.ILLAGERS_BANE), 1);
-            case HAMMER_GRAVITY -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.GRAVITY), 1);
-            case HAMMER_STORMLANDER -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.THUNDERING), 1);
-            case HAMMER_SUNS_GRACE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.RADIANCE), 1);
+            case HAMMER_BONECLUB -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, Enchantments.KNOCKBACK);
+            case HAMMER_GREAT_HAMMER, HAMMER_MACE -> Map.of();
+            case HAMMER_FLAIL -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.CHAINS);
+            case HAMMER_BONE_CUDGEL -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, Enchantments.KNOCKBACK, EnchantmentsID.ILLAGERS_BANE);
+            case HAMMER_GRAVITY -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.GRAVITY);
+            case HAMMER_STORMLANDER -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.THUNDERING);
+            case HAMMER_SUNS_GRACE -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.RADIANCE);
         };
     }
 
@@ -129,7 +132,7 @@ public enum HammersID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwHammer makeWeapon() {
-        McdwHammer mcdwHammer = new McdwHammer(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwHammer mcdwHammer = new McdwHammer(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwHammer);

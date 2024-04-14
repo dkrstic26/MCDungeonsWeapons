@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwPick;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
@@ -13,26 +14,24 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum PicksID implements IMeleeWeaponID {
-    PICK_DIAMOND_PICKAXE_VAR(ToolMaterials.DIAMOND,1, -2.8f, "minecraft:diamond"),
-    PICK_HAILING_PINNACLE(ToolMaterials.DIAMOND,1, -2.8f, "minecraft:diamond"),
-    PICK_HOWLING_PICK(ToolMaterials.IRON,1, -2.8f, "minecraft:iron_ingot"),
-    PICK_MOUNTAINEER_PICK(ToolMaterials.IRON,1, -2.8f, "minecraft:iron_ingot");
+    PICK_DIAMOND_PICKAXE_VAR(true, ToolMaterials.DIAMOND,1, -2.8f, "minecraft:diamond"),
+    PICK_HAILING_PINNACLE(true, ToolMaterials.DIAMOND,1, -2.8f, "minecraft:diamond"),
+    PICK_HOWLING_PICK(true, ToolMaterials.IRON,1, -2.8f, "minecraft:iron_ingot"),
+    PICK_MOUNTAINEER_PICK(true, ToolMaterials.IRON,1, -2.8f, "minecraft:iron_ingot");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
     @SuppressWarnings("SameParameterValue")
-    PicksID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    PicksID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<PicksID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.PICKS_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -49,8 +48,8 @@ public enum PicksID implements IMeleeWeaponID {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.pickStats.get(this).isEnabled;
     }
 
     @Override
@@ -99,8 +98,13 @@ public enum PicksID implements IMeleeWeaponID {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public McdwPick makeWeapon() {
-        McdwPick mcdwPick = new McdwPick(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwPick mcdwPick = new McdwPick(CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwPick);

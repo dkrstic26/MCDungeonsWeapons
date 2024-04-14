@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwStaff;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -20,25 +20,23 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum StavesID implements IMeleeWeaponID, IInnateEnchantment {
-    STAFF_BATTLESTAFF(ToolMaterials.WOOD,2, -2.6f, "minecraft:planks"),
-    STAFF_BATTLESTAFF_OF_TERROR(ToolMaterials.IRON,5, -2.6f, "minecraft:iron_ingot"),
-    STAFF_GROWING_STAFF(ToolMaterials.IRON,5, -2.6f, "minecraft:iron_ingot");
+    STAFF_BATTLESTAFF(true, ToolMaterials.WOOD,2, -2.6f, "minecraft:planks"),
+    STAFF_BATTLESTAFF_OF_TERROR(true, ToolMaterials.IRON,5, -2.6f, "minecraft:iron_ingot"),
+    STAFF_GROWING_STAFF(true, ToolMaterials.IRON,5, -2.6f, "minecraft:iron_ingot");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
     @SuppressWarnings("SameParameterValue")
-    StavesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    StavesID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<StavesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.STAVES_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -55,9 +53,8 @@ public enum StavesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
-    }
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.staffStats.get(this).isEnabled;    }
 
     @Override
     public McdwStaff getItem() {
@@ -105,11 +102,16 @@ public enum StavesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case STAFF_BATTLESTAFF -> null;
-            case STAFF_BATTLESTAFF_OF_TERROR -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.EXPLODING), 1);
-            case STAFF_GROWING_STAFF -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.COMMITTED), 1);
+            case STAFF_BATTLESTAFF -> Map.of();
+            case STAFF_BATTLESTAFF_OF_TERROR -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.EXPLODING);
+            case STAFF_GROWING_STAFF -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.COMMITTED);
         };
     }
 
@@ -120,7 +122,7 @@ public enum StavesID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwStaff makeWeapon() {
-        McdwStaff mcdwStaff = new McdwStaff(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwStaff mcdwStaff = new McdwStaff(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwStaff);

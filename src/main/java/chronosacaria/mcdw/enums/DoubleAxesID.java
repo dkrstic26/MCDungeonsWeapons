@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwDoubleAxe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -20,24 +20,22 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DoubleAxesID implements IMeleeWeaponID, IInnateEnchantment {
-    DOUBLE_AXE_CURSED(ToolMaterials.IRON,7, -2.9f, "minecraft:iron_ingot"),
-    DOUBLE_AXE_DOUBLE(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot"),
-    DOUBLE_AXE_WHIRLWIND(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot");
+    DOUBLE_AXE_CURSED(true, ToolMaterials.IRON,7, -2.9f, "minecraft:iron_ingot"),
+    DOUBLE_AXE_DOUBLE(true, ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot"),
+    DOUBLE_AXE_WHIRLWIND(true, ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
-    DoubleAxesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    DoubleAxesID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<DoubleAxesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.DOUBLE_AXES_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -54,8 +52,8 @@ public enum DoubleAxesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(this).isEnabled;
     }
 
     @Override
@@ -104,11 +102,16 @@ public enum DoubleAxesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case DOUBLE_AXE_CURSED -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.EXPLODING), 1);
-            case DOUBLE_AXE_DOUBLE -> null;
-            case DOUBLE_AXE_WHIRLWIND -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.SHOCKWAVE), 1);
+            case DOUBLE_AXE_CURSED -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.EXPLODING);
+            case DOUBLE_AXE_DOUBLE -> Map.of();
+            case DOUBLE_AXE_WHIRLWIND -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.SHOCKWAVE);
         };
     }
 
@@ -119,7 +122,7 @@ public enum DoubleAxesID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwDoubleAxe makeWeapon() {
-        McdwDoubleAxe mcdwDoubleAxe = new McdwDoubleAxe(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwDoubleAxe mcdwDoubleAxe = new McdwDoubleAxe(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwDoubleAxe);
