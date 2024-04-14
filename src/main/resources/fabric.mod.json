@@ -25,13 +25,14 @@
     "RawPineapple (Translation)",
     "realpeterpet (Translation)",
     "Soochaehwa (Translation)",
-    "Patreons (Support)"],
+    "Patreons (Support)"
+  ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/mcdw",
     "sources": "https://www.github.com/chronosacaria/MCDungeonsWeapons",
     "issues": "https://www.github.com/chronosacaria/MCDungeonsWeapons/issues"
   },
-  "license": "Timefall Development License 1.1",
+  "license": "Timefall Development License 1.2",
   "icon": "assets/mcdw/icon.png",
   "environment": "*",
   "entrypoints": {

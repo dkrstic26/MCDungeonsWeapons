@@ -1,6 +1,6 @@
 package chronosacaria.mcdw.configs;
 
-import chronosacaria.mcdw.enums.*;
+import chronosacaria.mcdw.enums.ItemsID;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
