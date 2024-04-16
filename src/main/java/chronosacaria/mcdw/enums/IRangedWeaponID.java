@@ -39,7 +39,7 @@ public interface IRangedWeaponID extends IMcdwWeaponID {
         public RangedStats rangedStats(boolean isEnabled, String material, double projectileDamage, int drawSpeed, float range, String[] repairIngredient) {
             this.isEnabled = isEnabled;
             this.material = material;
-            if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+            if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
                 this.projectileDamage = projectileDamage;
             } else {
                 this.projectileDamage = 0;

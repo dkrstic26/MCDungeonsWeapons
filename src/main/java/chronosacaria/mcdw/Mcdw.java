@@ -1,5 +1,6 @@
 package chronosacaria.mcdw;
 
+import chronosacaria.mcdw.compat.RangedWeaponAPICompat;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.data.ConfigItemEnabledCondition;
@@ -7,6 +8,7 @@ import chronosacaria.mcdw.networking.OffhandAttackPacket;
 import chronosacaria.mcdw.registries.*;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,5 +41,8 @@ public class Mcdw implements ModInitializer {
         SummonedEntityRegistry.register();
         StatusEffectsRegistry.register();
         EnchantmentRestrictionsRegistry.register();
+        if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
+            RangedWeaponAPICompat.init();
+        }
     }
 }
