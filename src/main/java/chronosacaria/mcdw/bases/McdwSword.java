@@ -6,7 +6,6 @@ import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.mixin.mcdw.InsulatedAxeItemAccessor;
 import chronosacaria.mcdw.registries.ItemGroupRegistry;
-import chronosacaria.mcdw.registries.ItemsRegistry;
 import com.google.common.collect.BiMap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.advancement.criterion.Criteria;
@@ -24,7 +23,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
@@ -123,7 +121,5 @@ public class McdwSword extends SwordItem implements IInnateEnchantment {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
         super.appendTooltip(stack, world, tooltip, tooltipContext);
         CleanlinessHelper.mcdw$tooltipHelper(stack, tooltip, 16);
-        if (stack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER))
-            tooltip.add(Text.translatable("tooltip_ench_item.mcdw.beestinger_1").formatted(Formatting.GRAY));
     }
 }

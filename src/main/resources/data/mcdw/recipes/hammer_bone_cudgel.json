@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:hammer_boneclub",
         "mcdw:hammer_bone_cudgel"
       ]
     }

@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:axe_axe",
         "mcdw:double_axe_double"
       ]
     }

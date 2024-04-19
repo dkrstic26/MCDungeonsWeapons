@@ -1,31 +1,31 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_void_bow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " AS",
-        "P S",
-        " AS"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:string"
-        },
-        "A": {
-            "item": "minecraft:amethyst_shard"
-        },
-        "P": {
-            "item": "minecraft:purpur_block"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    " AS",
+    "P S",
+    " AS"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:string"
     },
-    "result": {
-        "item": "mcdw:bow_void_bow",
-        "count": 1
+    "A":{
+      "item":"minecraft:amethyst_shard"
+    },
+    "P":{
+      "item":"minecraft:purpur_block"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_void_bow",
+    "count":1
+  }
 }

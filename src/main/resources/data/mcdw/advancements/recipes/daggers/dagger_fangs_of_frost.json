@@ -1,68 +1,74 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:dagger_dagger"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:dagger_fangs_of_frost"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-    "criteria": {
-        "has_snow_block": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "minecraft:snow_block"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
-        "has_blue_ice": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "minecraft:blue_ice"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
-        "has_base": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "mcdw:dagger_dagger"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
-        "has_the_recipe": {
-            "conditions": {
-                "recipe": "mcdw:dagger_fangs_of_frost"
-            },
-            "trigger": "minecraft:recipe_unlocked"
-        }
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_snow_block":{
+      "conditions":{
+        "items":[
+          {
+            "items":[
+              "minecraft:snow_block"
+            ]
+          }
+        ]
+      },
+      "trigger":"minecraft:inventory_changed"
     },
-    "requirements": [
-        [
-            "has_snow_block",
-            "has_blue_ice",
-            "has_base",
-            "has_the_recipe"
+    "has_blue_ice":{
+      "conditions":{
+        "items":[
+          {
+            "items":[
+              "minecraft:blue_ice"
+            ]
+          }
         ]
-    ],
-    "rewards": {
-        "recipes": [
-            "mcdw:dagger_fangs_of_frost"
+      },
+      "trigger":"minecraft:inventory_changed"
+    },
+    "has_base":{
+      "conditions":{
+        "items":[
+          {
+            "items":[
+              "mcdw:dagger_dagger"
+            ]
+          }
         ]
+      },
+      "trigger":"minecraft:inventory_changed"
+    },
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:dagger_fangs_of_frost"
+      },
+      "trigger":"minecraft:recipe_unlocked"
     }
+  },
+  "requirements":[
+    [
+      "has_snow_block",
+      "has_blue_ice",
+      "has_base",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards":{
+    "recipes":[
+      "mcdw:dagger_fangs_of_frost"
+    ]
+  }
 }

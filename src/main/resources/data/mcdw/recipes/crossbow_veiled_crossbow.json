@@ -1,34 +1,40 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_shadow_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_veiled_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "IIA",
-        "ICD",
-        "ADD"
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_shadow_crossbow"
-        },
-        "D": {
-            "item": "minecraft:diamond"
-        },
-        "A": {
-            "item": "minecraft:amethyst_shard"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "IIA",
+    "ICD",
+    "ADD"
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_shadow_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_veiled_crossbow",
-        "count": 1
+    "D":{
+      "item":"minecraft:diamond"
+    },
+    "A":{
+      "item":"minecraft:amethyst_shard"
+    },
+    "I":{
+      "item":"minecraft:iron_ingot"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_veiled_crossbow",
+    "count":1
+  }
 }

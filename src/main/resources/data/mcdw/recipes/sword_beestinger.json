@@ -3,7 +3,9 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
-        "mcdw:sword_beestinger"
+        "mcdw:sword_beestinger",
+        "mcdw:sword_rapier",
+        "mcdw:item_bee_stinger"
       ]
     }
   ],

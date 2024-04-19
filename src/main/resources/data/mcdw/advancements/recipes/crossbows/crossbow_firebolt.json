@@ -1,82 +1,88 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "mcdw:item_enabled",
-      "values": [
-        "mcdw:crossbow_firebolt_crossbow"
-      ]
-    }
-  ],
-  "parent": "minecraft:recipes/root",
-    "criteria": {
-        "has_string": {
-            "conditions": {
-                "items": [
+    "fabric:load_conditions":[
+        {
+            "condition":"mcdw:item_enabled",
+            "values":[
+                "mcdw:crossbow_exploding_crossbow"
+            ]
+        },
+        {
+            "condition":"mcdw:item_enabled",
+            "values":[
+                "mcdw:crossbow_firebolt_crossbow"
+            ]
+        }
+    ],
+    "parent":"minecraft:recipes/root",
+    "criteria":{
+        "has_string":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:string"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_red_dye": {
-            "conditions": {
-                "items": [
+        "has_red_dye":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:red_dye"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_yellow_dye": {
-            "conditions": {
-                "items": [
+        "has_yellow_dye":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:yellow_dye"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_fire_charge": {
-            "conditions": {
-                "items": [
+        "has_fire_charge":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:fire_charge"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_base": {
-            "conditions": {
-                "items": [
+        "has_base":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "mcdw:crossbow_exploding_crossbow"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_the_recipe": {
-            "conditions": {
-                "recipe": "mcdw:crossbow_firebolt_crossbow"
+        "has_the_recipe":{
+            "conditions":{
+                "recipe":"mcdw:crossbow_firebolt_crossbow"
             },
-            "trigger": "minecraft:recipe_unlocked"
+            "trigger":"minecraft:recipe_unlocked"
         }
     },
-    "requirements": [
+    "requirements":[
         [
             "has_string",
             "has_red_dye",
@@ -86,8 +92,8 @@
             "has_the_recipe"
         ]
     ],
-    "rewards": {
-        "recipes": [
+    "rewards":{
+        "recipes":[
             "mcdw:crossbow_firebolt_crossbow"
         ]
     }

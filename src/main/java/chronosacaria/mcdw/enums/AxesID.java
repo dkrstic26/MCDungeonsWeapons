@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwAxe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
@@ -21,26 +21,24 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum AxesID implements IMeleeWeaponID, IInnateEnchantment {
-    AXE_ANCHOR(ToolMaterials.IRON, 8, -3.4f, "minecraft:iron_ingot"),
-    AXE_AXE(ToolMaterials.IRON, 6, -3.1f, "minecraft:iron_ingot"),
-    AXE_ENCRUSTED_ANCHOR(ToolMaterials.DIAMOND, 8, -3.4f, "minecraft:diamond"),
-    AXE_FIREBRAND(ToolMaterials.DIAMOND, 4, -2.9f, "minecraft:diamond"),
-    AXE_HIGHLAND(ToolMaterials.IRON, 4, -2.9f, "minecraft:iron_ingot");
+    AXE_ANCHOR(true, ToolMaterials.IRON, 8, -3.4f, "minecraft:iron_ingot"),
+    AXE_AXE(true, ToolMaterials.IRON, 6, -3.1f, "minecraft:iron_ingot"),
+    AXE_ENCRUSTED_ANCHOR(true, ToolMaterials.DIAMOND, 8, -3.4f, "minecraft:diamond"),
+    AXE_FIREBRAND(true, ToolMaterials.DIAMOND, 4, -2.9f, "minecraft:diamond"),
+    AXE_HIGHLAND(true, ToolMaterials.IRON, 4, -2.9f, "minecraft:iron_ingot");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
-    AxesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    AxesID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<AxesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.AXES_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -57,8 +55,8 @@ public enum AxesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.axeStats.get(this).isEnabled;
     }
 
     @Override
@@ -107,13 +105,18 @@ public enum AxesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case AXE_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1);
-            case AXE_AXE -> null;
-            case AXE_ENCRUSTED_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1, EnchantsRegistry.JUNGLE_POISON, 1);
-            case AXE_FIREBRAND -> Map.of(Enchantments.FIRE_ASPECT, 1);
-            case AXE_HIGHLAND -> Map.of(EnchantsRegistry.STUNNING, 1);
+            case AXE_ANCHOR -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.GRAVITY);
+            case AXE_AXE -> Map.of();
+            case AXE_ENCRUSTED_ANCHOR -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.GRAVITY, EnchantmentsID.JUNGLE_POISON);
+            case AXE_FIREBRAND -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, Enchantments.FIRE_ASPECT);
+            case AXE_HIGHLAND -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.STUNNING);
         };
     }
 
@@ -124,7 +127,7 @@ public enum AxesID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwAxe makeWeapon() {
-        McdwAxe mcdwAxe = new McdwAxe(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwAxe mcdwAxe = new McdwAxe(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwAxe);

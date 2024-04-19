@@ -1,31 +1,31 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:axe_anchor"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "#N#",
-        "NI#",
-        "###"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:iron_block"
-        },
-        "N": {
-            "item": "minecraft:iron_nugget"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "#N#",
+    "NI#",
+    "###"
+  ],
+  "key":{
+    "#":{
+      "item":"minecraft:iron_block"
     },
-    "result": {
-        "item": "mcdw:axe_anchor",
-        "count": 1
+    "N":{
+      "item":"minecraft:iron_nugget"
+    },
+    "I":{
+      "item":"minecraft:iron_ingot"
     }
+  },
+  "result":{
+    "item":"mcdw:axe_anchor",
+    "count":1
+  }
 }

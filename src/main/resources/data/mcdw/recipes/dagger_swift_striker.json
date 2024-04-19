@@ -1,31 +1,37 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:dagger_backstabber"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:dagger_swift_striker"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "  A",
-        " DA",
-        "BAD"
-    ],
-    "key": {
-        "B": {
-            "item": "mcdw:dagger_backstabber"
-        },
-        "A": {
-            "item": "minecraft:amethyst_shard"
-        },
-        "D": {
-            "item": "minecraft:diamond"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "  A",
+    " DA",
+    "BAD"
+  ],
+  "key":{
+    "B":{
+      "item":"mcdw:dagger_backstabber"
     },
-    "result": {
-        "item": "mcdw:dagger_swift_striker",
-        "count": 1
+    "A":{
+      "item":"minecraft:amethyst_shard"
+    },
+    "D":{
+      "item":"minecraft:diamond"
     }
+  },
+  "result":{
+    "item":"mcdw:dagger_swift_striker",
+    "count":1
+  }
 }

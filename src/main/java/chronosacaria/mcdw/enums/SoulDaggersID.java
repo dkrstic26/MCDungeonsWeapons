@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwSoulDagger;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -20,10 +20,11 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
-    SOUL_DAGGER_ETERNAL_KNIFE(ToolMaterials.NETHERITE,4, -2.8f, "minecraft:netherite_scrap"),
-    SOUL_DAGGER_SOUL_KNIFE(ToolMaterials.IRON,4, -2.8f, "minecraft:iron_ingot"),
-    SOUL_DAGGER_TRUTHSEEKER(ToolMaterials.NETHERITE,3, -2.8f, "minecraft:netherite_scrap");
+    SOUL_DAGGER_ETERNAL_KNIFE(true, ToolMaterials.NETHERITE,4, -2.8f, "minecraft:netherite_scrap"),
+    SOUL_DAGGER_SOUL_KNIFE(true, ToolMaterials.IRON,4, -2.8f, "minecraft:iron_ingot"),
+    SOUL_DAGGER_TRUTHSEEKER(true, ToolMaterials.NETHERITE,3, -2.8f, "minecraft:netherite_scrap");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
@@ -31,15 +32,12 @@ public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
 
 
     @SuppressWarnings("SameParameterValue")
-    SoulDaggersID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    SoulDaggersID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<SoulDaggersID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.SOUL_DAGGERS_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -56,8 +54,8 @@ public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(this).isEnabled;
     }
 
     @Override
@@ -106,11 +104,16 @@ public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SOUL_DAGGER_ETERNAL_KNIFE -> Map.of(EnchantsRegistry.SOUL_SIPHON, 1);
-            case SOUL_DAGGER_SOUL_KNIFE -> null;
-            case SOUL_DAGGER_TRUTHSEEKER -> Map.of(EnchantsRegistry.COMMITTED, 1);
+            case SOUL_DAGGER_ETERNAL_KNIFE -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.SOUL_SIPHON);
+            case SOUL_DAGGER_SOUL_KNIFE -> Map.of();
+            case SOUL_DAGGER_TRUTHSEEKER -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.COMMITTED);
         };
     }
 
@@ -121,7 +124,7 @@ public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwSoulDagger makeWeapon() {
-        McdwSoulDagger mcdwSoulDagger = new McdwSoulDagger(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwSoulDagger mcdwSoulDagger = new McdwSoulDagger(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSoulDagger);

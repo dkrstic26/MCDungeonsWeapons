@@ -1,58 +1,64 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:sword_broadsword"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:sword_claymore"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_iron_ingot": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_iron_ingot":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:iron_ingot"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_iron_block": {
-      "conditions": {
-        "items": [
+    "has_iron_block":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:iron_block"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_base": {
-      "conditions": {
-        "items": [
+    "has_base":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "mcdw:sword_broadsword"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:sword_claymore"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:sword_claymore"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_iron_ingot",
       "has_iron_block",
@@ -60,8 +66,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:sword_claymore"
     ]
   }

@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwWhip;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -20,23 +20,21 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum WhipsID implements IMeleeWeaponID, IInnateEnchantment {
-    WHIP_VINE_WHIP(ToolMaterials.IRON, 5, -3.1f, "minecraft:vine"),
-    WHIP_WHIP(ToolMaterials.IRON, 3, -3.1f, "minecraft:string");
+    WHIP_VINE_WHIP(true, ToolMaterials.IRON, 5, -3.1f, "minecraft:vine"),
+    WHIP_WHIP(true, ToolMaterials.IRON, 3, -3.1f, "minecraft:string");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
     @SuppressWarnings("SameParameterValue")
-    WhipsID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    WhipsID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<WhipsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.WHIPS_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -53,9 +51,8 @@ public enum WhipsID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
-    }
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.whipStats.get(this).isEnabled;    }
 
     @Override
     public McdwWhip getItem() {
@@ -103,10 +100,15 @@ public enum WhipsID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case WHIP_WHIP -> null;
-            case WHIP_VINE_WHIP -> Map.of(EnchantsRegistry.JUNGLE_POISON, 1);
+            case WHIP_WHIP -> Map.of();
+            case WHIP_VINE_WHIP -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.JUNGLE_POISON);
         };
     }
 
@@ -117,7 +119,7 @@ public enum WhipsID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwWhip makeWeapon() {
-        McdwWhip mcdwWhip = new McdwWhip(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwWhip mcdwWhip = new McdwWhip(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwWhip);

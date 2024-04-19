@@ -21,4 +21,5 @@ public class CraftingScreenHandlerMixin {
         }
         return itemStack;
     }
+
 }

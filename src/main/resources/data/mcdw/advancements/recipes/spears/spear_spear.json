@@ -1,43 +1,47 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:dagger_dagger"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:spear_spear"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-
-    "has_base": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_base":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "mcdw:dagger_dagger"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:spear_spear"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:spear_spear"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
-
       "has_base",
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:spear_spear"
     ]
   }

@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:sickle_sickle",
         "mcdw:scythe_frost_scythe"
       ]
     }

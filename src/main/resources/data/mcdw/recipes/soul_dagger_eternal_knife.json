@@ -3,6 +3,7 @@
 		{
 			"condition": "mcdw:item_enabled",
 			"values": [
+				"mcdw:soul_dagger_soul_knife",
 				"mcdw:soul_dagger_eternal_knife"
 			]
 		}

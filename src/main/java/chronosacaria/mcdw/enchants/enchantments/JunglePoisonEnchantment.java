@@ -13,15 +13,12 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 
 public class JunglePoisonEnchantment extends Enchantment{
 
     public JunglePoisonEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISONING).mcdw$getIsEnabled()) {
-            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("jungle_poison"), this);
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.JUNGLE_POISON).mcdw$getIsEnabled()) {
             ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
                 // For loop creates first 3 levels of enchanted books
                 for (int i = 1; i <= getMaxLevel(); i++)
@@ -32,19 +29,19 @@ public class JunglePoisonEnchantment extends Enchantment{
 
     @Override
     public int getMaxLevel(){
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISONING).mcdw$getMaxLevel();
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.JUNGLE_POISON).mcdw$getMaxLevel();
     }
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISONING).mcdw$getIsEnabled()
-                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISONING).mcdw$getIsAvailableForRandomSelection();
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.JUNGLE_POISON).mcdw$getIsEnabled()
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.JUNGLE_POISON).mcdw$getIsAvailableForRandomSelection();
     }
 
     @Override
     public boolean isAvailableForEnchantedBookOffer() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISONING).mcdw$getIsEnabled()
-                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISONING).mcdw$getIsAvailableForEnchantedBookOffer();
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.JUNGLE_POISON).mcdw$getIsEnabled()
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.JUNGLE_POISON).mcdw$getIsAvailableForEnchantedBookOffer();
     }
 
     @Override

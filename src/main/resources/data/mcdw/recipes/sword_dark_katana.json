@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:sword_masters_katana",
         "mcdw:sword_dark_katana"
       ]
     }

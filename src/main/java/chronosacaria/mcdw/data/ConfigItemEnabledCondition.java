@@ -16,35 +16,52 @@ import java.util.List;
 public class ConfigItemEnabledCondition {
 
     public static void register() {
+        // Register a resource condition for checking if multiple config values are all true
         ResourceConditions.register(new Identifier(Mcdw.MOD_ID, "config_enabled"), jsonObject -> {
-            JsonArray jsonArray = JsonHelper.getArray(jsonObject, "values");
-            List<Boolean> booleanArrayList = new ArrayList<>();
+            JsonArray values = JsonHelper.getArray(jsonObject, "values");
+            List<Boolean> booleanList = new ArrayList<>();
 
-            for (JsonElement jsonElement : jsonArray) {
-                if (jsonElement.isJsonPrimitive()) {
+            for (JsonElement element : values) {
+                if (element.isJsonPrimitive()) {
+                    String elementString = element.getAsString();
+                    List<String> configClasses = Arrays.asList(elementString.split("\\."));
                     try {
-                        String jsonElementString = jsonElement.getAsString();
-                        List<String> configClasses = Arrays.stream(jsonElementString.split("\\.")).toList();
                         if (configClasses.size() > 1) {
-                            booleanArrayList.add(Mcdw.CONFIG.getClass().getField(configClasses.get(0)).get(Mcdw.CONFIG).getClass().getField(configClasses.get(1)).getBoolean(Mcdw.CONFIG.getClass().getField(configClasses.get(0)).get(Mcdw.CONFIG)));
-                        } else
-                            booleanArrayList.add(Mcdw.CONFIG.getClass().getField(jsonElementString).getBoolean(Mcdw.CONFIG));
+                            // Retrieve the config value and add it to the boolean list
+                            booleanList.add(
+                                    Mcdw.CONFIG
+                                            .getClass().getField(configClasses.get(0))
+                                            .get(Mcdw.CONFIG).getClass().getField(configClasses.get(1))
+                                            .getBoolean(Mcdw.CONFIG.getClass().getField(configClasses.get(0))
+                                                    .get(Mcdw.CONFIG)));
+                        } else {
+                            // Retrieve the config value and add it to the boolean list
+                            booleanList.add(Mcdw.CONFIG.getClass().getField(elementString).getBoolean(Mcdw.CONFIG));
+                        }
                     } catch (NoSuchFieldException | IllegalAccessException e) {
                         throw new RuntimeException(e);
                     }
                 }
             }
-            return booleanArrayList.stream().allMatch(aBoolean -> aBoolean);
+            // Check if all config values are true
+            return booleanList.stream().allMatch(Boolean::booleanValue);
         });
 
+        // Register a resource condition for checking if an item is enabled
         ResourceConditions.register(new Identifier(Mcdw.MOD_ID, "item_enabled"), jsonObject -> {
-            JsonArray jsonArray = JsonHelper.getArray(jsonObject, "values");
+            JsonArray values = JsonHelper.getArray(jsonObject, "values");
 
-            for (JsonElement jsonElement : jsonArray) {
-                if (jsonElement.isJsonPrimitive()) {
-                    return Registries.ITEM.get(new Identifier(jsonElement.getAsString())) != Items.AIR;
+            for (JsonElement element : values) {
+                if (element.isJsonPrimitive()) {
+                    try {
+                        // Check if the item exists in the item registry
+                        return Registries.ITEM.get(new Identifier(element.getAsString())) != Items.AIR;
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
+            // If no item is specified, default to true
             return true;
         });
     }

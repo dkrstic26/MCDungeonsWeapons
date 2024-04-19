@@ -1,37 +1,43 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:bow_void_bow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_call_of_the_void"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "EDA",
-        "DBS",
-        "ASS"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:string"
-        },
-        "A": {
-            "item": "minecraft:amethyst_shard"
-        },
-        "E": {
-            "item": "minecraft:ender_eye"
-        },
-        "D": {
-            "item": "minecraft:diamond"
-        },
-        "B": {
-            "item": "mcdw:bow_void_bow"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "EDA",
+    "DBS",
+    "ASS"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:string"
     },
-    "result": {
-        "item": "mcdw:bow_call_of_the_void",
-        "count": 1
+    "A":{
+      "item":"minecraft:amethyst_shard"
+    },
+    "E":{
+      "item":"minecraft:ender_eye"
+    },
+    "D":{
+      "item":"minecraft:diamond"
+    },
+    "B":{
+      "item":"mcdw:bow_void_bow"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_call_of_the_void",
+    "count":1
+  }
 }

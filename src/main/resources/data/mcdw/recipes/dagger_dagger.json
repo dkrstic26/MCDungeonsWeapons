@@ -1,27 +1,27 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:dagger_dagger"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "  I",
-        " / "
-    ],
-    "key": {
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "/": {
-            "item": "minecraft:stick"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "  I",
+    " / "
+  ],
+  "key":{
+    "I":{
+      "item":"minecraft:iron_ingot"
     },
-    "result": {
-        "item": "mcdw:dagger_dagger",
-        "count": 1
+    "/":{
+      "item":"minecraft:stick"
     }
+  },
+  "result":{
+    "item":"mcdw:dagger_dagger",
+    "count":1
+  }
 }

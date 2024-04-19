@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwSickle;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -20,25 +20,23 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SicklesID implements IMeleeWeaponID, IInnateEnchantment {
-    SICKLE_LAST_LAUGH_GOLD(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
-    SICKLE_LAST_LAUGH_SILVER(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
-    SICKLE_NIGHTMARES_BITE(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
-    SICKLE_SICKLE(ToolMaterials.IRON,1, -2.1f, "minecraft:iron_ingot");
+    SICKLE_LAST_LAUGH_GOLD(true, ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
+    SICKLE_LAST_LAUGH_SILVER(true, ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
+    SICKLE_NIGHTMARES_BITE(true, ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
+    SICKLE_SICKLE(true, ToolMaterials.IRON,1, -2.1f, "minecraft:iron_ingot");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
-    SicklesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    SicklesID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<SicklesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.SICKLES_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -55,9 +53,8 @@ public enum SicklesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
-    }
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.sickleStats.get(this).isEnabled;    }
 
     @Override
     public McdwSickle getItem() {
@@ -105,11 +102,16 @@ public enum SicklesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SICKLE_LAST_LAUGH_GOLD, SICKLE_LAST_LAUGH_SILVER -> Map.of(EnchantsRegistry.PROSPECTOR, 1);
-            case SICKLE_NIGHTMARES_BITE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
-            case SICKLE_SICKLE -> null;
+            case SICKLE_LAST_LAUGH_GOLD, SICKLE_LAST_LAUGH_SILVER -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.PROSPECTOR);
+            case SICKLE_NIGHTMARES_BITE -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.POISON_CLOUD);
+            case SICKLE_SICKLE -> Map.of();
         };
     }
 
@@ -120,7 +122,7 @@ public enum SicklesID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwSickle makeWeapon() {
-        McdwSickle mcdwSickle = new McdwSickle(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwSickle mcdwSickle = new McdwSickle(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSickle);

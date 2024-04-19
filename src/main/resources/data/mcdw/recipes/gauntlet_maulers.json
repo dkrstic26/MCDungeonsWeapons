@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:gauntlet_gauntlet",
         "mcdw:gauntlet_maulers"
       ]
     }

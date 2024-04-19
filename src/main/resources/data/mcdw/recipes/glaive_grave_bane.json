@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:glaive_glaive",
         "mcdw:glaive_grave_bane"
       ]
     }

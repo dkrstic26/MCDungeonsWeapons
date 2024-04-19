@@ -1,70 +1,70 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_soul_bow"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_string": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_string":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:string"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_iron_nugget": {
-      "conditions": {
-        "items": [
+    "has_iron_nugget":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:iron_nugget"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_soul_sand": {
-      "conditions": {
-        "items": [
+    "has_soul_sand":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:soul_sand"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_base_bow": {
-      "conditions": {
-        "items": [
+    "has_base_bow":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:bow"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:bow_soul_bow"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:bow_soul_bow"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_string",
       "has_iron_nugget",
@@ -73,8 +73,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:bow_soul_bow"
     ]
   }

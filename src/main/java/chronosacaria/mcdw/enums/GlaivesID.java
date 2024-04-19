@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwGlaive;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -20,25 +20,23 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GlaivesID implements IMeleeWeaponID, IInnateEnchantment {
-    GLAIVE_CACKLING_BROOM(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
-    GLAIVE_GLAIVE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
-    GLAIVE_GRAVE_BANE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot"),
-    GLAIVE_VENOM_GLAIVE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot");
+    GLAIVE_CACKLING_BROOM(true, ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
+    GLAIVE_GLAIVE(true, ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
+    GLAIVE_GRAVE_BANE(true, ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot"),
+    GLAIVE_VENOM_GLAIVE(true, ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
-    GlaivesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    GlaivesID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<GlaivesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.GLAIVES_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -55,8 +53,8 @@ public enum GlaivesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.glaiveStats.get(this).isEnabled;
     }
 
     @Override
@@ -103,13 +101,17 @@ public enum GlaivesID implements IMeleeWeaponID, IInnateEnchantment {
     public String[] getRepairIngredient() {
         return repairIngredient;
     }
+    @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case GLAIVE_CACKLING_BROOM, GLAIVE_GRAVE_BANE -> Map.of(EnchantsRegistry.SMITING, 1);
-            case GLAIVE_GLAIVE -> null;
-            case GLAIVE_VENOM_GLAIVE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
+            case GLAIVE_CACKLING_BROOM, GLAIVE_GRAVE_BANE -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.SMITING);
+            case GLAIVE_GLAIVE -> Map.of();
+            case GLAIVE_VENOM_GLAIVE -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.POISON_CLOUD);
         };
     }
 
@@ -120,7 +122,7 @@ public enum GlaivesID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwGlaive makeWeapon() {
-        McdwGlaive mcdwGlaive = new McdwGlaive(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwGlaive mcdwGlaive = new McdwGlaive(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwGlaive);

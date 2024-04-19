@@ -1,34 +1,40 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_exploding_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_imploding_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "I I",
-        "OCO",
-        "SOS"
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_exploding_crossbow"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "O": {
-            "item": "minecraft:purple_dye"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "I I",
+    "OCO",
+    "SOS"
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_exploding_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_imploding_crossbow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "O":{
+      "item":"minecraft:purple_dye"
+    },
+    "I":{
+      "item":"minecraft:iron_ingot"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_imploding_crossbow",
+    "count":1
+  }
 }

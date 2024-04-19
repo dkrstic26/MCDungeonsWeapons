@@ -1,70 +1,82 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:sword_rapier"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:item_bee_stinger"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:sword_beestinger"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_bee_stinger": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_bee_stinger":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "mcdw:item_bee_stinger"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_iron_nugget": {
-      "conditions": {
-        "items": [
+    "has_iron_nugget":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:iron_nugget"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_gold_ingot": {
-      "conditions": {
-        "items": [
+    "has_gold_ingot":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:gold_ingot"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_base": {
-      "conditions": {
-        "items": [
+    "has_base":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "mcdw:sword_rapier"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:sword_beestinger"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:sword_beestinger"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_bee_stinger",
       "has_iron_nugget",
@@ -73,8 +85,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:sword_beestinger"
     ]
   }

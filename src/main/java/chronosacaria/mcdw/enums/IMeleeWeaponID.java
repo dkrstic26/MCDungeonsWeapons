@@ -17,18 +17,22 @@ public interface IMeleeWeaponID extends IMcdwWeaponID {
 
     MeleeStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
+    boolean getIsEnabled();
     ToolMaterial getMaterial();
     int getDamage();
     float getAttackSpeed();
     String[] getRepairIngredient();
+    MeleeStats getMeleeStats();
 
     class MeleeStats {
-        String material;
-        int damage;
-        float attackSpeed;
-        String[] repairIngredient;
+        boolean isEnabled = true;
+        String material = "iron";
+        int damage = 0;
+        float attackSpeed = -3f;
+        String[] repairIngredient = new String[]{};
 
-        public MeleeStats meleeStats(String material, int damage, float attackSpeed, String[] repairIngredient) {
+        public MeleeStats meleeStats(boolean isEnabled, String material, int damage, float attackSpeed, String[] repairIngredient) {
+            this.isEnabled = isEnabled;
             this.material = material;
             this.damage = damage;
             this.attackSpeed = attackSpeed;

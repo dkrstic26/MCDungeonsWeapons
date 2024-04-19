@@ -1,70 +1,70 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "mcdw:item_enabled",
-      "values": [
-        "mcdw:bow_hunting_bow"
-      ]
-    }
-  ],
-  "parent": "minecraft:recipes/root",
-    "criteria": {
-        "has_string": {
-            "conditions": {
-                "items": [
+    "fabric:load_conditions":[
+        {
+            "condition":"mcdw:item_enabled",
+            "values":[
+                "mcdw:bow_hunting_bow"
+            ]
+        }
+    ],
+    "parent":"minecraft:recipes/root",
+    "criteria":{
+        "has_string":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:string"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_iron_nugget": {
-            "conditions": {
-                "items": [
+        "has_iron_nugget":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:iron_nugget"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_leather": {
-            "conditions": {
-                "items": [
+        "has_leather":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:leather"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_base_bow": {
-            "conditions": {
-                "items": [
+        "has_base_bow":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:bow"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_the_recipe": {
-            "conditions": {
-                "recipe": "mcdw:bow_hunting_bow"
+        "has_the_recipe":{
+            "conditions":{
+                "recipe":"mcdw:bow_hunting_bow"
             },
-            "trigger": "minecraft:recipe_unlocked"
+            "trigger":"minecraft:recipe_unlocked"
         }
     },
-    "requirements": [
+    "requirements":[
         [
             "has_string",
             "has_iron_nugget",
@@ -73,8 +73,8 @@
             "has_the_recipe"
         ]
     ],
-    "rewards": {
-        "recipes": [
+    "rewards":{
+        "recipes":[
             "mcdw:bow_hunting_bow"
         ]
     }

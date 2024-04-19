@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:spear_spear",
         "mcdw:spear_fortune"
       ]
     }

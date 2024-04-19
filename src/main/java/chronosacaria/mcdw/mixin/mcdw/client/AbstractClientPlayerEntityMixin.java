@@ -3,6 +3,7 @@ package chronosacaria.mcdw.mixin.mcdw.client;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwLongbow;
 import chronosacaria.mcdw.bases.McdwShortbow;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -36,7 +37,7 @@ public class AbstractClientPlayerEntityMixin {
                     itemStack.getItem() instanceof McdwShortbow ||
                     itemStack.getItem() instanceof McdwLongbow) {
                 int i = abPlayer.getItemUseTime();
-                int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
+                int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.OVERCHARGE), itemStack);
                 if (overchargeLevel > 0) {
                     if (itemStack.getItem() instanceof McdwShortbow mcdwShortBow) {
                         int overcharge = (int) Math.min((i / mcdwShortBow.getDrawSpeed()) - 1, overchargeLevel);

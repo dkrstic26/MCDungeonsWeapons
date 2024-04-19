@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwSpear;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
@@ -21,24 +21,22 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SpearsID implements IMeleeWeaponID, IInnateEnchantment {
-    SPEAR_SPEAR(ToolMaterials.IRON,4, -2.5f, "minecraft:iron_ingot"),
-    SPEAR_WHISPERING_SPEAR(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot"),
-    SPEAR_FORTUNE(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot");
+    SPEAR_SPEAR(true, ToolMaterials.IRON,4, -2.5f, "minecraft:iron_ingot"),
+    SPEAR_WHISPERING_SPEAR(true, ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot"),
+    SPEAR_FORTUNE(true, ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
-    SpearsID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    SpearsID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<SpearsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.SPEARS_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -55,9 +53,8 @@ public enum SpearsID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
-    }
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.spearStats.get(this).isEnabled;    }
 
     @Override
     public McdwSpear getItem() {
@@ -105,11 +102,16 @@ public enum SpearsID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SPEAR_SPEAR -> null;
-            case SPEAR_WHISPERING_SPEAR -> Map.of(EnchantsRegistry.ECHO, 1);
-            case SPEAR_FORTUNE -> Map.of(Enchantments.LOOTING, 1);
+            case SPEAR_SPEAR -> Map.of();
+            case SPEAR_WHISPERING_SPEAR -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.ECHO);
+            case SPEAR_FORTUNE -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, Enchantments.LOOTING);
         };
     }
 
@@ -120,7 +122,7 @@ public enum SpearsID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwSpear makeWeapon() {
-        McdwSpear mcdwSpear = new McdwSpear(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwSpear mcdwSpear = new McdwSpear(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSpear);

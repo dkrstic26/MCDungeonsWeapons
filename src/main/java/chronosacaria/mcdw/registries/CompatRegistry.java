@@ -12,17 +12,17 @@ public class CompatRegistry {
     public static void register() {
         if (FabricLoader.getInstance().isModLoaded("clumps")) {
             ClumpsEvents.VALUE_EVENT.register(event -> {
-                int amount = event.getValue();
+                int experienceAmount = event.getValue();
                 PlayerEntity playerEntity = event.getPlayer();
                 boolean isOffHandAttack = playerEntity.getRecentDamageSource() instanceof OffHandDamageSource;
 
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SOUL_DEVOURER).mcdw$getIsEnabled())
-                    amount = EnchantmentEffects.soulDevourerExperience(playerEntity, amount);
+                    experienceAmount = EnchantmentEffects.soulDevourerExperience(playerEntity, experienceAmount);
 
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ANIMA_CONDUIT).mcdw$getIsEnabled())
-                    amount = EnchantmentEffects.animaConduitExperience(playerEntity, amount, isOffHandAttack);
+                    experienceAmount = EnchantmentEffects.animaConduitExperience(playerEntity, experienceAmount, isOffHandAttack);
 
-                event.setValue(amount);
+                event.setValue(experienceAmount);
                 return null;
             });
         }

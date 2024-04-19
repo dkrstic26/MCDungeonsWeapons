@@ -1,37 +1,43 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_rapid_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_auto_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "IRI",
-        "GCG",
-        "SIS"
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_rapid_crossbow"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "G": {
-            "item": "minecraft:gray_dye"
-        },
-        "R": {
-            "item": "minecraft:redstone"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "IRI",
+    "GCG",
+    "SIS"
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_rapid_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_auto_crossbow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "I":{
+      "item":"minecraft:iron_ingot"
+    },
+    "G":{
+      "item":"minecraft:gray_dye"
+    },
+    "R":{
+      "item":"minecraft:redstone"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_auto_crossbow",
+    "count":1
+  }
 }

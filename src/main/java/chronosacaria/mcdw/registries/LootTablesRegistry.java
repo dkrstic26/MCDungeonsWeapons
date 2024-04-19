@@ -65,48 +65,46 @@ public class LootTablesRegistry {
             SoulDaggersID.SOUL_DAGGER_TRUTHSEEKER, SwordsID.SWORD_DARK_KATANA, SwordsID.SWORD_OBSIDIAN_CLAYMORE, SwordsID.SWORD_THE_STARLESS_NIGHT);
 
     public static void register() {
-        LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
-
-            if (EntityType.BEE.getLootTableId().equals(id) && source.isBuiltin())
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+            if (id.equals(EntityType.BEE.getLootTableId()) && source.isBuiltin()) {
                 if (CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(ItemsID.ITEM_BEE_STINGER)) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, ItemsRegistry.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
+            }
 
-            if (EntityType.WITCH.getLootTableId().equals(id) && source.isBuiltin())
-                if (GlaivesID.GLAIVE_CACKLING_BROOM.isEnabled()) {
+            if (id.equals(EntityType.WITCH.getLootTableId()) && source.isBuiltin()) {
+                if (GlaivesID.GLAIVE_CACKLING_BROOM.getIsEnabled()) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, GlaivesID.GLAIVE_CACKLING_BROOM.getItem(), 1, 0.2F);
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
+            }
 
-            if (EntityType.WITHER.getLootTableId().equals(id) && source.isBuiltin())
-                if (BowsID.BOW_ANCIENT_BOW.isEnabled()) {
+            if (id.equals(EntityType.WITHER.getLootTableId()) && source.isBuiltin()) {
+                if (BowsID.BOW_ANCIENT_BOW.getIsEnabled()) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, BowsID.BOW_ANCIENT_BOW.getItem(), 1, 0.1F);
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
+            }
 
-            if (CONFIG.mcdwNewlootConfig.WEAPONS_ENABLED_IN_LOOTTABLES.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+            if (CONFIG.mcdwNewlootConfig.WEAPONS_ENABLED_IN_LOOTTABLES.get(SettingsID.ENABLE_WEAPONS_IN_LOOT_TABLES)) {
                 LootPool.Builder lootPoolBuilder = LootPool.builder();
                 lootPoolBuilder.rolls(ConstantLootNumberProvider.create(1));
                 lootPoolBuilder.conditionally(RandomChanceLootCondition.builder(CONFIG.mcdwNewlootConfig.findWeaponChance));
                 lootPoolBuilder.bonusRolls(ConstantLootNumberProvider.create(CONFIG.mcdwNewlootConfig.bonusRollsWithLuck));
 
-                if (COMMON_LOOT_TABLES.contains(id.toString()))
+                if (COMMON_LOOT_TABLES.contains(id.toString())) {
                     COMMON_LOOT_POOL.forEach(lootId -> addWeaponById(lootPoolBuilder, lootId));
-
-                if (UNCOMMON_LOOT_TABLES.contains(id.toString()))
+                } else if (UNCOMMON_LOOT_TABLES.contains(id.toString())) {
                     UNCOMMON_LOOT_POOL.forEach(lootId -> addWeaponById(lootPoolBuilder, lootId));
-
-                if (RARE_LOOT_TABLES.contains(id.toString()))
+                } else if (RARE_LOOT_TABLES.contains(id.toString())) {
                     RARE_LOOT_POOL.forEach(lootID -> addWeaponById(lootPoolBuilder, lootID));
-
-                if (EPIC_LOOT_TABLES.contains(id.toString()))
+                } else if (EPIC_LOOT_TABLES.contains(id.toString())) {
                     EPIC_LOOT_POOL.forEach(lootID -> addWeaponById(lootPoolBuilder, lootID));
-
-                if (NETHER_TABLES.contains(id.toString())) {
+                } else if (NETHER_TABLES.contains(id.toString())) {
                     if (Arrays.stream(lootPoolBuilder.build().entries).noneMatch(lootPoolEntry ->
                             lootPoolEntry.equals(ItemEntry.builder(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS.getItem())
                                     .weight(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS.getItemSpawnRate()).build()))) {
@@ -116,21 +114,21 @@ public class LootTablesRegistry {
 
                 tableBuilder.pool(lootPoolBuilder.build());
             }
-        }));
+        });
     }
 
-    public static void addWeapon(LootPool.Builder poolBuilder, Item weapon, int weight) {
-        poolBuilder.with(ItemEntry.builder(weapon).weight(weight));
+    public static void addWeapon(LootPool.Builder lootPoolBuilder, Item weapon, int weight) {
+        lootPoolBuilder.with(ItemEntry.builder(weapon).weight(weight));
     }
 
-    public static void addWeaponById(LootPool.Builder poolBuilder, IMcdwWeaponID mcdwWeaponID) {
-        if (mcdwWeaponID.isEnabled())
-            addWeapon(poolBuilder, mcdwWeaponID.getItem(), mcdwWeaponID.getItemSpawnRate());
+    public static void addWeaponById(LootPool.Builder lootPoolBuilder, IMcdwWeaponID weaponID) {
+        if (weaponID.getIsEnabled())
+            addWeapon(lootPoolBuilder, weaponID.getItem(), weaponID.getItemSpawnRate());
     }
 
-    public static void addItemDrop(LootPool.Builder poolBuilder, Item item, int n, float p) {
-        poolBuilder.rolls(ConstantLootNumberProvider.create(n));
-        poolBuilder.conditionally(RandomChanceLootCondition.builder(p));
-        poolBuilder.with(ItemEntry.builder(item));
+    public static void addItemDrop(LootPool.Builder lootPoolBuilder, Item item, int count, float probability) {
+        lootPoolBuilder.rolls(ConstantLootNumberProvider.create(count));
+        lootPoolBuilder.conditionally(RandomChanceLootCondition.builder(probability));
+        lootPoolBuilder.with(ItemEntry.builder(item));
     }
 }

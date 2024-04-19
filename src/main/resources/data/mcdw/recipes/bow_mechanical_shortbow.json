@@ -1,34 +1,40 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:bow_shortbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_mechanical_shortbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " IP",
-        "IsS",
-        " IP"
-    ],
-    "key": {
-        "P": {
-            "item": "minecraft:piston"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "s": {
-            "item": "mcdw:bow_shortbow"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    " IP",
+    "IsS",
+    " IP"
+  ],
+  "key":{
+    "P":{
+      "item":"minecraft:piston"
     },
-    "result": {
-        "item": "mcdw:bow_mechanical_shortbow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "I":{
+      "item":"minecraft:iron_ingot"
+    },
+    "s":{
+      "item":"mcdw:bow_shortbow"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_mechanical_shortbow",
+    "count":1
+  }
 }

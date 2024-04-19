@@ -1,31 +1,37 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:axe_anchor"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:axe_encrusted_anchor"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "VGV",
-        "GAG",
-        "VGV"
-    ],
-    "key": {
-        "V": {
-            "item": "minecraft:vine"
-        },
-        "G": {
-            "item": "minecraft:gold_block"
-        },
-        "A": {
-            "item": "mcdw:axe_anchor"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "VGV",
+    "GAG",
+    "VGV"
+  ],
+  "key":{
+    "V":{
+      "item":"minecraft:vine"
     },
-    "result": {
-        "item": "mcdw:axe_encrusted_anchor",
-        "count": 1
+    "G":{
+      "item":"minecraft:gold_block"
+    },
+    "A":{
+      "item":"mcdw:axe_anchor"
     }
+  },
+  "result":{
+    "item":"mcdw:axe_encrusted_anchor",
+    "count":1
+  }
 }

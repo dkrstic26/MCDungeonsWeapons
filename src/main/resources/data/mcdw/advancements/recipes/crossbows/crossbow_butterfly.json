@@ -1,70 +1,76 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "mcdw:item_enabled",
-      "values": [
-        "mcdw:crossbow_butterfly_crossbow"
-      ]
-    }
-  ],
-  "parent": "minecraft:recipes/root",
-    "criteria": {
-        "has_string": {
-            "conditions": {
-                "items": [
+    "fabric:load_conditions":[
+        {
+            "condition":"mcdw:item_enabled",
+            "values":[
+                "mcdw:crossbow_rapid_crossbow"
+            ]
+        },
+        {
+            "condition":"mcdw:item_enabled",
+            "values":[
+                "mcdw:crossbow_butterfly_crossbow"
+            ]
+        }
+    ],
+    "parent":"minecraft:recipes/root",
+    "criteria":{
+        "has_string":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:string"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_iron_ingot": {
-            "conditions": {
-                "items": [
+        "has_iron_ingot":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:iron_ingot"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_cyan_dye": {
-            "conditions": {
-                "items": [
+        "has_cyan_dye":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:cyan_dye"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_base": {
-            "conditions": {
-                "items": [
+        "has_base":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "mcdw:crossbow_rapid_crossbow"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_the_recipe": {
-            "conditions": {
-                "recipe": "mcdw:crossbow_butterfly_crossbow"
+        "has_the_recipe":{
+            "conditions":{
+                "recipe":"mcdw:crossbow_butterfly_crossbow"
             },
-            "trigger": "minecraft:recipe_unlocked"
+            "trigger":"minecraft:recipe_unlocked"
         }
     },
-    "requirements": [
+    "requirements":[
         [
             "has_string",
             "has_iron_ingot",
@@ -73,8 +79,8 @@
             "has_the_recipe"
         ]
     ],
-    "rewards": {
-        "recipes": [
+    "rewards":{
+        "recipes":[
             "mcdw:crossbow_butterfly_crossbow"
         ]
     }

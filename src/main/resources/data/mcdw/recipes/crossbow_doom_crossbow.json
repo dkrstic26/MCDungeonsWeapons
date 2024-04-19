@@ -1,37 +1,43 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:crossbow_heavy_crossbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:crossbow_doom_crossbow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "INL",
-        "NCS",
-        "LSS"
-    ],
-    "key": {
-        "C": {
-            "item": "mcdw:crossbow_heavy_crossbow"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "I": {
-            "item": "minecraft:iron_block"
-        },
-        "L": {
-            "item": "minecraft:lapis_lazuli"
-        },
-        "N": {
-            "item": "minecraft:netherite_scrap"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "INL",
+    "NCS",
+    "LSS"
+  ],
+  "key":{
+    "C":{
+      "item":"mcdw:crossbow_heavy_crossbow"
     },
-    "result": {
-        "item": "mcdw:crossbow_doom_crossbow",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "I":{
+      "item":"minecraft:iron_block"
+    },
+    "L":{
+      "item":"minecraft:lapis_lazuli"
+    },
+    "N":{
+      "item":"minecraft:netherite_scrap"
     }
+  },
+  "result":{
+    "item":"mcdw:crossbow_doom_crossbow",
+    "count":1
+  }
 }

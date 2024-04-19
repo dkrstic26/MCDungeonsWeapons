@@ -3,7 +3,8 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
-        "mcdw:glaive_glaive"
+        "mcdw:glaive_glaive",
+        "mcdw:sword_iron_sword_var"
       ]
     }
   ],
@@ -15,7 +16,7 @@
     ],
     "key": {
         "S": {
-            "item": "minecraft:iron_sword"
+            "item": "mcdw:sword_iron_sword_var"
         },
         "/": {
             "item": "minecraft:stick"

@@ -52,8 +52,8 @@ dependencies {
     // Clumps
     modImplementation "com.blamejared.clumps:Clumps-fabric-${project.minecraft_version}:${project.clumps_version}"
 
-    // Projectile Damage
-    modImplementation "maven.modrinth:projectile-damage-attribute:${project.projectile_damage_version}+${project.minecraft_version}-fabric"
+    // Ranged Weapon API
+    modImplementation "maven.modrinth:ranged-weapon-api:${project.ranged_weapon_api_version}"
 
     // Cloth Config
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {

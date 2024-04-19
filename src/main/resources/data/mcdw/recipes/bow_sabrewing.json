@@ -1,37 +1,43 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:bow_power_bow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_sabrewing"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "DiG",
-        "IPG",
-        "DiG"
-    ],
-    "key": {
-        "D": {
-            "item": "minecraft:dandelion"
-        },
-        "G": {
-            "item": "minecraft:gold_ingot"
-        },
-        "P": {
-            "item": "mcdw:bow_power_bow"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "i": {
-            "item": "minecraft:iron_block"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "DiG",
+    "IPG",
+    "DiG"
+  ],
+  "key":{
+    "D":{
+      "item":"minecraft:dandelion"
     },
-    "result": {
-        "item": "mcdw:bow_sabrewing",
-        "count": 1
+    "G":{
+      "item":"minecraft:gold_ingot"
+    },
+    "P":{
+      "item":"mcdw:bow_power_bow"
+    },
+    "I":{
+      "item":"minecraft:iron_ingot"
+    },
+    "i":{
+      "item":"minecraft:iron_block"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_sabrewing",
+    "count":1
+  }
 }

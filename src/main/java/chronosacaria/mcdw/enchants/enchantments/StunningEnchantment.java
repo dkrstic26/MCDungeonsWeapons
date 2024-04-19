@@ -13,15 +13,12 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 
 public class StunningEnchantment extends Enchantment{
 
     public StunningEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.STUNNING).mcdw$getIsEnabled()) {
-            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("stunning"), this);
             ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
                 // For loop creates first 3 levels of enchanted books
                 for (int i = 1; i <= getMaxLevel(); i++)

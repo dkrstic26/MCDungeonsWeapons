@@ -42,7 +42,7 @@ public class McdwNewLootConfig implements ConfigData {
     public final LinkedHashMap<ShieldsID, Integer> SHIELD_SPAWN_RATES = new LinkedHashMap<>();
 
     public McdwNewLootConfig(){
-        WEAPONS_ENABLED_IN_LOOTTABLES.put(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES, true);
+        WEAPONS_ENABLED_IN_LOOTTABLES.put(SettingsID.ENABLE_WEAPONS_IN_LOOT_TABLES, true);
 
         /* LOOT TABLES */
 

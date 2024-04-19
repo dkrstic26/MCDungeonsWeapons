@@ -1,82 +1,88 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:whip_whip"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:whip_vine_whip"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_leather": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_leather":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:leather"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_lilac": {
-      "conditions": {
-        "items": [
+    "has_lilac":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:lilac"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_string": {
-      "conditions": {
-        "items": [
+    "has_string":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:string"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_vine": {
-      "conditions": {
-        "items": [
+    "has_vine":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:vine"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_base": {
-      "conditions": {
-        "items": [
+    "has_base":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "mcdw:whip_whip"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:whip_vine_whip"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:whip_vine_whip"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_leather",
       "has_lilac",
@@ -86,8 +92,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:whip_vine_whip"
     ]
   }

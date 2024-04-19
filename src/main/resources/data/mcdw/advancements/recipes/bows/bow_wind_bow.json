@@ -1,58 +1,58 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_wind_bow"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_string": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_string":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:string"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_iron_ingot": {
-      "conditions": {
-        "items": [
+    "has_iron_ingot":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:iron_ingot"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_green_dye": {
-      "conditions": {
-        "items": [
+    "has_green_dye":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:green_dye"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:bow_wind_bow"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:bow_wind_bow"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_string",
       "has_iron_ingot",
@@ -60,8 +60,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:bow_wind_bow"
     ]
   }

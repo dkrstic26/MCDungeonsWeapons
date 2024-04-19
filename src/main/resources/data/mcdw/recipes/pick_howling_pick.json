@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:pick_mountaineer_pick",
         "mcdw:pick_howling_pick"
       ]
     }

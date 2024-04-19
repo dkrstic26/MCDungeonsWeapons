@@ -1,58 +1,58 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_void_bow"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_string": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_string":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:string"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_amethyst_shard": {
-      "conditions": {
-        "items": [
+    "has_amethyst_shard":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:amethyst_shard"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_purpur_block": {
-      "conditions": {
-        "items": [
+    "has_purpur_block":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:purpur_block"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:bow_void_bow"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:bow_void_bow"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_string",
       "has_amethyst_shard",
@@ -60,8 +60,8 @@
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:bow_void_bow"
     ]
   }

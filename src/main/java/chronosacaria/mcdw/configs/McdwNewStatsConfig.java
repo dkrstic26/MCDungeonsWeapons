@@ -4,8 +4,6 @@ import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.ToolMaterials;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -43,89 +41,52 @@ public class McdwNewStatsConfig implements ConfigData {
     public final LinkedHashMap<CrossbowsID, IRangedWeaponID.RangedStats> crossbowStats = new LinkedHashMap<>();
     public final LinkedHashMap<ShieldsID, IShieldID.ShieldStats> shieldStats = new LinkedHashMap<>();
 
-    // Stats Convenience Methods
-    protected IMeleeWeaponID.MeleeStats meleeWeaponStats(String material, int damage, float attackSpeed, String[] repairIngredient, IMeleeWeaponID iMeleeWeaponID) {
-        return iMeleeWeaponID.getWeaponItemStats(this).meleeStats(material, damage, attackSpeed, repairIngredient);
-    }
-    protected IMeleeWeaponID.MeleeStats advancedMeleeWeaponStats(IMeleeWeaponID iMeleeWeaponID) {
-        return meleeWeaponStats(materialToString(iMeleeWeaponID.getMaterial()), iMeleeWeaponID.getDamage(), iMeleeWeaponID.getAttackSpeed(), iMeleeWeaponID.getRepairIngredient(), iMeleeWeaponID);
-    }
-
-    protected IRangedWeaponID.RangedStats rangedWeaponStats(String material, double projectileDamage, int drawSpeed, float range, String[] repairIngredient, IRangedWeaponID iRangedWeaponID) {
-        return iRangedWeaponID.getWeaponItemStats(this).rangedStats(material, projectileDamage, drawSpeed, range, repairIngredient);
-    }
-    protected IRangedWeaponID.RangedStats advancedRangedWeaponStats(IRangedWeaponID iRangedWeaponID) {
-        return rangedWeaponStats(materialToString(iRangedWeaponID.getMaterial()), iRangedWeaponID.getProjectileDamage(), iRangedWeaponID.getDrawSpeed(), iRangedWeaponID.getRange(), iRangedWeaponID.getRepairIngredient(), iRangedWeaponID);
-    }
-
-    protected IShieldID.ShieldStats shieldStats(String material, String[] repairIngredient, IShieldID iShieldID) {
-        return iShieldID.getWeaponItemStats(this).shieldStats(material, repairIngredient);
-    }
-    protected IShieldID.ShieldStats advancedShieldStats(IShieldID iShieldID) {
-        return shieldStats(materialToString(iShieldID.getMaterial()), iShieldID.getRepairIngredient(), iShieldID);
-    }
-
     public McdwNewStatsConfig() {
 
         for (SwordsID swordsID : SwordsID.values())
-            swordStats.put(swordsID, new IMeleeWeaponID.MeleeStats());
+            swordStats.put(swordsID, swordsID.getMeleeStats());
         for (AxesID axesID : AxesID.values())
-            axeStats.put(axesID, new IMeleeWeaponID.MeleeStats());
+            axeStats.put(axesID, axesID.getMeleeStats());
         for (DoubleAxesID doubleAxesID : DoubleAxesID.values())
-            doubleAxeStats.put(doubleAxesID, new IMeleeWeaponID.MeleeStats());
+            doubleAxeStats.put(doubleAxesID, doubleAxesID.getMeleeStats());
         for (DaggersID daggersID : DaggersID.values())
-            daggerStats.put(daggersID, new IMeleeWeaponID.MeleeStats());
+            daggerStats.put(daggersID, daggersID.getMeleeStats());
         for (SoulDaggersID soulDaggersID : SoulDaggersID.values())
-            soulDaggerStats.put(soulDaggersID, new IMeleeWeaponID.MeleeStats());
+            soulDaggerStats.put(soulDaggersID, soulDaggersID.getMeleeStats());
         for (HammersID hammersID : HammersID.values())
-            hammerStats.put(hammersID, new IMeleeWeaponID.MeleeStats());
+            hammerStats.put(hammersID, hammersID.getMeleeStats());
         for (GauntletsID gauntletsID : GauntletsID.values())
-            gauntletStats.put(gauntletsID, new IMeleeWeaponID.MeleeStats());
+            gauntletStats.put(gauntletsID, gauntletsID.getMeleeStats());
         for (SicklesID sicklesID : SicklesID.values())
-            sickleStats.put(sicklesID, new IMeleeWeaponID.MeleeStats());
+            sickleStats.put(sicklesID, sicklesID.getMeleeStats());
         for (ScythesID scythesID : ScythesID.values())
-            scytheStats.put(scythesID, new IMeleeWeaponID.MeleeStats());
+            scytheStats.put(scythesID, scythesID.getMeleeStats());
         for (PicksID picksID : PicksID.values())
-            pickStats.put(picksID, new IMeleeWeaponID.MeleeStats());
+            pickStats.put(picksID, picksID.getMeleeStats());
         for (GlaivesID glaivesID : GlaivesID.values())
-            glaiveStats.put(glaivesID, new IMeleeWeaponID.MeleeStats());
+            glaiveStats.put(glaivesID, glaivesID.getMeleeStats());
         for (SpearsID spearsID : SpearsID.values())
-            spearStats.put(spearsID, new IMeleeWeaponID.MeleeStats());
+            spearStats.put(spearsID, spearsID.getMeleeStats());
         for (StavesID stavesID : StavesID.values())
-            staffStats.put(stavesID, new IMeleeWeaponID.MeleeStats());
+            staffStats.put(stavesID, stavesID.getMeleeStats());
         for (WhipsID whipsID : WhipsID.values())
-            whipStats.put(whipsID, new IMeleeWeaponID.MeleeStats());
+            whipStats.put(whipsID, whipsID.getMeleeStats());
         for (BowsID bowsID : BowsID.values())
-            bowStats.put(bowsID, new IRangedWeaponID.RangedStats());
+            bowStats.put(bowsID, bowsID.getRangedStats());
         for (ShortbowsID shortBowsID : ShortbowsID.values())
-            shortbowStats.put(shortBowsID, new IRangedWeaponID.RangedStats());
+            shortbowStats.put(shortBowsID, shortBowsID.getRangedStats());
         for (LongbowsID longBowsID : LongbowsID.values())
-            longbowStats.put(longBowsID, new IRangedWeaponID.RangedStats());
+            longbowStats.put(longBowsID, longBowsID.getRangedStats());
         for (CrossbowsID crossbowsID : CrossbowsID.values())
-            crossbowStats.put(crossbowsID, new IRangedWeaponID.RangedStats());
+            crossbowStats.put(crossbowsID, crossbowsID.getRangedStats());
         for (ShieldsID shieldsID : ShieldsID.values())
-            shieldStats.put(shieldsID, new IShieldID.ShieldStats());
+            shieldStats.put(shieldsID, shieldsID.getShieldStats());
 
         // Stats Hash Assign
-        Arrays.stream(IMeleeWeaponID.values()).forEach(this::advancedMeleeWeaponStats);
-        Arrays.stream(IRangedWeaponID.values()).forEach(this::advancedRangedWeaponStats);
-        Arrays.stream(ShieldsID.values()).forEach(this::advancedShieldStats);
+        Arrays.stream(IMeleeWeaponID.values()).forEach(IMeleeWeaponID::getMeleeStats);
+        Arrays.stream(IRangedWeaponID.values()).forEach(IRangedWeaponID::getRangedStats);
+        Arrays.stream(IShieldID.values()).forEach(IShieldID::getShieldStats);
     }
 
-    private static String materialToString(ToolMaterial toolMaterial) {
-        if (toolMaterial == ToolMaterials.WOOD)
-            return "wood";
-        else if (toolMaterial == ToolMaterials.STONE)
-            return "stone";
-        else if (toolMaterial == ToolMaterials.GOLD)
-            return "gold";
-        else if (toolMaterial == ToolMaterials.IRON)
-            return "iron";
-        else if (toolMaterial == ToolMaterials.DIAMOND)
-            return "diamond";
-        else if (toolMaterial == ToolMaterials.NETHERITE)
-            return "netherite";
-        else
-            return "none";
-    }
+
 }

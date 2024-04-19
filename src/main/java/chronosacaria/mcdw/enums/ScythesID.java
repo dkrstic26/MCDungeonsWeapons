@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwScythe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
@@ -20,26 +21,24 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
-    SCYTHE_FROST_SCYTHE(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
-    SCYTHE_JAILORS_SCYTHE(ToolMaterials.IRON,4, -2.9f, "minecraft:iron_ingot"),
-    SCYTHE_SKULL_SCYTHE(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
-    SCYTHE_SOUL_SCYTHE(ToolMaterials.DIAMOND,3, -2.9f, "minecraft:diamond");
+    SCYTHE_FROST_SCYTHE(true, ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
+    SCYTHE_JAILORS_SCYTHE(true, ToolMaterials.IRON,4, -2.9f, "minecraft:iron_ingot"),
+    SCYTHE_SKULL_SCYTHE(true, ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
+    SCYTHE_SOUL_SCYTHE(true, ToolMaterials.DIAMOND,3, -2.9f, "minecraft:diamond");
 
+    private final boolean isEnabled;
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
 
     @SuppressWarnings("SameParameterValue")
-    ScythesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+    ScythesID(boolean isEnabled, ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<ScythesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.SCYTHES_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -56,8 +55,8 @@ public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.scytheStats.get(this).isEnabled;
     }
 
     @Override
@@ -106,11 +105,16 @@ public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public MeleeStats getMeleeStats() {
+        return new IMeleeWeaponID.MeleeStats().meleeStats(isEnabled, CleanlinessHelper.materialToString(material), damage, attackSpeed, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SCYTHE_FROST_SCYTHE, SCYTHE_SKULL_SCYTHE -> Map.of(EnchantsRegistry.FREEZING, 1);
-            case SCYTHE_JAILORS_SCYTHE -> Map.of(EnchantsRegistry.CHAINS, 1);
-            case SCYTHE_SOUL_SCYTHE -> Map.of(EnchantsRegistry.SOUL_DEVOURER, 1);
+            case SCYTHE_FROST_SCYTHE, SCYTHE_SKULL_SCYTHE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.FREEZING), 1);
+            case SCYTHE_JAILORS_SCYTHE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.CHAINS), 1);
+            case SCYTHE_SOUL_SCYTHE -> Map.of(EnchantsRegistry.enchantments.get(EnchantmentsID.SOUL_DEVOURER), 1);
         };
     }
 
@@ -121,7 +125,7 @@ public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
 
     @Override
     public McdwScythe makeWeapon() {
-        McdwScythe mcdwScythe = new McdwScythe(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwScythe mcdwScythe = new McdwScythe(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwScythe);

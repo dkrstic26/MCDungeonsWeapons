@@ -33,8 +33,8 @@ public class EntityAttributesRegistry {
     public static final EntityAttribute ATTACK_RANGE = createAttribute("attack_range", 0.0, 0.0, 1024.0);
 
     @SuppressWarnings("SameParameterValue")
-    private static EntityAttribute createAttribute(String name, double fallback, double min, double max) {
-        return new ClampedEntityAttribute("attribute.name.generic." + Mcdw.MOD_ID + '.' + name, fallback, min, max).setTracked(true);
+    private static EntityAttribute createAttribute(String attributeName, double defaultValue, double minimumValue, double maximumValue) {
+        return new ClampedEntityAttribute("attribute.name.generic." + Mcdw.MOD_ID + '.' + attributeName, defaultValue, minimumValue, maximumValue).setTracked(true);
     }
     public static void register() {
         Registry.register(Registries.ATTRIBUTE, new Identifier(Mcdw.MOD_ID, "reach"), REACH);

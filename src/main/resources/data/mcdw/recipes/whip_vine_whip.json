@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:whip_whip",
         "mcdw:whip_vine_whip"
       ]
     }

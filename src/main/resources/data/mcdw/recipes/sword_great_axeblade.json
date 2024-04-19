@@ -3,19 +3,21 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:double_axe_double",
+        "mcdw:sword_claymore",
         "mcdw:sword_great_axeblade"
       ]
     }
   ],
   "type": "minecraft:crafting_shaped",
     "pattern": [
-        "iii",
-        "iIi",
+        " A ",
+        " i ",
         "ECE"
     ],
     "key": {
-        "I": {
-            "item": "minecraft:iron_block"
+        "A": {
+            "item": "mcdw:double_axe_double"
         },
         "C": {
             "item": "mcdw:sword_claymore"

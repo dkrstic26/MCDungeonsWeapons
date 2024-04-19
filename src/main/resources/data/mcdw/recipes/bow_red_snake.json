@@ -1,37 +1,43 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:bow_longbow"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_red_snake"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "pIS",
-        "PLS",
-        "pIS"
-    ],
-    "key": {
-        "p": {
-            "item": "minecraft:redstone"
-        },
-        "S": {
-            "item": "minecraft:string"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
-        },
-        "P": {
-            "item": "minecraft:redstone_block"
-        },
-        "L": {
-            "item": "mcdw:bow_longbow"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "pIS",
+    "PLS",
+    "pIS"
+  ],
+  "key":{
+    "p":{
+      "item":"minecraft:redstone"
     },
-    "result": {
-        "item": "mcdw:bow_red_snake",
-        "count": 1
+    "S":{
+      "item":"minecraft:string"
+    },
+    "I":{
+      "item":"minecraft:iron_ingot"
+    },
+    "P":{
+      "item":"minecraft:redstone_block"
+    },
+    "L":{
+      "item":"mcdw:bow_longbow"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_red_snake",
+    "count":1
+  }
 }

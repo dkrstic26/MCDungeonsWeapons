@@ -1,82 +1,88 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "mcdw:item_enabled",
-      "values": [
-        "mcdw:crossbow_doom_crossbow"
-      ]
-    }
-  ],
-  "parent": "minecraft:recipes/root",
-    "criteria": {
-        "has_string": {
-            "conditions": {
-                "items": [
+    "fabric:load_conditions":[
+        {
+            "condition":"mcdw:item_enabled",
+            "values":[
+                "mcdw:crossbow_heavy_crossbow"
+            ]
+        },
+        {
+            "condition":"mcdw:item_enabled",
+            "values":[
+                "mcdw:crossbow_doom_crossbow"
+            ]
+        }
+    ],
+    "parent":"minecraft:recipes/root",
+    "criteria":{
+        "has_string":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:string"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_iron_block": {
-            "conditions": {
-                "items": [
+        "has_iron_block":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:iron_block"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_lapis_lazuli": {
-            "conditions": {
-                "items": [
+        "has_lapis_lazuli":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:lapis_lazuli"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_netherite_scrap": {
-            "conditions": {
-                "items": [
+        "has_netherite_scrap":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "minecraft:netherite_scrap"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_base": {
-            "conditions": {
-                "items": [
+        "has_base":{
+            "conditions":{
+                "items":[
                     {
-                        "items": [
+                        "items":[
                             "mcdw:crossbow_heavy_crossbow"
                         ]
                     }
                 ]
             },
-            "trigger": "minecraft:inventory_changed"
+            "trigger":"minecraft:inventory_changed"
         },
-        "has_the_recipe": {
-            "conditions": {
-                "recipe": "mcdw:crossbow_doom_crossbow"
+        "has_the_recipe":{
+            "conditions":{
+                "recipe":"mcdw:crossbow_doom_crossbow"
             },
-            "trigger": "minecraft:recipe_unlocked"
+            "trigger":"minecraft:recipe_unlocked"
         }
     },
-    "requirements": [
+    "requirements":[
         [
             "has_string",
             "has_iron_block",
@@ -86,8 +92,8 @@
             "has_the_recipe"
         ]
     ],
-    "rewards": {
-        "recipes": [
+    "rewards":{
+        "recipes":[
             "mcdw:crossbow_doom_crossbow"
         ]
     }

@@ -1,56 +1,54 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:whip_whip"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_leather": {
-      "conditions": {
-        "items": [
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_leather":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:leather"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-
-    "has_string": {
-      "conditions": {
-        "items": [
+    "has_string":{
+      "conditions":{
+        "items":[
           {
-            "items": [
+            "items":[
               "minecraft:string"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger":"minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mcdw:whip_whip"
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:whip_whip"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger":"minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
+  "requirements":[
     [
       "has_leather",
-
       "has_string",
       "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
+  "rewards":{
+    "recipes":[
       "mcdw:whip_whip"
     ]
   }

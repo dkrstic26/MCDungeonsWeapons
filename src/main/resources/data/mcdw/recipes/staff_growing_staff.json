@@ -3,6 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
+        "mcdw:staff_battlestaff",
         "mcdw:staff_growing_staff"
       ]
     }

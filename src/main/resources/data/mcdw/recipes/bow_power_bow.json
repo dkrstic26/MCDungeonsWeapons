@@ -1,34 +1,34 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:bow_power_bow"
       ]
     }
   ],
-  "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "i/S",
-        "I S",
-        "i/S"
-    ],
-    "key": {
-        "S": {
-            "item": "minecraft:string"
-        },
-        "i": {
-            "item": "minecraft:iron_ingot"
-        },
-        "I": {
-            "item": "minecraft:iron_block"
-        },
-        "/": {
-            "item": "minecraft:stick"
-        }
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "i/S",
+    "I S",
+    "i/S"
+  ],
+  "key":{
+    "S":{
+      "item":"minecraft:string"
     },
-    "result": {
-        "item": "mcdw:bow_power_bow",
-        "count": 1
+    "i":{
+      "item":"minecraft:iron_ingot"
+    },
+    "I":{
+      "item":"minecraft:iron_block"
+    },
+    "/":{
+      "item":"minecraft:stick"
     }
+  },
+  "result":{
+    "item":"mcdw:bow_power_bow",
+    "count":1
+  }
 }

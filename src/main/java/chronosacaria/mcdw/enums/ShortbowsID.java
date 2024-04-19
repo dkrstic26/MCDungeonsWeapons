@@ -2,9 +2,9 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantment;
@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
-import net.projectile_damage.api.IProjectileWeapon;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
@@ -22,21 +21,23 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
-    BOW_LOVE_SPELL_BOW(     ToolMaterials.IRON, 3, 9, 8f, "minecraft:iron_ingot"),
-    BOW_MECHANICAL_SHORTBOW(ToolMaterials.IRON, 4, 9, 9f, "minecraft:iron_ingot"),
-    BOW_PURPLE_STORM(       ToolMaterials.IRON, 3, 9, 8f, "minecraft:iron_ingot"),
-    BOW_SHORTBOW(           ToolMaterials.IRON, 3, 9, 8f, "minecraft:planks");
+    BOW_LOVE_SPELL_BOW(     true, ToolMaterials.IRON, 3, 9, 8f, "minecraft:iron_ingot"),
+    BOW_MECHANICAL_SHORTBOW(true, ToolMaterials.IRON, 4, 9, 9f, "minecraft:iron_ingot"),
+    BOW_PURPLE_STORM(       true, ToolMaterials.IRON, 3, 9, 8f, "minecraft:iron_ingot"),
+    BOW_SHORTBOW(           true, ToolMaterials.IRON, 3, 9, 8f, "minecraft:planks");
 
-    public final ToolMaterial material;
-    public final double projectileDamage;
-    public final int drawSpeed;
-    public final float range;
+    private final boolean isEnabled;
+    private final ToolMaterial material;
+    private final double projectileDamage;
+    private final int drawSpeed;
+    private final float range;
     private final String[] repairIngredient;
 
     @SuppressWarnings("SameParameterValue")
-    ShortbowsID(ToolMaterial material, double projectileDamage, int drawSpeed, float range, String... repairIngredient) {
+    ShortbowsID(boolean isEnabled, ToolMaterial material, double projectileDamage, int drawSpeed, float range, String... repairIngredient) {
+        this.isEnabled = isEnabled;
         this.material = material;
-        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+        if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
             this.projectileDamage = projectileDamage;
         } else {
             this.projectileDamage = 0;
@@ -44,10 +45,6 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
         this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
-    }
-
-    public static HashMap<ShortbowsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.SHORTBOWS_ENABLED;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -64,9 +61,8 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     }
 
     @Override
-    public Boolean isEnabled(){
-        return getEnabledItems().get(this);
-    }
+    public boolean getIsEnabled(){
+        return CONFIG.mcdwNewStatsConfig.shortbowStats.get(this).isEnabled;    }
 
     @Override
     public McdwShortbow getItem() {
@@ -100,7 +96,7 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
 
     @Override
     public double getProjectileDamage() {
-        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+        if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
             return projectileDamage;
         } else {
             return 0;
@@ -123,11 +119,16 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     }
 
     @Override
+    public RangedStats getRangedStats() {
+        return new IRangedWeaponID.RangedStats().rangedStats(isEnabled, CleanlinessHelper.materialToString(material), projectileDamage, drawSpeed, range, repairIngredient);
+    }
+
+    @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case BOW_LOVE_SPELL_BOW -> Map.of(EnchantsRegistry.WILD_RAGE, 1);
-            case BOW_MECHANICAL_SHORTBOW, BOW_PURPLE_STORM -> Map.of(EnchantsRegistry.ACCELERATE, 1);
-            case BOW_SHORTBOW -> null;
+            case BOW_LOVE_SPELL_BOW -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.WILD_RAGE);
+            case BOW_MECHANICAL_SHORTBOW, BOW_PURPLE_STORM -> CleanlinessHelper.mcdw$checkInnateEnchantmentEnabled(1, EnchantmentsID.ACCELERATE);
+            case BOW_SHORTBOW -> Map.of();
         };
     }
 
@@ -139,12 +140,8 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     @SuppressWarnings("DataFlowIssue")
     @Override
     public McdwShortbow makeWeapon() {
-        McdwShortbow mcdwShortbow = new McdwShortbow(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwShortbow mcdwShortbow = new McdwShortbow(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
-        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
-            ((IProjectileWeapon) mcdwShortbow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
-            ((IProjectileWeapon) mcdwShortbow).setCustomLaunchVelocity((this.getWeaponItemStats().range / 15.0f) * 3.0);
-        }
         getItemsEnum().put(this, mcdwShortbow);
         return mcdwShortbow;
     }

@@ -1,68 +1,74 @@
 {
-  "fabric:load_conditions": [
+  "fabric:load_conditions":[
     {
-      "condition": "mcdw:item_enabled",
-      "values": [
+      "condition":"mcdw:item_enabled",
+      "values":[
+        "mcdw:hammer_mace"
+      ]
+    },
+    {
+      "condition":"mcdw:item_enabled",
+      "values":[
         "mcdw:hammer_suns_grace"
       ]
     }
   ],
-  "parent": "minecraft:recipes/root",
-    "criteria": {
-        "has_gold_block": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "minecraft:gold_block"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
-        "has_nether_star": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "minecraft:nether_star"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
-        "has_base": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "mcdw:hammer_mace"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
-        "has_the_recipe": {
-            "conditions": {
-                "recipe": "mcdw:hammer_suns_grace"
-            },
-            "trigger": "minecraft:recipe_unlocked"
-        }
+  "parent":"minecraft:recipes/root",
+  "criteria":{
+    "has_gold_block":{
+      "conditions":{
+        "items":[
+          {
+            "items":[
+              "minecraft:gold_block"
+            ]
+          }
+        ]
+      },
+      "trigger":"minecraft:inventory_changed"
     },
-    "requirements": [
-        [
-            "has_gold_block",
-            "has_nether_star",
-            "has_base",
-            "has_the_recipe"
+    "has_nether_star":{
+      "conditions":{
+        "items":[
+          {
+            "items":[
+              "minecraft:nether_star"
+            ]
+          }
         ]
-    ],
-    "rewards": {
-        "recipes": [
-            "mcdw:hammer_suns_grace"
+      },
+      "trigger":"minecraft:inventory_changed"
+    },
+    "has_base":{
+      "conditions":{
+        "items":[
+          {
+            "items":[
+              "mcdw:hammer_mace"
+            ]
+          }
         ]
+      },
+      "trigger":"minecraft:inventory_changed"
+    },
+    "has_the_recipe":{
+      "conditions":{
+        "recipe":"mcdw:hammer_suns_grace"
+      },
+      "trigger":"minecraft:recipe_unlocked"
     }
+  },
+  "requirements":[
+    [
+      "has_gold_block",
+      "has_nether_star",
+      "has_base",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards":{
+    "recipes":[
+      "mcdw:hammer_suns_grace"
+    ]
+  }
 }
