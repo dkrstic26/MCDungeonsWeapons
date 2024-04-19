@@ -27,9 +27,9 @@ public interface IShieldID extends IMcdwWeaponID {
     ShieldStats getShieldStats();
 
     class ShieldStats {
-        boolean isEnabled;
-        String material;
-        String[] repairIngredient;
+        boolean isEnabled = true;
+        String material = "diamond";
+        String[] repairIngredient = new String[]{};
 
         public ShieldStats shieldStats(boolean isEnabled, String material, String[] repairIngredient) {
             this.isEnabled = isEnabled;
