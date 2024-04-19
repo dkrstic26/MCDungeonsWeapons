@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
-import net.projectile_damage.api.IProjectileWeapon;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
@@ -38,7 +37,7 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     ShortbowsID(boolean isEnabled, ToolMaterial material, double projectileDamage, int drawSpeed, float range, String... repairIngredient) {
         this.isEnabled = isEnabled;
         this.material = material;
-        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+        if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
             this.projectileDamage = projectileDamage;
         } else {
             this.projectileDamage = 0;
@@ -97,7 +96,7 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
 
     @Override
     public double getProjectileDamage() {
-        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+        if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
             return projectileDamage;
         } else {
             return 0;
@@ -143,10 +142,6 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     public McdwShortbow makeWeapon() {
         McdwShortbow mcdwShortbow = new McdwShortbow(this, CleanlinessHelper.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
-        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
-            ((IProjectileWeapon) mcdwShortbow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
-            ((IProjectileWeapon) mcdwShortbow).setCustomLaunchVelocity((this.getWeaponItemStats().range / 15.0f) * 3.0);
-        }
         getItemsEnum().put(this, mcdwShortbow);
         return mcdwShortbow;
     }
