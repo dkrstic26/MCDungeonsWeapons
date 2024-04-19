@@ -29,12 +29,12 @@ public interface IRangedWeaponID extends IMcdwWeaponID {
     RangedStats getRangedStats();
 
     class RangedStats {
-        public boolean isEnabled;
-        public String material;
-        public double projectileDamage;
-        public int drawSpeed;
-        public float range;
-        String[] repairIngredient;
+        public boolean isEnabled = true;
+        public String material = "iron";
+        public double projectileDamage = 0.0;
+        public int drawSpeed = 20;
+        public float range = 16f;
+        String[] repairIngredient = new String[]{};
 
         public RangedStats rangedStats(boolean isEnabled, String material, double projectileDamage, int drawSpeed, float range, String[] repairIngredient) {
             this.isEnabled = isEnabled;
