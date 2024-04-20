@@ -7,104 +7,47 @@
   "attribute.name.generic.mcdw.reach": "Reach",
   "attribute.name.generic.mcdw.attack_range": "Attack Reach",
 
-  "item.mcdw.axe_axe": "Axe",
-  "item.mcdw.double_axe_cursed": "Cursed Axe",
-  "item.mcdw.double_axe_double": "Double Axe",
-  "item.mcdw.axe_highland": "Highland Axe",
-  "item.mcdw.double_axe_whirlwind": "Whirlwind",
-  "item.mcdw.axe_firebrand": "Firebrand",
   "item.mcdw.axe_anchor": "Anchor",
   "item.mcdw.axe_encrusted_anchor": "Encrusted Anchor",
 
-  "item.mcdw.bow_bonebow": "Bonebow",
-  "item.mcdw.bow_twin_bow": "Twin Bow",
-  "item.mcdw.bow_longbow": "Longbow",
-  "item.mcdw.bow_red_snake": "Red Snake",
-  "item.mcdw.bow_guardian_bow": "Guardian Bow",
-  "item.mcdw.bow_shortbow": "Shortbow",
-  "item.mcdw.bow_mechanical_shortbow": "Mechanical Shortbow",
-  "item.mcdw.bow_purple_storm": "The Purple Storm",
-  "item.mcdw.bow_trickbow": "Trickbow",
-  "item.mcdw.bow_green_menace": "The Green Menace",
-  "item.mcdw.bow_pink_scoundrel": "The Pink Scoundrel",
-  "item.mcdw.bow_power_bow": "Power Bow",
-  "item.mcdw.bow_elite_power_bow": "Elite Power Bow",
-  "item.mcdw.bow_hunting_bow": "Hunting Bow",
-  "item.mcdw.bow_sabrewing": "Sabrewing",
-  "item.mcdw.bow_masters_bow": "Master's Bow",
-  "item.mcdw.bow_hunters_promise": "Hunter's Promise",
-  "item.mcdw.bow_soul_bow": "Soul Bow",
-  "item.mcdw.bow_nocturnal_bow": "Nocturnal Bow",
-  "item.mcdw.bow_lost_souls": "Bow of Lost Souls",
-  "item.mcdw.bow_haunted_bow": "Haunted Bow",
-  "item.mcdw.bow_love_spell_bow": "Love Spell Bow",
-  "item.mcdw.bow_ancient_bow": "Ancient Bow",
-  "item.mcdw.bow_snow_bow": "Snow Bow",
-  "item.mcdw.bow_winters_touch": "Winter's Touch",
-  "item.mcdw.bow_shivering_bow": "Shivering Bow",
-  "item.mcdw.bow_wind_bow": "Wind Bow",
-  "item.mcdw.bow_echo_of_the_valley": "Echo of the Valley",
-  "item.mcdw.bow_burst_gale_bow": "Burst Gale Bow",
-  "item.mcdw.bow_weeping_vine_bow": "Weeping Vine Bow",
-  "item.mcdw.bow_twisting_vine_bow": "Twisting Vine Bow",
-  "item.mcdw.bow_bubble_bow": "Bubble Bow",
-  "item.mcdw.bow_bubble_burster": "Bubble Burster",
-  "item.mcdw.bow_void_bow": "Void Bow",
-  "item.mcdw.bow_call_of_the_void": "Call of the Void",
-  "item.mcdw.bow_phantom_bow": "Phantom Bow",
-  "item.mcdw.bow_web_bow": "Web Bow",
+  "item.mcdw.axe_axe": "Axe",
+  "item.mcdw.axe_firebrand": "Firebrand",
+  "item.mcdw.axe_highland": "Highland Axe",
 
-  "item.mcdw.crossbow_the_slicer" : "The Slicer",
-  "item.mcdw.crossbow_azure_seeker" : "Azure Seeker",
-  "item.mcdw.crossbow_exploding_crossbow" : "Exploding Crossbow",
-  "item.mcdw.crossbow_imploding_crossbow" : "Imploding Crossbow",
-  "item.mcdw.crossbow_firebolt_thrower" : "Firebolt Thrower",
-  "item.mcdw.crossbow_heavy_crossbow" : "Heavy Crossbow",
-  "item.mcdw.crossbow_doom_crossbow" : "Doom Crossbow",
-  "item.mcdw.crossbow_slayer_crossbow" : "Slayer Crossbow",
-  "item.mcdw.crossbow_rapid_crossbow" : "Rapid Crossbow",
-  "item.mcdw.crossbow_butterfly_crossbow" : "Butterfly Crossbow",
-  "item.mcdw.crossbow_auto_crossbow" : "Auto Crossbow",
-  "item.mcdw.crossbow_scatter_crossbow" : "Scatter Crossbow",
-  "item.mcdw.crossbow_harp_crossbow" : "Harp Crossbow",
-  "item.mcdw.crossbow_lightning_harp_crossbow" : "Lightning Harp Crossbow",
-  "item.mcdw.crossbow_soul_crossbow" : "Soul Crossbow",
-  "item.mcdw.crossbow_feral_soul_crossbow" : "Feral Soul Crossbow",
-  "item.mcdw.crossbow_voidcaller_crossbow" : "Voidcaller",
-  "item.mcdw.crossbow_dual_crossbow" : "Dual Crossbow",
-  "item.mcdw.crossbow_spellbound_crossbow" : "Spellbound Crossbow",
-  "item.mcdw.crossbow_baby_crossbow" : "Baby Crossbow",
-  "item.mcdw.crossbow_burst_crossbow" : "Burst Crossbow",
-  "item.mcdw.crossbow_soul_hunter_crossbow" : "Soul Hunter Crossbow",
-  "item.mcdw.crossbow_corrupted_crossbow" : "Corrupted Crossbow",
-  "item.mcdw.crossbow_cog_crossbow": "Cog Crossbow",
-  "item.mcdw.crossbow_pride_of_the_piglins": "Pride of the Piglins",
-  "item.mcdw.crossbow_harpoon_crossbow": "Harpoon Crossbow",
-  "item.mcdw.crossbow_nautical_crossbow": "Nautical Crossbow",
-  "item.mcdw.crossbow_shadow_crossbow": "Shadow Crossbow",
-  "item.mcdw.crossbow_veiled_crossbow": "Veiled Crossbow",
+  "item.mcdw.double_axe_cursed": "Cursed Axe",
+  "item.mcdw.double_axe_double": "Double Axe",
+  "item.mcdw.double_axe_whirlwind": "Whirlwind",
 
   "item.mcdw.dagger_dagger": "Dagger",
   "item.mcdw.dagger_fangs_of_frost": "Fangs of Frost",
   "item.mcdw.dagger_moon": "Moon Dagger",
-  "item.mcdw.soul_dagger_soul_knife": "Soul Knife",
-  "item.mcdw.soul_dagger_eternal_knife": "Eternal Knife",
+
   "item.mcdw.dagger_tempest_knife": "Tempest Knife",
   "item.mcdw.dagger_chill_gale_knife": "Chill Gale Knife",
   "item.mcdw.dagger_resolute_tempest_knife": "Resolute Tempest Knife",
+
   "item.mcdw.dagger_shear_dagger": "Shear Dagger",
+
   "item.mcdw.dagger_backstabber": "Backstabber",
   "item.mcdw.dagger_swift_striker": "Swift Striker",
+
   "item.mcdw.dagger_void_touched_blade": "Void Touched Blade",
   "item.mcdw.dagger_the_beginning": "The Beginning",
   "item.mcdw.dagger_the_end": "The End",
 
+  "item.mcdw.soul_dagger_soul_knife": "Soul Knife",
+  "item.mcdw.soul_dagger_eternal_knife": "Eternal Knife",
+  "item.mcdw.soul_dagger_truthseeker": "Truthseeker",
+
   "item.mcdw.hammer_mace": "Mace",
   "item.mcdw.hammer_flail": "Flail",
-  "item.mcdw.hammer_gravity": "Hammer of Gravity",
-  "item.mcdw.hammer_great_hammer": "Great Hammer",
-  "item.mcdw.hammer_stormlander": "Stormlander",
   "item.mcdw.hammer_suns_grace": "Sun's Grace",
+
+  "item.mcdw.hammer_great_hammer": "Great Hammer",
+  "item.mcdw.hammer_bonehead": "Bonehead Hammer",
+  "item.mcdw.hammer_gravity": "Hammer of Gravity",
+  "item.mcdw.hammer_stormlander": "Stormlander",
+
   "item.mcdw.hammer_boneclub": "Boneclub",
   "item.mcdw.hammer_bone_cudgel": "Bone Cudgel",
 
@@ -117,6 +60,7 @@
   "item.mcdw.sickle_nightmares_bite": "Nightmare's Bite",
   "item.mcdw.sickle_last_laugh_gold": "The Last Laugh",
   "item.mcdw.sickle_last_laugh_silver": "The Last Laugh",
+
   "item.mcdw.scythe_frost_scythe": "Frost Scythe",
   "item.mcdw.scythe_jailors_scythe": "Jailor's Scythe",
   "item.mcdw.scythe_soul_scythe": "Soul Scythe",
@@ -125,6 +69,7 @@
   "item.mcdw.spear_spear": "Spear",
   "item.mcdw.spear_fortune": "Fortune Spear",
   "item.mcdw.spear_whispering_spear": "Whispering Spear",
+
   "item.mcdw.glaive_glaive": "Glaive",
   "item.mcdw.glaive_grave_bane": "Grave Bane",
   "item.mcdw.glaive_venom_glaive": "Venom Glaive",
@@ -145,15 +90,16 @@
 
   "item.mcdw.sword_broadsword": "Broadsword",
   "item.mcdw.sword_claymore": "Claymore",
-  "item.mcdw.sword_heartstealer": "Heartstealer",
-  "item.mcdw.sword_great_axeblade": "Great Axeblade",
   "item.mcdw.sword_frost_slayer": "Frost Slayer",
+  "item.mcdw.sword_great_axeblade": "Great Axeblade",
+  "item.mcdw.sword_heartstealer": "Heartstealer",
   "item.mcdw.sword_obsidian_claymore": "Obsidian Claymore",
   "item.mcdw.sword_the_starless_night": "The Starless Night",
 
   "item.mcdw.sword_cutlass": "Cutlass",
   "item.mcdw.sword_dancers_sword": "Dancer's Sword",
   "item.mcdw.sword_nameless_blade": "Nameless Blade",
+  "item.mcdw.sword_sparkler": "Sparkler",
 
   "item.mcdw.sword_katana": "Katana",
   "item.mcdw.sword_masters_katana": "Master's Katana",
@@ -162,17 +108,108 @@
   "item.mcdw.sword_broken_sawblade": "Broken Sawblade",
   "item.mcdw.sword_mechanized_sawblade": "Mechanized Sawblade",
 
-  "item.mcdw.soul_dagger_truthseeker": "Truthseeker",
-
   "item.mcdw.sword_coral_blade": "Coral Blade",
   "item.mcdw.sword_sponge_striker": "Sponge Striker",
 
   "item.mcdw.whip_whip": "Whip",
   "item.mcdw.whip_vine_whip": "Vine Whip",
 
+  "item.mcdw.gauntlet_fighters_bindings": "Fighter's Bindings",
   "item.mcdw.gauntlet_gauntlet": "Gauntlet",
   "item.mcdw.gauntlet_maulers": "Mauler",
   "item.mcdw.gauntlet_soul_fists": "Soul Fist",
+
+  "item.mcdw.bow_bonebow": "Bonebow",
+  "item.mcdw.bow_haunted_bow": "Haunted Bow",
+  "item.mcdw.bow_twin_bow": "Twin Bow",
+
+  "item.mcdw.bow_longbow": "Longbow",
+  "item.mcdw.bow_guardian_bow": "Guardian Bow",
+  "item.mcdw.bow_red_snake": "Red Snake",
+
+  "item.mcdw.bow_shortbow": "Shortbow",
+  "item.mcdw.bow_love_spell_bow": "Love Spell Bow",
+  "item.mcdw.bow_mechanical_shortbow": "Mechanical Shortbow",
+  "item.mcdw.bow_purple_storm": "The Purple Storm",
+
+  "item.mcdw.bow_trickbow": "Trickbow",
+  "item.mcdw.bow_sugar_rush": "Sugar Rush",
+  "item.mcdw.bow_green_menace": "The Green Menace",
+  "item.mcdw.bow_pink_scoundrel": "The Pink Scoundrel",
+
+  "item.mcdw.bow_power_bow": "Power Bow",
+  "item.mcdw.bow_elite_power_bow": "Elite Power Bow",
+  "item.mcdw.bow_phantom_bow": "Phantom Bow",
+  "item.mcdw.bow_sabrewing": "Sabrewing",
+
+  "item.mcdw.bow_hunting_bow": "Hunting Bow",
+  "item.mcdw.bow_ancient_bow": "Ancient Bow",
+  "item.mcdw.bow_hunters_promise": "Hunter's Promise",
+  "item.mcdw.bow_masters_bow": "Master's Bow",
+
+  "item.mcdw.bow_soul_bow": "Soul Bow",
+  "item.mcdw.bow_lost_souls": "Bow of Lost Souls",
+  "item.mcdw.bow_nocturnal_bow": "Nocturnal Bow",
+  "item.mcdw.bow_shivering_bow": "Shivering Bow",
+
+  "item.mcdw.bow_snow_bow": "Snow Bow",
+  "item.mcdw.bow_web_bow": "Webbed Bow",
+  "item.mcdw.bow_winters_touch": "Winter's Touch",
+
+  "item.mcdw.bow_wind_bow": "Wind Bow",
+  "item.mcdw.bow_burst_gale_bow": "Burst Gale Bow",
+  "item.mcdw.bow_echo_of_the_valley": "Echo of the Valley",
+
+  "item.mcdw.bow_twisting_vine_bow": "Twisting Vine Bow",
+  "item.mcdw.bow_weeping_vine_bow": "Weeping Vine Bow",
+
+  "item.mcdw.bow_bubble_bow": "Bubble Bow",
+  "item.mcdw.bow_bubble_burster": "Bubble Burster",
+  "item.mcdw.bow_gloopy": "Gloopy Bow",
+
+  "item.mcdw.bow_void_bow": "Void Bow",
+  "item.mcdw.bow_call_of_the_void": "Call of the Void",
+
+  "item.mcdw.crossbow_burst_crossbow" : "Burst Crossbow",
+  "item.mcdw.crossbow_corrupted_crossbow" : "Corrupted Crossbow",
+  "item.mcdw.crossbow_soul_hunter_crossbow" : "Soul Hunter Crossbow",
+
+  "item.mcdw.crossbow_cog_crossbow": "Cog Crossbow",
+  "item.mcdw.crossbow_pride_of_the_piglins": "Pride of the Piglins",
+
+  "item.mcdw.crossbow_azure_seeker" : "Azure Seeker",
+  "item.mcdw.crossbow_the_slicer" : "The Slicer",
+
+  "item.mcdw.crossbow_dual_crossbow" : "Dual Crossbow",
+  "item.mcdw.crossbow_baby_crossbow" : "Baby Crossbow",
+  "item.mcdw.crossbow_spellbound_crossbow" : "Spellbound Crossbow",
+
+  "item.mcdw.crossbow_exploding_crossbow" : "Exploding Crossbow",
+  "item.mcdw.crossbow_firebolt_thrower" : "Firebolt Thrower",
+  "item.mcdw.crossbow_imploding_crossbow" : "Imploding Crossbow",
+
+  "item.mcdw.crossbow_harpoon_crossbow": "Harpoon Crossbow",
+  "item.mcdw.crossbow_nautical_crossbow": "Nautical Crossbow",
+
+  "item.mcdw.crossbow_heavy_crossbow" : "Heavy Crossbow",
+  "item.mcdw.crossbow_doom_crossbow" : "Doom Crossbow",
+  "item.mcdw.crossbow_slayer_crossbow" : "Slayer Crossbow",
+
+  "item.mcdw.crossbow_rapid_crossbow" : "Rapid Crossbow",
+  "item.mcdw.crossbow_auto_crossbow" : "Auto Crossbow",
+  "item.mcdw.crossbow_butterfly_crossbow" : "Butterfly Crossbow",
+
+  "item.mcdw.crossbow_scatter_crossbow" : "Scatter Crossbow",
+  "item.mcdw.crossbow_harp_crossbow" : "Harp Crossbow",
+  "item.mcdw.crossbow_lightning_harp_crossbow" : "Lightning Harp Crossbow",
+
+  "item.mcdw.crossbow_shadow_crossbow": "Shadow Crossbow",
+  "item.mcdw.crossbow_shrieking_crossbow": "Shrieking Crossbow",
+  "item.mcdw.crossbow_veiled_crossbow": "Veiled Crossbow",
+
+  "item.mcdw.crossbow_soul_crossbow" : "Soul Crossbow",
+  "item.mcdw.crossbow_feral_soul_crossbow" : "Feral Soul Crossbow",
+  "item.mcdw.crossbow_voidcaller_crossbow" : "Voidcaller",
 
   "item.mcdw.shield_royal_guard": "Royal Guard Shield",
   "item.mcdw.shield_tower_guard": "Tower Guard Shield",
@@ -267,6 +304,11 @@
   "tooltip_info_item.mcdw.anchor_3"                 : "the tradition of legendary",
   "tooltip_info_item.mcdw.anchor_4"                 : "seafaring warriors.",
 
+  "tooltip_info_item.mcdw.encrusted_anchor_1"       : "This Encrusted Anchor was",
+  "tooltip_info_item.mcdw.encrusted_anchor_2"       : "lost at sea long ago and has",
+  "tooltip_info_item.mcdw.encrusted_anchor_3"       : "become harsh and corrosive",
+  "tooltip_info_item.mcdw.encrusted_anchor_4"       : "during its ages of neglect.",
+
   "tooltip_info_item.mcdw.claymore_1"               : "A massive sword that seems",
   "tooltip_info_item.mcdw.claymore_2"               : "impossibly heavy yet rests",
   "tooltip_info_item.mcdw.claymore_3"               : "easily in a just warrior's",
@@ -284,11 +326,11 @@
 
   "tooltip_info_item.mcdw.great_axeblade_1"         : "A lucky blacksmith turned a",
   "tooltip_info_item.mcdw.great_axeblade_2"         : "workshop blunder into a",
-  "tooltip_info_item.mcdw.great_axeblade_3"         : "battlefield wonder, fusing ",
+  "tooltip_info_item.mcdw.great_axeblade_3"         : "battlefield wonder, fusing",
   "tooltip_info_item.mcdw.great_axeblade_4"         : "two weapons into something",
   "tooltip_info_item.mcdw.great_axeblade_5"         : "new.",
 
-  "tooltip_info_item.mcdw.heartstealer_1"           : "Gifted to one of the Arch-Illager's ",
+  "tooltip_info_item.mcdw.heartstealer_1"           : "Gifted to one of the Arch-Illager's",
   "tooltip_info_item.mcdw.heartstealer_2"           : "most distinguished generals upon",
   "tooltip_info_item.mcdw.heartstealer_3"           : "their conquest of the Squid Coast -",
   "tooltip_info_item.mcdw.heartstealer_4"           : "this runeblade is infused with",
@@ -303,50 +345,53 @@
   "tooltip_info_item.mcdw.the_starless_night_3"     : "the pitch-black blade.",
 
   "tooltip_info_item.mcdw.cutlass_1"                : "This curved blade, wielded by the",
-  "tooltip_info_item.mcdw.cutlass_2"                : "warriors of the Squid Coast, ",
+  "tooltip_info_item.mcdw.cutlass_2"                : "warriors of the Squid Coast,",
   "tooltip_info_item.mcdw.cutlass_3"                : "requires a steady hand in battle.",
 
   "tooltip_info_item.mcdw.dancers_sword_1"          : "Warriors who view battle as a dance",
   "tooltip_info_item.mcdw.dancers_sword_2"          : "with death prefer double-bladed swords.",
 
-  "tooltip_info_item.mcdw.nameless_blade_1"         : "This deadly blade's story was ",
+  "tooltip_info_item.mcdw.nameless_blade_1"         : "This deadly blade's story was",
   "tooltip_info_item.mcdw.nameless_blade_2"         : "lost to the endless sands of time.",
 
-  "tooltip_info_item.mcdw.katana_1"                 : "A blade fit for expert warriors ",
-  "tooltip_info_item.mcdw.katana_2"                 : "and fighters, its blade is ",
+  "tooltip_info_item.mcdw.sparkler_1"               : "The Sparkler lights up the party",
+  "tooltip_info_item.mcdw.sparkler_2"               : "as it cuts through the darkness.",
+
+  "tooltip_info_item.mcdw.katana_1"                 : "A blade fit for expert warriors",
+  "tooltip_info_item.mcdw.katana_2"                 : "and fighters, its blade is",
   "tooltip_info_item.mcdw.katana_3"                 : "crafted to inflict precision damage.",
 
-  "tooltip_info_item.mcdw.masters_katana_1"         : "The Master's Katana has existed ",
-  "tooltip_info_item.mcdw.masters_katana_2"         : "throughout the ages, appearing ",
+  "tooltip_info_item.mcdw.masters_katana_1"         : "The Master's Katana has existed",
+  "tooltip_info_item.mcdw.masters_katana_2"         : "throughout the ages, appearing",
   "tooltip_info_item.mcdw.masters_katana_3"         : "to heroes at the right moment.",
 
   "tooltip_info_item.mcdw.dark_katana_1"            : "A blade that will not rest until",
   "tooltip_info_item.mcdw.dark_katana_2"            : "the battle has been won.",
 
-  "tooltip_info_item.mcdw.rapier_1"                 : "The rapier, a nimble and narrow ",
+  "tooltip_info_item.mcdw.rapier_1"                 : "The rapier, a nimble and narrow",
   "tooltip_info_item.mcdw.rapier_2"                 : "blade, strikes with quick ferocity.",
 
-  "tooltip_info_item.mcdw.beestinger_1"             : "The Bee Stinger, a swift blade ",
-  "tooltip_info_item.mcdw.beestinger_2"             : "inspired by a bee's barb, can ",
-  "tooltip_info_item.mcdw.beestinger_3"             : "draw friendly bees into the ",
+  "tooltip_info_item.mcdw.beestinger_1"             : "The Bee Stinger, a swift blade",
+  "tooltip_info_item.mcdw.beestinger_2"             : "inspired by a bee's barb, can",
+  "tooltip_info_item.mcdw.beestinger_3"             : "draw friendly bees into the",
   "tooltip_info_item.mcdw.beestinger_4"             : "fray to fight alongside you.",
 
   "tooltip_info_item.mcdw.freezing_foil_1"          : "This needle-like blade is",
-  "tooltip_info_item.mcdw.freezing_foil_2"          : "cold to the touch and ",
+  "tooltip_info_item.mcdw.freezing_foil_2"          : "cold to the touch and",
   "tooltip_info_item.mcdw.freezing_foil_3"          : "makes quick work of any cut.",
 
   "tooltip_info_item.mcdw.truthseeker_1"            : "The warden of Highblock Keep",
   "tooltip_info_item.mcdw.truthseeker_2"            : "kept this unpleasant blade by",
   "tooltip_info_item.mcdw.truthseeker_3"            : "their side during interrogations.",
 
-  "tooltip_info_item.mcdw.diamond_sword_var_1"      : "The Diamond Sword is the true ",
-  "tooltip_info_item.mcdw.diamond_sword_var_2"      : "mark of a hero and an ",
+  "tooltip_info_item.mcdw.diamond_sword_var_1"      : "The Diamond Sword is the true",
+  "tooltip_info_item.mcdw.diamond_sword_var_2"      : "mark of a hero and an",
   "tooltip_info_item.mcdw.diamond_sword_var_3"      : "accomplished adventurer.",
 
   "tooltip_info_item.mcdw.iron_sword_var_1"         : "A sturdy and reliable blade.",
 
-  "tooltip_info_item.mcdw.hawkbrand_1"              : "The Hawkbrand is the ",
-  "tooltip_info_item.mcdw.hawkbrand_2"              : "legendary sword of proven ",
+  "tooltip_info_item.mcdw.hawkbrand_1"              : "The Hawkbrand is the",
+  "tooltip_info_item.mcdw.hawkbrand_2"              : "legendary sword of proven",
   "tooltip_info_item.mcdw.hawkbrand_3"              : "warriors.",
 
   "tooltip_info_item.mcdw.sinister_1"               : "The Sinister Sword, drawn",
@@ -371,7 +416,7 @@
   "tooltip_info_item.mcdw.sponge_striker_3"         : "energy in combat and expels",
   "tooltip_info_item.mcdw.sponge_striker_4"         : "it in a powerful burst.",
 
-  "tooltip_info_item.mcdw.double_1"                 : "A devastating weapon fit for ",
+  "tooltip_info_item.mcdw.double_1"                 : "A devastating weapon fit for",
   "tooltip_info_item.mcdw.double_2"                 : "barbaric fighters.",
 
   "tooltip_info_item.mcdw.cursed_1"                 : "This cursed, poisonous axe",
@@ -382,6 +427,10 @@
   "tooltip_info_item.mcdw.whirlwind_1"              : "Whirlwind, forged during an epic",
   "tooltip_info_item.mcdw.whirlwind_2"              : "windstorm, is a double-bladed",
   "tooltip_info_item.mcdw.whirlwind_3"              : "axe that levitates slightly.",
+
+  "tooltip_info_item.mcdw.fighters_bindings_1"      : "Made in the wilds beyond the",
+  "tooltip_info_item.mcdw.fighters_bindings_2"      : "mountains, these gauntlets have",
+  "tooltip_info_item.mcdw.fighters_bindings_3"      : "been worn by warriors for centuries.",
 
   "tooltip_info_item.mcdw.gauntlet_1"               : "Gauntlets call back to an",
   "tooltip_info_item.mcdw.gauntlet_2"               : "ancient style of hand to hand combat.",
@@ -479,6 +528,11 @@
   "tooltip_info_item.mcdw.great_hammer_2"           : "the Great Hammer for its strength",
   "tooltip_info_item.mcdw.great_hammer_3"           : "in forging and in battle.",
 
+  "tooltip_info_item.mcdw.bonehead_1"               : "Fashioned in the likeness of a",
+  "tooltip_info_item.mcdw.bonehead_2"               : "familiar fow, this hammer pulls",
+  "tooltip_info_item.mcdw.bonehead_3"               : "your opponents towards their",
+  "tooltip_info_item.mcdw.bonehead_4"               : "doom.",
+
   "tooltip_info_item.mcdw.gravity_1"                : "A hammer, embedded with a crystal that",
   "tooltip_info_item.mcdw.gravity_2"                : "harnesses the power of gravity, that",
   "tooltip_info_item.mcdw.gravity_3"                : "is incredibly powerful",
@@ -575,15 +629,15 @@
   "tooltip_info_item.mcdw.lost_souls_2"             : "stripes the living of their",
   "tooltip_info_item.mcdw.lost_souls_3"             : "very souls.",
 
-  "tooltip_info_item.mcdw.elite_power_bow_1"        : "The secret of the Elite Power ",
-  "tooltip_info_item.mcdw.elite_power_bow_2"        : "Bow's construction have been ",
+  "tooltip_info_item.mcdw.elite_power_bow_1"        : "The secret of the Elite Power",
+  "tooltip_info_item.mcdw.elite_power_bow_2"        : "Bow's construction have been",
   "tooltip_info_item.mcdw.elite_power_bow_3"        : "lost without a trace.",
 
   "tooltip_info_item.mcdw.guardian_bow_1"           : "Forged from fossilized coral,",
   "tooltip_info_item.mcdw.guardian_bow_2"           : "the Guardian Bow is a remnant from",
   "tooltip_info_item.mcdw.guardian_bow_3"           : "sunken civilizations of lost ages.",
 
-  "tooltip_info_item.mcdw.haunted_bow_1"            : "What indescribably horror! The ",
+  "tooltip_info_item.mcdw.haunted_bow_1"            : "What indescribably horror! The",
   "tooltip_info_item.mcdw.haunted_bow_2"            : "creeping tentacles of this bow",
   "tooltip_info_item.mcdw.haunted_bow_3"            : "reach for the unknowable Void.",
 
@@ -600,7 +654,7 @@
   "tooltip_info_item.mcdw.longbow_2"                : "rather than battle, is still",
   "tooltip_info_item.mcdw.longbow_3"                : "useful in a fight.",
 
-  "tooltip_info_item.mcdw.love_spell_bow_1"         : "Love can be magical, but when it ",
+  "tooltip_info_item.mcdw.love_spell_bow_1"         : "Love can be magical, but when it",
   "tooltip_info_item.mcdw.love_spell_bow_2"         : "becomes too powerful, it can turn",
   "tooltip_info_item.mcdw.love_spell_bow_3"         : "into a frenzy.",
 
@@ -655,6 +709,9 @@
   "tooltip_info_item.mcdw.trickbow_1"               : "A sleek bow that seems to",
   "tooltip_info_item.mcdw.trickbow_2"               : "never miss its target.",
 
+  "tooltip_info_item.mcdw.sugar_rush_1"             : "This candy-colored bow has",
+  "tooltip_info_item.mcdw.sugar_rush_2"             : "a surprisingly bitter bite.",
+
   "tooltip_info_item.mcdw.twin_bow_1"               : "The Twin Bow is the champion",
   "tooltip_info_item.mcdw.twin_bow_2"               : "of the hero who finds themselves",
   "tooltip_info_item.mcdw.twin_bow_3"               : "outnumbered and alone.",
@@ -696,6 +753,10 @@
   "tooltip_info_item.mcdw.bubble_burster_1"         : "The Bubble Burster creates a",
   "tooltip_info_item.mcdw.bubble_burster_2"         : "chain effect of bubble trouble",
   "tooltip_info_item.mcdw.bubble_burster_3"         : "for your enemies.",
+
+  "tooltip_info_item.mcdw.gloopy_bow_1"             : "Entrap your enemies in a strange,",
+  "tooltip_info_item.mcdw.gloopy_bow_2"             : "syrupy bubble and show them who's",
+  "tooltip_info_item.mcdw.gloopy_bow_3"             : "boss!",
 
   "tooltip_info_item.mcdw.void_bow_1"               : "When you pluck the string of the",
   "tooltip_info_item.mcdw.void_bow_2"               : "Void Bow, an unsettling silence",
@@ -802,6 +863,11 @@
   "tooltip_info_item.mcdw.shadow_crossbow_1"        : "Those who wish to use the Shadow",
   "tooltip_info_item.mcdw.shadow_crossbow_2"        : "Crossbow must train in total",
   "tooltip_info_item.mcdw.shadow_crossbow_3"        : "darkness before wielding it.",
+
+  "tooltip_info_item.mcdw.shrieking_crossbow_1"     : "As you wield this unsettling",
+  "tooltip_info_item.mcdw.shrieking_crossbow_2"     : "weapon, you might find yourself",
+  "tooltip_info_item.mcdw.shrieking_crossbow_3"     : "succumbing to the darkness and",
+  "tooltip_info_item.mcdw.shrieking_crossbow_4"     : "becoming one with the night.",
 
   "tooltip_info_item.mcdw.slayer_crossbow_1"        : "The Slayer Crossbow is the treasured",
   "tooltip_info_item.mcdw.slayer_crossbow_2"        : "heirloom of many legendary hunters.",
