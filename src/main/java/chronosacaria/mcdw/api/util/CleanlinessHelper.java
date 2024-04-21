@@ -30,6 +30,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.random.Random;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -37,7 +38,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public class CleanlinessHelper {
-    static final Random random = new Random();
+    @SuppressWarnings("deprecation")
+    public static final Random random = Random.createThreadSafe();
 
     public static boolean percentToOccur (int chance) {
         return random.nextInt(100) < chance;
