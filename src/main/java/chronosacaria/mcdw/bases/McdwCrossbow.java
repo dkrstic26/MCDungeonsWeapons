@@ -71,7 +71,9 @@ public class McdwCrossbow extends CrossbowItem implements IInnateEnchantment {
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.crossbowsEnum.getInnateEnchantments();
+        if (this.crossbowsEnum.getIsEnabled())
+            return this.crossbowsEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

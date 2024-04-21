@@ -56,7 +56,9 @@ public class McdwSickle extends SwordItem implements IOffhandAttack, IInnateEnch
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.sicklesEnum.getInnateEnchantments();
+        if (this.sicklesEnum.getIsEnabled())
+            return this.sicklesEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

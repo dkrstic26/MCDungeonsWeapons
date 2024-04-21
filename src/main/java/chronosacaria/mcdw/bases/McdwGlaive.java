@@ -104,7 +104,9 @@ public class McdwGlaive extends SwordItem implements IInnateEnchantment {
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.glaivesEnum.getInnateEnchantments();
+        if (this.glaivesEnum.getIsEnabled())
+            return this.glaivesEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

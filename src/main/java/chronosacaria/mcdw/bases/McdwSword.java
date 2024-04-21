@@ -120,7 +120,9 @@ public class McdwSword extends SwordItem implements IInnateEnchantment {
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.swordsEnum.getInnateEnchantments();
+        if (this.swordsEnum.getIsEnabled())
+            return this.swordsEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

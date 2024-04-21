@@ -50,7 +50,9 @@ public class McdwHammer extends AxeItem implements IInnateEnchantment {
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.hammersEnum.getInnateEnchantments();
+        if (this.hammersEnum.getIsEnabled())
+            return this.hammersEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

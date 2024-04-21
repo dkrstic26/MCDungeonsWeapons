@@ -47,7 +47,9 @@ public class McdwSoulDagger extends SwordItem implements IInnateEnchantment {
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.soulDaggersEnum.getInnateEnchantments();
+        if (this.soulDaggersEnum.getIsEnabled())
+            return this.soulDaggersEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

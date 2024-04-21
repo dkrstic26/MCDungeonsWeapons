@@ -59,7 +59,9 @@ public class McdwDagger extends SwordItem implements IOffhandAttack, IInnateEnch
 
     @Override
     public @Nullable Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.daggersEnum.getInnateEnchantments();
+        if (this.daggersEnum.getIsEnabled())
+            return this.daggersEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

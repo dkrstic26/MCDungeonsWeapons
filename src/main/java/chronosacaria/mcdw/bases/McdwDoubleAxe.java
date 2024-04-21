@@ -47,7 +47,9 @@ public class McdwDoubleAxe extends AxeItem implements IInnateEnchantment {
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.doubleAxesEnum.getInnateEnchantments();
+        if (this.doubleAxesEnum.getIsEnabled())
+            return this.doubleAxesEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

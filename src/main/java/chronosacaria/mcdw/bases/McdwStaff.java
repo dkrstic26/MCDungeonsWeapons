@@ -132,7 +132,9 @@ public class McdwStaff extends AxeItem implements IInnateEnchantment {
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.stavesEnum.getInnateEnchantments();
+        if (this.stavesEnum.getIsEnabled())
+            return this.stavesEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

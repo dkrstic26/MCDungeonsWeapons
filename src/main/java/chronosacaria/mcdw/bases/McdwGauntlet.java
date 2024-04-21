@@ -56,7 +56,9 @@ public class McdwGauntlet extends SwordItem implements IOffhandAttack, IInnateEn
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.gauntletsEnum.getInnateEnchantments();
+        if (this.gauntletsEnum.getIsEnabled())
+            return this.gauntletsEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

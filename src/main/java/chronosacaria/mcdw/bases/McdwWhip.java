@@ -129,7 +129,9 @@ public class McdwWhip extends McdwCustomWeaponBase implements Vanishable, IInnat
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.whipsEnum.getInnateEnchantments();
+        if (this.whipsEnum.getIsEnabled())
+            return this.whipsEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

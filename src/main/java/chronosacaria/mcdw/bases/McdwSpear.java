@@ -128,7 +128,9 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable, IInna
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.spearsEnum.getInnateEnchantments();
+        if (this.spearsEnum.getIsEnabled())
+            return this.spearsEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override

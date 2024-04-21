@@ -75,7 +75,9 @@ public class McdwLongbow extends BowItem implements IInnateEnchantment {
 
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
-        return this.longbowsEnum.getInnateEnchantments();
+        if (this.longbowsEnum.getIsEnabled())
+            return this.longbowsEnum.getInnateEnchantments();
+        return Map.of();
     }
 
     @Override
