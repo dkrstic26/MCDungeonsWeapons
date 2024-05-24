@@ -37,11 +37,14 @@
   "icon": "assets/mcdw/icon.png",
   "environment": "*",
   "entrypoints": {
+    "fabric-datagen": [
+      "dev.timefall.mcdw.data.McdwDataGenerator"
+    ],
     "client": [
-      "chronosacaria.mcdw.client.McdwClient"
+      "dev.timefall.mcdw.client.McdwClient"
     ],
     "main": [
-      "chronosacaria.mcdw.Mcdw"
+      "dev.timefall.mcdw.Mcdw"
     ]
   },
   "accessWidener": "mcdw.accesswidener",
@@ -49,9 +52,9 @@
     "mcdw.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.21",
+    "fabricloader": ">=${fabric_loader}",
     "fabric": "*",
-    "minecraft": ">=1.20.0 <=1.20.1",
-    "cloth-config2": ">=11.0.0.1"
+    "minecraft": ">=1.20.0 <=1.21.0",
+    "fzzy_config": ">=${fzzy_config}"
   }
 }

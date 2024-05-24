@@ -1,0 +1,176 @@
+{
+  "values": [
+    {
+      "id": "mcdw:bow_bonebow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_bubble_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_hunters_promise",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_hunting_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_masters_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_power_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_snow_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_soul_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_twisting_vine_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_weeping_vine_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:bow_wind_bow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_auto_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_azure_seeker",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_burst_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_butterfly_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_dual_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_exploding_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_firebolt_thrower",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_harpoon_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_harp_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_heavy_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_imploding_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_rapid_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_scatter_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_soul_crossbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:crossbow_the_slicer",
+      "required": false
+    },
+    {
+      "id": "mcdw:dagger_moon",
+      "required": false
+    },
+    {
+      "id": "mcdw:double_axe_cursed",
+      "required": false
+    },
+    {
+      "id": "mcdw:hammer_boneclub",
+      "required": false
+    },
+    {
+      "id": "mcdw:hammer_bone_cudgel",
+      "required": false
+    },
+    {
+      "id": "mcdw:pickaxe_howling_pick",
+      "required": false
+    },
+    {
+      "id": "mcdw:scythe_jailors_scythe",
+      "required": false
+    },
+    {
+      "id": "mcdw:scythe_skull_scythe",
+      "required": false
+    },
+    {
+      "id": "mcdw:sickle_nightmares_bite",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_broadsword",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_broken_sawblade",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_claymore",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_diamond_sword_var",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_mechanized_sawblade",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_nameless_blade",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_sinister_sword",
+      "required": false
+    },
+    {
+      "id": "mcdw:whip_vine_whip",
+      "required": false
+    },
+    {
+      "id": "mcdw:whip_whip",
+      "required": false
+    }
+  ]
+}

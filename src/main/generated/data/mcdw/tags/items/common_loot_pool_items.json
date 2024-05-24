@@ -1,0 +1,80 @@
+{
+  "values": [
+    {
+      "id": "mcdw:axe_anchor",
+      "required": false
+    },
+    {
+      "id": "mcdw:axe_axe",
+      "required": false
+    },
+    {
+      "id": "mcdw:dagger_dagger",
+      "required": false
+    },
+    {
+      "id": "mcdw:double_axe_double",
+      "required": false
+    },
+    {
+      "id": "mcdw:gauntlet_gauntlet",
+      "required": false
+    },
+    {
+      "id": "mcdw:glaive_glaive",
+      "required": false
+    },
+    {
+      "id": "mcdw:hammer_great_hammer",
+      "required": false
+    },
+    {
+      "id": "mcdw:hammer_mace",
+      "required": false
+    },
+    {
+      "id": "mcdw:longbow_longbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:pickaxe_howling_pick",
+      "required": false
+    },
+    {
+      "id": "mcdw:pickaxe_mountineer_pick",
+      "required": false
+    },
+    {
+      "id": "mcdw:shortbow_shortbow",
+      "required": false
+    },
+    {
+      "id": "mcdw:sickle_sickle",
+      "required": false
+    },
+    {
+      "id": "mcdw:spear_spear",
+      "required": false
+    },
+    {
+      "id": "mcdw:staff_battlestaff",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_cutlass",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_iron_sword_var",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_katana",
+      "required": false
+    },
+    {
+      "id": "mcdw:sword_rapier",
+      "required": false
+    }
+  ]
+}
