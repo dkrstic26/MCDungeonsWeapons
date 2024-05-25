@@ -23,7 +23,7 @@ public class McdwEnchantmentStatsConfig extends Config {
     public static final McdwEnchantmentStatsConfig CONFIG = ConfigApi.registerAndLoadConfig((Supplier<McdwEnchantmentStatsConfig>) McdwEnchantmentStatsConfig::new);
 
     public McdwEnchantmentStatsConfig() {
-        super(Mcdw.ID("mcdw_stats_config"));
+        super(Mcdw.ID("mcdw_enchantment_stats_config"));
     }
 
     private McdwEnchantmentStats mcdwEnchantmentStats = new McdwEnchantmentStats();

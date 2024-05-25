@@ -23,7 +23,7 @@ public class McdwWeaponStatsConfig extends Config {
     public static final McdwWeaponStatsConfig CONFIG = ConfigApi.registerAndLoadConfig((Supplier<McdwWeaponStatsConfig>) McdwWeaponStatsConfig::new);
 
     public McdwWeaponStatsConfig() {
-        super(Mcdw.ID("mcdw_stats_config"));
+        super(Mcdw.ID("mcdw_weapon_stats_config"));
     }
 
     private McdwAxeItemStats mcdwAxeItemStats = new McdwAxeItemStats();

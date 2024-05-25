@@ -7,6 +7,7 @@
 package dev.timefall.mcdw.api.util;
 
 import dev.timefall.mcdw.enchants.goals.GoalUtils;
+import dev.timefall.mcdw.enums.SettingsID;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -67,27 +68,27 @@ public class AbilityHelper {
         return (nearbyEntity instanceof VillagerEntity) || (nearbyEntity instanceof IronGolemEntity);
     }
 
-    //public static boolean isAoeTarget(LivingEntity self, LivingEntity foreignEntity) {
-    //    return foreignEntity != self
-    //            && foreignEntity.isAlive()
-    //            && isAffectedByAoe(foreignEntity)
-    //            && self.canSee(foreignEntity);
-    //}
+    public static boolean isAoeTarget(LivingEntity self, LivingEntity foreignEntity) {
+        return foreignEntity != self
+                && foreignEntity.isAlive()
+                && isAffectedByAoe(foreignEntity)
+                && self.canSee(foreignEntity);
+    }
 
-    //public static boolean isAoeTarget(LivingEntity center, LivingEntity owner, LivingEntity foreignEntity) {
-    //    return foreignEntity != owner
-    //            && foreignEntity.isAlive()
-    //            && isAffectedByAoe(foreignEntity)
-    //            && center.canSee(foreignEntity);
-    //}
+    public static boolean isAoeTarget(LivingEntity center, LivingEntity owner, LivingEntity foreignEntity) {
+        return foreignEntity != owner
+                && foreignEntity.isAlive()
+                && isAffectedByAoe(foreignEntity)
+                && center.canSee(foreignEntity);
+    }
 
-    //private static boolean isAffectedByAoe(LivingEntity entity) {
-    //    if (entity instanceof PlayerEntity player) {
-    //        if (player.isCreative()) return false;
-    //        return !Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
-    //    }
-    //    return true;
-    //}
+    private static boolean isAffectedByAoe(LivingEntity entity) {
+        if (entity instanceof PlayerEntity player) {
+            if (player.isCreative()) return false;
+            return !Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
+        }
+        return true;
+    }
 
     public static float getAnimaRepairAmount(float experience, int level) {
         experience *= (float) (0.2 * level);
