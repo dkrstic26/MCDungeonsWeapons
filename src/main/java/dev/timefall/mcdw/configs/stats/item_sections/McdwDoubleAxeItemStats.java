@@ -16,9 +16,9 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwDoubleAxeItemStats extends ConfigSection {
-    private IMcdwWeaponStats.MeleeStats doubleAxeCursed     = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 7,  -2.9f,  0.0d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats doubleAxeDouble     = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 6,  -2.9f,  0.0d,   10, new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats doubleAxeWhirlwind  = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 6,  -2.9f,  0.0d,   5,  new Identifier("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats doubleAxeCursed     = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 7,  -2.9f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats doubleAxeDouble     = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 6,  -2.9f,  0.0d,   10, Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats doubleAxeWhirlwind  = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 6,  -2.9f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getDoubleAxeCursed() { return doubleAxeCursed; }
     public IMcdwWeaponStats.MeleeStats getDoubleAxeDouble() { return doubleAxeDouble; }

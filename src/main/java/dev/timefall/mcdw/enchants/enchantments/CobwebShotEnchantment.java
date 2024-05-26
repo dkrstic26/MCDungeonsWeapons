@@ -4,12 +4,23 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.enchants.enchantments;
+package dev.timefall.mcdw.enchantment.enchantments;
 
-import dev.timefall.mcdw.enchants.types.RangedEnchantment;
+import dev.timefall.mcdw.enchantment.types.RangedEnchantment;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
+
+/*
+ * Effects Needed:
+ * OFFSET_HIT_BLOCK -> would be like ComponentType<List<EnchantmentEffectEntry<EnchantmentEntityEffectType>>> HIT_BLOCK
+ */
+
+/*
+ * Effects Present:
+ * for POST_ATTACK -> SetBlockPropertiesEnchantmentEffectType
+ * for OFFSET_HIT_BLOCK -> SetBlockPropertiesEnchantmentEffectType
+ */
 
 public class CobwebShotEnchantment extends RangedEnchantment {
     public CobwebShotEnchantment(Properties properties) {

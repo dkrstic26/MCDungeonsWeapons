@@ -8,13 +8,12 @@ package dev.timefall.mcdw.effects;
 
 import dev.timefall.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import dev.timefall.mcdw.api.util.*;
-import dev.timefall.mcdw.configs.stats.McdwEnchantmentStatsConfig;
 import dev.timefall.mcdw.configs.stats.McdwWeaponStatsConfig;
-import dev.timefall.mcdw.enchants.goals.WildRageAttackGoal;
+import dev.timefall.mcdw.enchantment.goals.WildRageAttackGoal;
 import dev.timefall.mcdw.registries.items.McdwBowItemRegistry;
 import dev.timefall.mcdw.enums.EnchantmentsID;
-import dev.timefall.mcdw.mixin.mcdw.CreeperEntityAccessor;
-import dev.timefall.mcdw.mixin.mcdw.MobEntityAccessor;
+import dev.timefall.mcdw.mixin.old_mixins.mcdw.CreeperEntityAccessor;
+import dev.timefall.mcdw.mixin.old_mixins.mcdw.MobEntityAccessor;
 import dev.timefall.mcdw.registries.EnchantsRegistry;
 import dev.timefall.mcdw.registries.SoundEventsRegistry;
 import dev.timefall.mcdw.registries.StatusEffectsRegistry;

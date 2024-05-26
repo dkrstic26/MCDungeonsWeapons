@@ -43,7 +43,7 @@ public class EntityAttributesRegistry {
         return new ClampedEntityAttribute("attribute.name.generic." + Mcdw.MOD_ID + '.' + attributeName, defaultValue, minimumValue, maximumValue).setTracked(true);
     }
     public static void register() {
-        Registry.register(Registries.ATTRIBUTE, new Identifier(Mcdw.MOD_ID, "reach"), REACH);
-        Registry.register(Registries.ATTRIBUTE, new Identifier(Mcdw.MOD_ID, "attack_range"), ATTACK_RANGE);
+        Registry.register(Registries.ATTRIBUTE, Identifier.of(Mcdw.MOD_ID, "reach"), REACH);
+        Registry.register(Registries.ATTRIBUTE, Identifier.of(Mcdw.MOD_ID, "attack_range"), ATTACK_RANGE);
     }
 }

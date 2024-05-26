@@ -20,16 +20,18 @@ import net.minecraft.world.World;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
+import java.util.List;
+
 public class ProjectileEffectHelper {
 
     public static void mcdw$spawnExtraArrows(LivingEntity owner, LivingEntity makeArrowFromMe, int numArrowsLimit, int distance, double bonusShotDamageMultiplier) {
-        //List<LivingEntity> nearbyEntities = mcdw$getSecondaryTargets(makeArrowFromMe, distance);
-        //for (int i = 0; i < Math.min(numArrowsLimit, nearbyEntities.size()); i++) {
-        //    PersistentProjectileEntity arrowEntity = mcdw$createProjectileEntityTowards(makeArrowFromMe, nearbyEntities.get(i));
-        //    arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
-        //    arrowEntity.setOwner(owner);
-        //    makeArrowFromMe.getWorld().spawnEntity(arrowEntity);
-        //}
+        List<LivingEntity> nearbyEntities = mcdw$getSecondaryTargets(makeArrowFromMe, distance);
+        for (int i = 0; i < Math.min(numArrowsLimit, nearbyEntities.size()); i++) {
+            PersistentProjectileEntity arrowEntity = mcdw$createProjectileEntityTowards(makeArrowFromMe, nearbyEntities.get(i));
+            arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
+            arrowEntity.setOwner(owner);
+            makeArrowFromMe.getWorld().spawnEntity(arrowEntity);
+        }
     }
 
     public static PersistentProjectileEntity mcdw$createAbstractArrow(LivingEntity attacker) {

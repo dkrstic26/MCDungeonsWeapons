@@ -4,12 +4,20 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.enchants.enchantments;
+package dev.timefall.mcdw.enchantment.enchantments;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
+
+/*
+ * Effects Needed:
+ */
+
+/*
+ * Effects Present:
+ */
 
 public class MultishotBowEnchantment extends Enchantment {
     public MultishotBowEnchantment(Properties properties) {

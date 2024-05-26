@@ -62,7 +62,7 @@ public class CleanlinessHelper {
                     else if (repIngredient.contentEquals("minecraft:stone_crafting_materials"))
                         isStone.set(true);
                     potentialIngredients.add(
-                            Registries.ITEM.get(new Identifier(repIngredient)));
+                            Registries.ITEM.get(Identifier.of(repIngredient)));
                 }
             });
         }
@@ -361,7 +361,7 @@ public class CleanlinessHelper {
     }
 
     public static TagKey<Item> mcdw$getItemTagKey(String tag) {
-        return TagKey.of(RegistryKeys.ITEM, new Identifier(tag));
+        return TagKey.of(RegistryKeys.ITEM, Identifier.of(tag));
     }
 
 }

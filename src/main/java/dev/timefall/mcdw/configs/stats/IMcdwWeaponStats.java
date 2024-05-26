@@ -39,7 +39,7 @@ public interface IMcdwWeaponStats {
             public double additionalAttackRange = 0d;
         @ValidatedInt.Restrict(min = 0)
             public int weaponSpawnWeight = 0;
-        public ValidatedIngredient repairIngredient = new ValidatedIngredient(new Identifier("iron_ingot"));
+        public ValidatedIngredient repairIngredient = new ValidatedIngredient(Identifier.of("iron_ingot"));
 
 
     }
@@ -123,7 +123,7 @@ public interface IMcdwWeaponStats {
             public int range = 15;
         @ValidatedInt.Restrict(min = 0)
             public int weaponSpawnWeight = 0;
-        public ValidatedIngredient repairIngredient = new ValidatedIngredient(new Identifier("iron_ingot"));
+        public ValidatedIngredient repairIngredient = new ValidatedIngredient(Identifier.of("iron_ingot"));
     }
 
     static RangedStats rangedStats(
@@ -197,7 +197,7 @@ public interface IMcdwWeaponStats {
         public boolean isLootable = true;
         public ToolMaterial material = ToolMaterials.IRON;
         public int weaponSpawnWeight = 0;
-        public ValidatedIngredient repairIngredient = new ValidatedIngredient(new Identifier("iron_ingot"));
+        public ValidatedIngredient repairIngredient = new ValidatedIngredient(Identifier.of("iron_ingot"));
     }
 
     static ShieldStats shieldStats(

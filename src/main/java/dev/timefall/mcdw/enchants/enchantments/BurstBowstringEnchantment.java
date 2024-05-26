@@ -4,12 +4,22 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.enchants.enchantments;
+package dev.timefall.mcdw.enchantment.enchantments;
 
-import dev.timefall.mcdw.enchants.types.RangedEnchantment;
+import dev.timefall.mcdw.enchantment.types.RangedEnchantment;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
+
+/*
+ * Effects Needed:
+ * BONUS_ARROWS_COUNT -> AddEnchantmentEffectType (add from MutableFloat of zero);
+ * would be like: ComponentType<List<EnchantmentEffectEntry<EnchantmentValueEffectType>>> DAMAGE
+ */
+
+/*
+ * Effects Present:
+ */
 
 public class BurstBowstringEnchantment extends RangedEnchantment {
     public BurstBowstringEnchantment(Properties properties) {

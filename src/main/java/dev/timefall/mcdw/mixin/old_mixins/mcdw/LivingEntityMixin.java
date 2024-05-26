@@ -1,12 +1,57 @@
 /*
  * Timefall Development License 1.2
+ * Copyright (c) 2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+ *
+ * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
+ */
+
+/*
+ * Timefall Development License 1.2
  * Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.mixin.mcdw;
+package dev.timefall.mcdw.mixin.old_mixins.mcdw;
 
-/*
+
+import dev.timefall.mcdw.api.util.CleanlinessHelper;
+import dev.timefall.mcdw.damagesources.OffHandDamageSource;
+import dev.timefall.mcdw.effects.EnchantmentEffects;
+import dev.timefall.mcdw.enchantment.summons.IBeeSummoning;
+import dev.timefall.mcdw.enchantment.summons.entity.SummonedBeeEntity;
+import dev.timefall.mcdw.enums.EnchantmentsID;
+import dev.timefall.mcdw.enums.ItemsID;
+import dev.timefall.mcdw.enums.SettingsID;
+import dev.timefall.mcdw.registries.EnchantsRegistry;
+import dev.timefall.mcdw.registries.EntityAttributesRegistry;
+import dev.timefall.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.PotionItem;
+import net.minecraft.potion.Potions;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.List;
+
 @SuppressWarnings("ConstantValue")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -190,5 +235,3 @@ public abstract class LivingEntityMixin extends Entity {
         cir.getReturnValue().add(EntityAttributesRegistry.REACH).add(EntityAttributesRegistry.ATTACK_RANGE);
     }
 }
-
- */

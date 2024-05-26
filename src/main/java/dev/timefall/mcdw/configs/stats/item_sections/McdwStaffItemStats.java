@@ -16,9 +16,9 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwStaffItemStats extends ConfigSection {
-    private IMcdwWeaponStats.MeleeStats staffBattlestaff            = IMcdwWeaponStats.meleeStats(true, true, ToolMaterials.WOOD, 2,  -2.6f,  1.0d, 10, new Identifier("minecraft:planks"));
-    private IMcdwWeaponStats.MeleeStats staffBattlestaffOfTerror    = IMcdwWeaponStats.meleeStats(true, true, ToolMaterials.IRON, 5,  -2.6f,  1.0d, 5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats staffGrowingStaff           = IMcdwWeaponStats.meleeStats(true, true, ToolMaterials.IRON, 5,  -2.6f,  1.0d, 5,  new Identifier("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats staffBattlestaff            = IMcdwWeaponStats.meleeStats(true, true, ToolMaterials.WOOD, 2,  -2.6f,  1.0d, 10, Identifier.of("minecraft:planks"));
+    private IMcdwWeaponStats.MeleeStats staffBattlestaffOfTerror    = IMcdwWeaponStats.meleeStats(true, true, ToolMaterials.IRON, 5,  -2.6f,  1.0d, 5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats staffGrowingStaff           = IMcdwWeaponStats.meleeStats(true, true, ToolMaterials.IRON, 5,  -2.6f,  1.0d, 5,  Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getStaffBattlestaff() {
         return staffBattlestaff;

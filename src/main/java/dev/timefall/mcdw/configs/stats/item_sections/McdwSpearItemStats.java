@@ -16,9 +16,9 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwSpearItemStats extends ConfigSection {
-    private IMcdwWeaponStats.MeleeStats spearSpear              = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 4,  -2.5f,  1.0d,   10, new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats spearWhisperingSpear    = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 5,  -2.5f,  1.0d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats spearFortuneSpear       = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 5,  -2.5f,  1.0d,   5,  new Identifier("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats spearSpear              = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 4,  -2.5f,  1.0d,   10, Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats spearWhisperingSpear    = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 5,  -2.5f,  1.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats spearFortuneSpear       = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 5,  -2.5f,  1.0d,   5,  Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getSpearSpear() {
         return spearSpear;

@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.api.util;
 
-import dev.timefall.mcdw.enchants.goals.GoalUtils;
+import dev.timefall.mcdw.enchantment.goals.GoalUtils;
 import dev.timefall.mcdw.enums.SettingsID;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;

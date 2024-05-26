@@ -4,12 +4,20 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.enchants.enchantments;
+package dev.timefall.mcdw.enchantment.enchantments;
 
-import dev.timefall.mcdw.enchants.types.DamageBoostEnchantment;
+import dev.timefall.mcdw.enchantment.types.DamageBoostEnchantment;
 import dev.timefall.mcdw.registries.items.McdwSwordItemRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
+
+/*
+ * Effects Needed:
+ */
+
+/*
+ * Effects Present:
+ */
 
 public class SharedPainEnchantment extends Enchantment {
     public SharedPainEnchantment(Properties properties) {

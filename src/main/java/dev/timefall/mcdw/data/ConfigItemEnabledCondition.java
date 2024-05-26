@@ -11,7 +11,7 @@ public class ConfigItemEnabledCondition {
 
     public static void register() {
         // Register a resource condition for checking if multiple config values are all true
-        ResourceConditions.register(new Identifier(Mcdw.MOD_ID, "config_enabled"), jsonObject -> {
+        ResourceConditions.register(Identifier.of(Mcdw.MOD_ID, "config_enabled"), jsonObject -> {
             JsonArray values = JsonHelper.getArray(jsonObject, "values");
             List<Boolean> booleanList = new ArrayList<>();
 
@@ -42,14 +42,14 @@ public class ConfigItemEnabledCondition {
         });
 
         // Register a resource condition for checking if an item is enabled
-        ResourceConditions.register(new Identifier(Mcdw.MOD_ID, "item_enabled"), jsonObject -> {
+        ResourceConditions.register(Identifier.of(Mcdw.MOD_ID, "item_enabled"), jsonObject -> {
             JsonArray values = JsonHelper.getArray(jsonObject, "values");
 
             for (JsonElement element : values) {
                 if (element.isJsonPrimitive()) {
                     try {
                         // Check if the item exists in the item registry
-                        return Registries.ITEM.get(new Identifier(element.getAsString())) != Items.AIR;
+                        return Registries.ITEM.get(Identifier.of(element.getAsString())) != Items.AIR;
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

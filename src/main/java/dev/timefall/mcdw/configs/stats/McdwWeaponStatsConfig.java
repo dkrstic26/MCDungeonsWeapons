@@ -14,13 +14,11 @@ import me.fzzyhmstrs.fzzy_config.annotations.IgnoreVisibility;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
 import me.fzzyhmstrs.fzzy_config.config.Config;
 
-import java.util.function.Supplier;
-
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwWeaponStatsConfig extends Config {
 
-    public static final McdwWeaponStatsConfig CONFIG = ConfigApi.registerAndLoadConfig((Supplier<McdwWeaponStatsConfig>) McdwWeaponStatsConfig::new);
+    public static final McdwWeaponStatsConfig CONFIG = ConfigApi.registerAndLoadConfig(McdwWeaponStatsConfig::new);
 
     public McdwWeaponStatsConfig() {
         super(Mcdw.ID("mcdw_weapon_stats_config"));

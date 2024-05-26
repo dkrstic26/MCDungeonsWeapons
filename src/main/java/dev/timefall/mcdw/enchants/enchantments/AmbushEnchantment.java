@@ -4,14 +4,26 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.enchants.enchantments;
+package dev.timefall.mcdw.enchantment.enchantments;
 
 import dev.timefall.mcdw.bases.McdwCustomWeaponItem;
-import dev.timefall.mcdw.enchants.types.DamageBoostEnchantment;
+import dev.timefall.mcdw.enchantment.types.DamageBoostEnchantment;
 import dev.timefall.mcdw.registries.items.McdwDaggerItemRegistry;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+
+/*
+ * Effects Needed:
+ */
+
+/*
+ * Effects Present:
+ *  SOUND -> PlaySoundEnchantmentEffectType
+ *  SNEAKING -> EntityFlagsPredicate
+ *  INVISIBILITY -> NBT Predicate
+ *  DAMAGE -> MultiplyEnchantmentEffectType
+ */
 
 public class AmbushEnchantment extends DamageBoostEnchantment {
     public AmbushEnchantment(Properties properties) {

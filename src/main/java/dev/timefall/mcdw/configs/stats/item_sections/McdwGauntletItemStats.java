@@ -16,9 +16,9 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwGauntletItemStats extends ConfigSection {
-    private IMcdwWeaponStats.MeleeStats gauntletGauntlet = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.IRON,        0,  -1.5f,  -1.0d, 10, new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats gauntletMauler   = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.DIAMOND,     1,  -1.5f,  -1.0d, 5,  new Identifier("minecraft:diamond"));
-    private IMcdwWeaponStats.MeleeStats gauntletSoulFist = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.NETHERITE,   0,  -1.5f,  -1.0d, 5,  new Identifier("minecraft:netherite_scrap"));
+    private IMcdwWeaponStats.MeleeStats gauntletGauntlet = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.IRON,        0,  -1.5f,  -1.0d, 10, Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats gauntletMauler   = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.DIAMOND,     1,  -1.5f,  -1.0d, 5,  Identifier.of("minecraft:diamond"));
+    private IMcdwWeaponStats.MeleeStats gauntletSoulFist = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.NETHERITE,   0,  -1.5f,  -1.0d, 5,  Identifier.of("minecraft:netherite_scrap"));
 
     public IMcdwWeaponStats.MeleeStats getGauntletGauntlet() { return gauntletGauntlet; }
     public IMcdwWeaponStats.MeleeStats getGauntletMauler() { return gauntletMauler; }

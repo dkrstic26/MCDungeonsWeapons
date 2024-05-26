@@ -31,6 +31,6 @@ public class StatusEffectsRegistry {
     }
 
     private static RegistryEntry<StatusEffect> register(String id, StatusEffect statusEffect) {
-        return Registry.registerReference(Registries.STATUS_EFFECT, new Identifier(id), statusEffect);
+        return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(id), statusEffect);
     }
 }

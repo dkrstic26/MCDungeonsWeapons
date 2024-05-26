@@ -16,36 +16,36 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwSwordItemStats extends ConfigSection {
-    private IMcdwWeaponStats.MeleeStats swordBeeStinger         = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     0,  -1.1f,  0.0d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordFreezingFoil       = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     1,  -1.1f,  0.0d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordRapier             = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     0,  -1.14f, 0.0d,   10, new Identifier("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordBeeStinger         = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     0,  -1.1f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordFreezingFoil       = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     1,  -1.1f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordRapier             = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     0,  -1.14f, 0.0d,   10, Identifier.of("minecraft:iron_ingot"));
 
-    private IMcdwWeaponStats.MeleeStats swordBroadsword         = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     5,  -3.0f,  0.5d,   10, new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordClaymore           = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     7,  -3.2f,  0.5d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordFrostSlayer        = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  6,  -3.2f,  0.5d,   5,  new Identifier("minecraft:diamond"));
-    private IMcdwWeaponStats.MeleeStats swordGreatAxeblade      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     7,  -3.2f,  0.5d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordHeartstealer       = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  6,  -3.2f,  0.5d,   5,  new Identifier("minecraft:diamond"));
-    private IMcdwWeaponStats.MeleeStats swordObsidianClaymore   = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.NETHERITE,6,  -3.3f,  0.5d,   5,  new Identifier("minecraft:netherite_scrap"));
-    private IMcdwWeaponStats.MeleeStats swordTheStarlessNight   = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.NETHERITE,6,  -3.3f,  0.5d,   1,  new Identifier("minecraft:netherite_scrap"));
+    private IMcdwWeaponStats.MeleeStats swordBroadsword         = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     5,  -3.0f,  0.5d,   10, Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordClaymore           = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     7,  -3.2f,  0.5d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordFrostSlayer        = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  6,  -3.2f,  0.5d,   5,  Identifier.of("minecraft:diamond"));
+    private IMcdwWeaponStats.MeleeStats swordGreatAxeblade      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     7,  -3.2f,  0.5d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordHeartstealer       = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  6,  -3.2f,  0.5d,   5,  Identifier.of("minecraft:diamond"));
+    private IMcdwWeaponStats.MeleeStats swordObsidianClaymore   = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.NETHERITE,6,  -3.3f,  0.5d,   5,  Identifier.of("minecraft:netherite_scrap"));
+    private IMcdwWeaponStats.MeleeStats swordTheStarlessNight   = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.NETHERITE,6,  -3.3f,  0.5d,   1,  Identifier.of("minecraft:netherite_scrap"));
 
-    private IMcdwWeaponStats.MeleeStats swordBrokenSawblade     = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     3,  -2.4f,  0.0d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordMechanizedSawblade = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  3,  -2.4f,  0.0d,   1,  new Identifier("minecraft:blaze_rod"));
+    private IMcdwWeaponStats.MeleeStats swordBrokenSawblade     = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     3,  -2.4f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordMechanizedSawblade = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  3,  -2.4f,  0.0d,   1,  Identifier.of("minecraft:blaze_rod"));
 
-    private IMcdwWeaponStats.MeleeStats swordCoralBlade         = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     3,  -2.4f,  0.0d,   10, new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordSpongeStriker      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  3,  -2.4f,  0.0d,   5,  new Identifier("minecraft:diamond"));
+    private IMcdwWeaponStats.MeleeStats swordCoralBlade         = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     3,  -2.4f,  0.0d,   10, Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordSpongeStriker      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  3,  -2.4f,  0.0d,   5,  Identifier.of("minecraft:diamond"));
 
-    private IMcdwWeaponStats.MeleeStats swordCutlass            = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     2,  -2.3f,  0.0d,   10, new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordNamelessBlade      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     4,  -2.3f,  0.0d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordDancersSword       = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     3,  -2.0f,  0.0d,   5,  new Identifier("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordCutlass            = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     2,  -2.3f,  0.0d,   10, Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordNamelessBlade      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     4,  -2.3f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordDancersSword       = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     3,  -2.0f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
 
-    private IMcdwWeaponStats.MeleeStats swordDarkKatana         = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.NETHERITE,4,  -2.9f,  0.25d,  5,  new Identifier("minecraft:netherite_scrap"));
-    private IMcdwWeaponStats.MeleeStats swordKatana             = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     4,  -2.9f,  0.25d,  10, new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordMastersKatana      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  4,  -2.9f,  0.25d,  5,  new Identifier("minecraft:diamond"));
+    private IMcdwWeaponStats.MeleeStats swordDarkKatana         = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.NETHERITE,4,  -2.9f,  0.25d,  5,  Identifier.of("minecraft:netherite_scrap"));
+    private IMcdwWeaponStats.MeleeStats swordKatana             = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     4,  -2.9f,  0.25d,  10, Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordMastersKatana      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  4,  -2.9f,  0.25d,  5,  Identifier.of("minecraft:diamond"));
 
-    private IMcdwWeaponStats.MeleeStats swordDiamondSwordVar    = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  3,  -2.4f,  0.0d,   10, new Identifier("minecraft:diamond"));
-    private IMcdwWeaponStats.MeleeStats swordHawkbrand          = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     6,  -2.9f,  0.0d,   5,  new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordIronSwordVar       = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     3,  -2.4f,  0.0d,   10, new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats swordSinisterSword      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     6,  -2.9f,  0.0d,   1,  new Identifier("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordDiamondSwordVar    = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.DIAMOND,  3,  -2.4f,  0.0d,   10, Identifier.of("minecraft:diamond"));
+    private IMcdwWeaponStats.MeleeStats swordHawkbrand          = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     6,  -2.9f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordIronSwordVar       = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     3,  -2.4f,  0.0d,   10, Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats swordSinisterSword      = IMcdwWeaponStats.meleeStats(true,   true, ToolMaterials.IRON,     6,  -2.9f,  0.0d,   1,  Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getSwordBeeStinger() {
         return swordBeeStinger;

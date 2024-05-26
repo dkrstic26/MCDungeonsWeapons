@@ -2,7 +2,7 @@
   "required": true,
   "package": "dev.timefall.mcdw.mixin",
   "compatibilityLevel": "JAVA_8",
-  "plugin": "dev.timefall.mcdw.mixin.McdwMixinPlugin",
+  "plugin": "dev.timefall.mcdw.mixin.old_mixins.McdwMixinPlugin",
   "mixins": [
   ],
   "client": [

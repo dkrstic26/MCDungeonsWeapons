@@ -1,12 +1,48 @@
 /*
  * Timefall Development License 1.2
+ * Copyright (c) 2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+ *
+ * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
+ */
+
+/*
+ * Timefall Development License 1.2
  * Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.mixin.mcdw;
+package dev.timefall.mcdw.mixin.old_mixins.mcdw;
 
-/*
+
+import dev.timefall.mcdw.api.interfaces.IMcdwEnchantedArrow;
+import dev.timefall.mcdw.api.util.CleanlinessHelper;
+import dev.timefall.mcdw.api.util.ProjectileEffectHelper;
+import dev.timefall.mcdw.api.util.RangedAttackHelper;
+import dev.timefall.mcdw.bases.McdwBowItem;
+import dev.timefall.mcdw.bases.McdwLongbowItem;
+import dev.timefall.mcdw.bases.McdwShortbowItem;
+import dev.timefall.mcdw.enums.EnchantmentsID;
+import dev.timefall.mcdw.registries.EnchantsRegistry;
+import dev.timefall.mcdw.registries.StatusEffectsRegistry;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.ArrowItem;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.ModifyArgs;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
 @Mixin(BowItem.class)
 public abstract class BowItemMixin{
 
@@ -54,7 +90,7 @@ public abstract class BowItemMixin{
     @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile" +
             "/PersistentProjectileEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void mcdw$applyBowEnchantmentLevel(ItemStack stack, World world, LivingEntity user, int remainingUseTicks,
-                                 CallbackInfo ci, PlayerEntity playerEntity, boolean bl, ItemStack itemStack, int i, float f, boolean bl2,
+                                               CallbackInfo ci, PlayerEntity playerEntity, boolean bl, ItemStack itemStack, int i, float f, boolean bl2,
                                                ArrowItem arrowItem, PersistentProjectileEntity ppe){
 
         // Not the level of Overcharge
@@ -124,5 +160,3 @@ public abstract class BowItemMixin{
         args.set(4, velocity);
     }
 }
-
- */

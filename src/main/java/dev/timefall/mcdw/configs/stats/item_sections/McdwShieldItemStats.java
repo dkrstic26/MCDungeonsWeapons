@@ -19,9 +19,9 @@ import java.util.Set;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwShieldItemStats extends ConfigSection {
-    private IMcdwWeaponStats.ShieldStats shieldRoyalGuardShield = IMcdwWeaponStats.shieldStats(true,    true,   ToolMaterials.DIAMOND,  5,  Set.of(new Identifier("minecraft:iron_ingot"), new Identifier("minecraft:gold_ingot")));
-    private IMcdwWeaponStats.ShieldStats shieldTowerGuardShield = IMcdwWeaponStats.shieldStats(true,    true,   ToolMaterials.DIAMOND,  5,  Set.of(new Identifier("minecraft:iron_ingot"), new Identifier("minecraft:gold_ingot"), new Identifier("minecraft:copper_ingot")));
-    private IMcdwWeaponStats.ShieldStats shieldVanguardShield   = IMcdwWeaponStats.shieldStats(true,    true,   ToolMaterials.DIAMOND,  5,  Set.of(CleanlinessHelper.mcdw$getItemTagKey("minecraft:planks"), new Identifier("minecraft:iron_ingot")));
+    private IMcdwWeaponStats.ShieldStats shieldRoyalGuardShield = IMcdwWeaponStats.shieldStats(true,    true,   ToolMaterials.DIAMOND,  5,  Set.of(Identifier.of("minecraft:iron_ingot"), Identifier.of("minecraft:gold_ingot")));
+    private IMcdwWeaponStats.ShieldStats shieldTowerGuardShield = IMcdwWeaponStats.shieldStats(true,    true,   ToolMaterials.DIAMOND,  5,  Set.of(Identifier.of("minecraft:iron_ingot"), Identifier.of("minecraft:gold_ingot"), Identifier.of("minecraft:copper_ingot")));
+    private IMcdwWeaponStats.ShieldStats shieldVanguardShield   = IMcdwWeaponStats.shieldStats(true,    true,   ToolMaterials.DIAMOND,  5,  Set.of(CleanlinessHelper.mcdw$getItemTagKey("minecraft:planks"), Identifier.of("minecraft:iron_ingot")));
 
 
 

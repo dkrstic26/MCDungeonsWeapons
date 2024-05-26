@@ -51,14 +51,15 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
     // TODO REMOVE WHEN NOT NEEDED ANYMORE
-    modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabricKotlinVersion}"
-    modImplementation "net.peanuuutz.tomlkt:tomlkt:0.3.7"
+    //modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabricKotlinVersion}"
+    //modImplementation "net.peanuuutz.tomlkt:tomlkt:0.3.7"
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // Clumps
-    modImplementation "com.blamejared.clumps:Clumps-fabric-${project.minecraft_version}:${project.clumps_version}"
+    //modImplementation "com.blamejared.clumps:Clumps-fabric-${project.minecraft_version}:${project.clumps_version}"
+    modImplementation "com.blamejared.clumps:Clumps-fabric-1.20.6:${project.clumps_version}"
 
     // Ranged Weapon API
     //modImplementation "maven.modrinth:ranged-weapon-api:${project.ranged_weapon_api_version}"

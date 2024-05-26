@@ -16,9 +16,9 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwLongbowItemStats extends ConfigSection {
-    private IMcdwWeaponStats.RangedStats longbowGuardianBow = IMcdwWeaponStats.rangedStats(true, true,  ToolMaterials.DIAMOND, 8, 30, 19, 5,    new Identifier("minecraft:diamond"));
-    private IMcdwWeaponStats.RangedStats longbowLongbow     = IMcdwWeaponStats.rangedStats(true, true,  ToolMaterials.IRON,    7, 25, 17, 10,   new Identifier("minecraft:planks"));
-    private IMcdwWeaponStats.RangedStats longbowRedSnake    = IMcdwWeaponStats.rangedStats(true, true,  ToolMaterials.DIAMOND, 7, 30, 18, 5,    new Identifier("minecraft:diamond"));
+    private IMcdwWeaponStats.RangedStats longbowGuardianBow = IMcdwWeaponStats.rangedStats(true, true,  ToolMaterials.DIAMOND, 8, 30, 19, 5,    Identifier.of("minecraft:diamond"));
+    private IMcdwWeaponStats.RangedStats longbowLongbow     = IMcdwWeaponStats.rangedStats(true, true,  ToolMaterials.IRON,    7, 25, 17, 10,   Identifier.of("minecraft:planks"));
+    private IMcdwWeaponStats.RangedStats longbowRedSnake    = IMcdwWeaponStats.rangedStats(true, true,  ToolMaterials.DIAMOND, 7, 30, 18, 5,    Identifier.of("minecraft:diamond"));
 
     public IMcdwWeaponStats.RangedStats getLongbowGuardianBow() {
         return longbowGuardianBow;

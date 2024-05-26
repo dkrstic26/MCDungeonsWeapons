@@ -9,7 +9,7 @@ package dev.timefall.mcdw.bases;
 import com.google.common.collect.BiMap;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.configs.stats.IMcdwWeaponStats;
-import dev.timefall.mcdw.mixin.mcdw.InsulatedAxeItemAccessor;
+import dev.timefall.mcdw.mixin.old_mixins.mcdw.InsulatedAxeItemAccessor;
 import dev.timefall.mcdw.registries.ItemGroupRegistry;
 import dev.timefall.mcdw.registries.items.McdwSwordItemRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;

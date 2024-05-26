@@ -24,7 +24,7 @@ public class McdwClient implements ClientModInitializer {
     }
 
     public static void registerRangedWeaponPredicates(Item item) {
-        ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (itemStack, clientWorld, livingEntity, seed) -> {
+        ModelPredicateProviderRegistry.register(item, Identifier.of("pull"), (itemStack, clientWorld, livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else if (item instanceof McdwBowItem bow) {
@@ -40,11 +40,11 @@ public class McdwClient implements ClientModInitializer {
         });
 
         if (item instanceof BowItem) {
-            ModelPredicateProviderRegistry.register(item, new Identifier("pulling"), (itemStack, clientWorld, livingEntity, seed) ->
+            ModelPredicateProviderRegistry.register(item, Identifier.of("pulling"), (itemStack, clientWorld, livingEntity, seed) ->
                     livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
         }
         if (item instanceof CrossbowItem) {
-            ModelPredicateProviderRegistry.register(item, new Identifier("pulling"), (itemStack, clientWorld, livingEntity, seed) -> {
+            ModelPredicateProviderRegistry.register(item, Identifier.of("pulling"), (itemStack, clientWorld, livingEntity, seed) -> {
                 if (livingEntity == null) {
                     return 0.0F;
                 } else {
@@ -52,7 +52,7 @@ public class McdwClient implements ClientModInitializer {
                 }
             });
 
-            ModelPredicateProviderRegistry.register(item, new Identifier("charged"), (itemStack, clientWorld, livingEntity, seed) -> {
+            ModelPredicateProviderRegistry.register(item, Identifier.of("charged"), (itemStack, clientWorld, livingEntity, seed) -> {
                 if (livingEntity == null) {
                     return 0.0F;
                 } else {
@@ -60,7 +60,7 @@ public class McdwClient implements ClientModInitializer {
                 }
             });
 
-            ModelPredicateProviderRegistry.register(item, new Identifier("firework"), (itemStack, clientWorld, livingEntity, seed) -> {
+            ModelPredicateProviderRegistry.register(item, Identifier.of("firework"), (itemStack, clientWorld, livingEntity, seed) -> {
                 if (livingEntity == null) {
                     return 0.0F;
                 } else {
@@ -71,7 +71,7 @@ public class McdwClient implements ClientModInitializer {
         }
     }
     public static void registerShieldPredicates(McdwShieldItem shield) {
-        ModelPredicateProviderRegistry.register(shield, new Identifier("blocking"),
+        ModelPredicateProviderRegistry.register(shield, Identifier.of("blocking"),
                 (itemStack, clientWorld, livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() &&
                         livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F
         );

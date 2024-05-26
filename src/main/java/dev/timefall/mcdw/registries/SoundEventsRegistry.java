@@ -12,7 +12,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 public class SoundEventsRegistry {
-    public static final Identifier ECHO_SOUND = new Identifier("mcdw:echo_sound");
+    public static final Identifier ECHO_SOUND = Identifier.of("mcdw:echo_sound");
     public static final SoundEvent ECHO_SOUND_EVENT = SoundEvent.of(ECHO_SOUND);
 
     public static void register(){

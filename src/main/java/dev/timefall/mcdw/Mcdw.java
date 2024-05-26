@@ -20,7 +20,7 @@ public class Mcdw implements ModInitializer {
     @SuppressWarnings("unused")
     public static final Logger LOGGER = LogManager.getLogger();
     public static Identifier ID(String path) {
-        return new Identifier(MOD_ID, path);
+        return Identifier.of(MOD_ID, path);
     }
 
     @Override

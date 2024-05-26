@@ -4,14 +4,26 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.enchants.enchantments;
+package dev.timefall.mcdw.enchantment.enchantments;
 
-import dev.timefall.mcdw.enchants.types.RangedEnchantment;
+import dev.timefall.mcdw.enchantment.types.RangedEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.MultishotEnchantment;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
+
+
+/*
+ * Effects Needed:
+ * ACCELERATE_CHARGE_TIME -> New Effect Type, Custom CODEC, pain
+ * APPLY_STACKING_MOB_EFFECT -> Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE
+ */
+
+/*
+ * Effects Present:
+ *
+ */
 
 public class AccelerateEnchantment extends RangedEnchantment {
     public AccelerateEnchantment(Properties properties) {
@@ -36,6 +48,6 @@ public class AccelerateEnchantment extends RangedEnchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return !(other instanceof MultishotEnchantment || other instanceof OverchargeEnchantment);
+        return !(other instanceof MultishotEnchantment || other instanceof dev.timefall.mcdw.enchantment.enchantments.OverchargeEnchantment);
     }
 }

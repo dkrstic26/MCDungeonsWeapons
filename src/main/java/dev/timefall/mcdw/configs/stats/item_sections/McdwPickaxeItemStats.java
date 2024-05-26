@@ -16,10 +16,10 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwPickaxeItemStats extends ConfigSection {
-    private IMcdwWeaponStats.MeleeStats pickaxeDiamondPickaxeVar    = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.DIAMOND,  1,  -2.8f,  0.0d, 10,   new Identifier("minecraft:diamond"));
-    private IMcdwWeaponStats.MeleeStats pickaxeHailingPinnacle      = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.DIAMOND,  1,  -2.8f,  0.0d, 10,   new Identifier("minecraft:diamond"));
-    private IMcdwWeaponStats.MeleeStats pickaxeHowlingPick          = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON,     1,  -2.8f,  0.0d, 10,   new Identifier("minecraft:iron_ingot"));
-    private IMcdwWeaponStats.MeleeStats pickaxeMountineerPick       = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON,     1,  -2.8f,  0.0d, 10,   new Identifier("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats pickaxeDiamondPickaxeVar    = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.DIAMOND,  1,  -2.8f,  0.0d, 10,   Identifier.of("minecraft:diamond"));
+    private IMcdwWeaponStats.MeleeStats pickaxeHailingPinnacle      = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.DIAMOND,  1,  -2.8f,  0.0d, 10,   Identifier.of("minecraft:diamond"));
+    private IMcdwWeaponStats.MeleeStats pickaxeHowlingPick          = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON,     1,  -2.8f,  0.0d, 10,   Identifier.of("minecraft:iron_ingot"));
+    private IMcdwWeaponStats.MeleeStats pickaxeMountineerPick       = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON,     1,  -2.8f,  0.0d, 10,   Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getPickaxeDiamondPickaxeVar() {
         return pickaxeDiamondPickaxeVar;

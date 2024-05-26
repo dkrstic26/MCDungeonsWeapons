@@ -1,12 +1,36 @@
 /*
  * Timefall Development License 1.2
+ * Copyright (c) 2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+ *
+ * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
+ */
+
+/*
+ * Timefall Development License 1.2
  * Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.mixin.mcdw;
+package dev.timefall.mcdw.mixin.old_mixins.mcdw;
 
-/*
+
+import dev.timefall.mcdw.api.util.PlayerAttackHelper;
+import dev.timefall.mcdw.damagesources.OffHandDamageSource;
+import dev.timefall.mcdw.effects.EnchantmentEffects;
+import dev.timefall.mcdw.enums.EnchantmentsID;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.CrossbowItem;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 @Mixin({LivingEntity.class, PlayerEntity.class})
 public class LivingEntityPlayerEntityMixin {
 
@@ -175,4 +199,3 @@ public class LivingEntityPlayerEntityMixin {
     }
 }
 
- */

@@ -14,13 +14,11 @@ import me.fzzyhmstrs.fzzy_config.annotations.IgnoreVisibility;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
 import me.fzzyhmstrs.fzzy_config.config.Config;
 
-import java.util.function.Supplier;
-
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwEnchantmentStatsConfig extends Config {
 
-    public static final McdwEnchantmentStatsConfig CONFIG = ConfigApi.registerAndLoadConfig((Supplier<McdwEnchantmentStatsConfig>) McdwEnchantmentStatsConfig::new);
+    public static final McdwEnchantmentStatsConfig CONFIG = ConfigApi.registerAndLoadConfig(McdwEnchantmentStatsConfig::new);
 
     public McdwEnchantmentStatsConfig() {
         super(Mcdw.ID("mcdw_enchantment_stats_config"));
