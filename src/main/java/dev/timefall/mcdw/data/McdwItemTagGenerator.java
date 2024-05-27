@@ -9,34 +9,36 @@ package dev.timefall.mcdw.data;
 
 import dev.timefall.mcdw.Mcdw;
 import dev.timefall.mcdw.registries.items.*;
+import dev.timefall.mcdw.registries.tag.McdwEnchantmentTags;
+import dev.timefall.mcdw.registries.tag.McdwItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
-public class McdwTagGenerator extends FabricTagProvider.ItemTagProvider {
-    public McdwTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
+public class McdwItemTagGenerator extends FabricTagProvider.ItemTagProvider {
+    public McdwItemTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
         super(output, completableFuture);
     }
 
-    private static final TagKey<Item> COMMON_LOOT_POOL_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("mcdw:common_loot_pool_items"));
+    // moved to a tagkey class McdwItemTags
+    /*private static final TagKey<Item> COMMON_LOOT_POOL_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("mcdw:common_loot_pool_items"));
     private static final TagKey<Item> UNCOMMON_LOOT_POOL_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("mcdw:uncommon_loot_pool_items"));
     private static final TagKey<Item> RARE_LOOT_POOL_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("mcdw:rare_loot_pool_items"));
-    private static final TagKey<Item> EPIC_LOOT_POOL_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("mcdw:epic_loot_pool_items"));
+    private static final TagKey<Item> EPIC_LOOT_POOL_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("mcdw:epic_loot_pool_items"));*/
 
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
-        getOrCreateTagBuilder(COMMON_LOOT_POOL_ITEMS)
+        // ITEM TAGS
+
+        getOrCreateTagBuilder(McdwItemTags.COMMON_LOOT_POOL_ITEMS)
                 .setReplace(false)
-                .addOptional(Identifier.of(Mcdw.MOD_ID, McdwAxeItemRegistry.AXE_ANCHOR.toString()))
-                .addOptional(Identifier.of(Mcdw.MOD_ID, McdwAxeItemRegistry.AXE_AXE.toString()))
+                .addOptional(McdwAxeItemRegistry.AXE_ANCHOR_ID)
+                .addOptional(McdwAxeItemRegistry.AXE_AXE_ID)
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwDaggerItemRegistry.DAGGER_DAGGER.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwDoubleAxeItemRegistry.DOUBLE_AXE_DOUBLE.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwGauntletItemRegistry.GAUNTLET_GAUNTLET.toString()))
@@ -55,7 +57,7 @@ public class McdwTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwSwordItemRegistry.SWORD_KATANA.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwSwordItemRegistry.SWORD_RAPIER.toString()));
 
-        getOrCreateTagBuilder(UNCOMMON_LOOT_POOL_ITEMS)
+        getOrCreateTagBuilder(McdwItemTags.UNCOMMON_LOOT_POOL_ITEMS)
                 .setReplace(false)
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwBowItemRegistry.BOW_BONEBOW.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwBowItemRegistry.BOW_BUBBLE_BOW.toString()))
@@ -101,7 +103,7 @@ public class McdwTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwWhipItemRegistry.WHIP_VINE_WHIP.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwWhipItemRegistry.WHIP_WHIP.toString()));
 
-        getOrCreateTagBuilder(RARE_LOOT_POOL_ITEMS)
+        getOrCreateTagBuilder(McdwItemTags.RARE_LOOT_POOL_ITEMS)
                 .setReplace(false)
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwAxeItemRegistry.AXE_ENCRUSTED_ANCHOR.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwAxeItemRegistry.AXE_FIREBRAND.toString()))
@@ -170,7 +172,7 @@ public class McdwTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwSwordItemRegistry.SWORD_MASTERS_KATANA.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwSwordItemRegistry.SWORD_SPONGE_STRIKER.toString()));
 
-        getOrCreateTagBuilder(EPIC_LOOT_POOL_ITEMS)
+        getOrCreateTagBuilder(McdwItemTags.EPIC_LOOT_POOL_ITEMS)
                 .setReplace(false)
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwBowItemRegistry.BOW_ANCIENT_BOW.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwBowItemRegistry.BOW_HAUNTED_BOW.toString()))

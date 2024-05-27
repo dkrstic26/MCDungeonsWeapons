@@ -18,6 +18,8 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Present:
+ * MOB_EXPERIENCE component type
+ * MultiplyEnchantmentEffectType -> Linear base 1.333333, perLevelAboveFirst 0.33333 based on default 3.0 factor
  */
 
 public class SoulDevourerEnchantment extends Enchantment {

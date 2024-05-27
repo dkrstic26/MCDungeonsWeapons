@@ -16,6 +16,6 @@ public class McdwDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
-        pack.addProvider(McdwTagGenerator::new);
+        pack.addProvider(McdwItemTagGenerator::new);
     }
 }

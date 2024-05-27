@@ -18,6 +18,9 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Present:
+ * MOB_EXPERIENCE component type
+ * MultiplyEnchantmentEffectType -> Linear 3.0 per level
+ * RnadomChanceLootCondition -> 10% chance to occur
  */
 
 public class SoulSiphonEnchantment extends Enchantment {

@@ -14,6 +14,8 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Needed:
+ * POST_DEATH -> need new ComponentType<List<TargetedEnchantmentEffectType<EnchantmentEntityEffectType>>>
+ * LEECH_ENTITY -> new EnchantmentEntityEffectType
  */
 
 /*

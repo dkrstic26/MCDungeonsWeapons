@@ -22,7 +22,6 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Present:
- *
  */
 
 public class AccelerateEnchantment extends RangedEnchantment {

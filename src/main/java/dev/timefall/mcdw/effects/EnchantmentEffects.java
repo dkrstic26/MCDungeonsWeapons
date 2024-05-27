@@ -73,8 +73,7 @@ public class EnchantmentEffects {
         int soulDevourerLevel = mainHandLevel + offHandLevel;
 
         if (soulDevourerLevel > 0)
-            return Math.round((float) amount * (1 + ((float) soulDevourerLevel /
-                            CONFIG.getMcdwEnchantmentStats().getSoulDevourerEnchantment().effectOffset)));
+            return Math.round((float) amount * (1 + ((float) soulDevourerLevel / CONFIG.getMcdwEnchantmentStats().getSoulDevourerEnchantment().effectOffset)));
         return amount;
     }
 
