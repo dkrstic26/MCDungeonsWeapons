@@ -15,20 +15,21 @@ public class PainCycleStatusEffect extends StatusEffect {
         super(category, color);
     }
 
-    private int painCounter = 0;
-
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier){
         return true;
     }
 
     @Override
+    public void onApplied(LivingEntity entity, int amplifier) {
+        entity.damage(entity.getDamageSources().magic(), 1f);
+    }
+
+    @Override
     public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         super.applyUpdateEffect(entity, amplifier);
-        painCounter++;
-        if (painCounter == 300) {
+        if (entity.getWorld().getTime() % 300L == 0) {
             entity.damage(entity.getWorld().getDamageSources().magic(), 2);
-            painCounter = 0;
         }
         return false;
     }

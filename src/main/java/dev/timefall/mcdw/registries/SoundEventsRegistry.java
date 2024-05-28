@@ -8,20 +8,18 @@ package dev.timefall.mcdw.registries;
 
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 public class SoundEventsRegistry {
     public static final Identifier ECHO_SOUND = Identifier.of("mcdw:echo_sound");
-    public static final SoundEvent ECHO_SOUND_EVENT = SoundEvent.of(ECHO_SOUND);
+    public static final RegistryEntry<SoundEvent> ECHO_SOUND_EVENT = registerSound(ECHO_SOUND,SoundEvent.of(ECHO_SOUND));
 
-    public static void register(){
-        registerSound(ECHO_SOUND, ECHO_SOUND_EVENT);
-    }
+    public static void register(){}
 
     @SuppressWarnings("SameParameterValue")
-    protected static void registerSound(Identifier soundIdentifier, SoundEvent soundEvent) {
-        Registry.register(Registries.SOUND_EVENT, soundIdentifier, soundEvent);
-
+    protected static RegistryEntry<SoundEvent> registerSound(Identifier soundIdentifier, SoundEvent soundEvent) {
+        return Registry.registerReference(Registries.SOUND_EVENT, soundIdentifier, soundEvent);
     }
 }

@@ -9,37 +9,100 @@ package dev.timefall.mcdw.data;
 
 import dev.timefall.mcdw.component.McdwEffectComponentTypes;
 import dev.timefall.mcdw.enchants.EnchantmentIds;
-import dev.timefall.mcdw.enchants.effect.entity.LeechMobEnchantmentEffectType;
+import dev.timefall.mcdw.enchants.effect.entity.relative.DamageTakenRelativeEnchantmentEntityEffectType;
+import dev.timefall.mcdw.enchants.effect.entity_aware.MultiplyStatusValueEffectType;
+import dev.timefall.mcdw.enchants.effect.entity.*;
+import dev.timefall.mcdw.registries.SoundEventsRegistry;
+import dev.timefall.mcdw.registries.StatusEffectsRegistry;
 import dev.timefall.mcdw.registries.tag.McdwEnchantmentTags;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.minecraft.block.Block;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelBasedValueType;
+import net.minecraft.enchantment.effect.AllOfEnchantmentEffectTypes;
 import net.minecraft.enchantment.effect.EnchantmentEffectTarget;
+import net.minecraft.enchantment.effect.entity.PlaySoundEnchantmentEffectType;
 import net.minecraft.enchantment.effect.value.AddEnchantmentEffectType;
 import net.minecraft.enchantment.effect.value.MultiplyEnchantmentEffectType;
 import net.minecraft.entity.damage.DamageType;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.item.Item;
+import net.minecraft.loot.condition.EntityPropertiesLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.registry.Registerable;
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.loot.condition.RandomChanceWithEnchantedBonusLootCondition;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.predicate.NumberRange;
+import net.minecraft.predicate.entity.EntityEffectPredicate;
+import net.minecraft.predicate.entity.EntityPredicate;
+import net.minecraft.registry.*;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.math.floatprovider.ConstantFloatProvider;
 
-public class McdwEnchantmentGenerator {
-    public static void generate(Registerable<Enchantment> enchantment) {
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
-        RegistryEntryLookup<DamageType> damageTypeLookup = enchantment.getRegistryLookup(RegistryKeys.DAMAGE_TYPE);
-        RegistryEntryLookup<Enchantment> enchantmentLookup = enchantment.getRegistryLookup(RegistryKeys.ENCHANTMENT);
-        RegistryEntryLookup<Item> itemLookup = enchantment.getRegistryLookup(RegistryKeys.ITEM);
-        RegistryEntryLookup<Block> blockLookup = enchantment.getRegistryLookup(RegistryKeys.BLOCK);
+public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
 
-        // LEECHING
+    public McdwEnchantmentGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture){
+        super(output, registriesFuture);
+    }
+
+    @Override
+    public String getName() {
+        return "Mcdw Enchantment Generation";
+    }
+
+    @Override
+    public void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
+
+        RegistryEntryLookup<DamageType> damageTypeLookup = registries.getWrapperOrThrow(RegistryKeys.DAMAGE_TYPE);
+        RegistryEntryLookup<Enchantment> enchantmentLookup = registries.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        RegistryEntryLookup<Item> itemLookup = registries.getWrapperOrThrow(RegistryKeys.ITEM);
+        RegistryEntryLookup<Block> blockLookup = registries.getWrapperOrThrow(RegistryKeys.BLOCK);
+
+        // DYNAMO
         register(
-                enchantment,
-                EnchantmentIds.LEECHING,
+            entries,
+            EnchantmentIds.DYNAMO,
+            Enchantment.builder(
+                Enchantment.definition(
+                    itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                    1,
+                    3,
+                    Enchantment.leveledCost(1, 10),
+                    Enchantment.leveledCost(16, 10),
+                    2,
+                    AttributeModifierSlot.HAND
+                )
+            ).exclusiveSet(
+                enchantmentLookup.getOrThrow(McdwEnchantmentTags.DAMAGE_EXCLUSIVE)
+            ).addEffect(
+                McdwEffectComponentTypes.ENTITY_AWARE_DAMAGE,
+                new MultiplyStatusValueEffectType(StatusEffectsRegistry.DYNAMO, EnchantmentLevelBasedValueType.linear(0.1f,0.025f),false,Optional.empty())
+            ).addEffect(
+                McdwEffectComponentTypes.ON_JUMP,
+                new ApplyStackingMobEffectEnchantmentEntityEffectType(
+                    StatusEffectsRegistry.DYNAMO,
+                    EnchantmentLevelBasedValueType.constant(120000f),
+                    EnchantmentLevelBasedValueType.constant(19f)
+                )
+            ).addEffect(
+                EnchantmentEffectComponentTypes.POST_ATTACK,
+                EnchantmentEffectTarget.ATTACKER,
+                EnchantmentEffectTarget.ATTACKER,
+                new RemoveMobEffectEnchantmentEntityEffectType(StatusEffectsRegistry.DYNAMO)
+            )
+        );
+
+        // ECHO
+        register(
+                entries,
+                EnchantmentIds.ECHO,
                 Enchantment.builder(
                         Enchantment.definition(
                                 itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
@@ -48,15 +111,105 @@ public class McdwEnchantmentGenerator {
                                 Enchantment.leveledCost(1, 10),
                                 Enchantment.leveledCost(16, 10),
                                 2,
-                                AttributeModifierSlot.HAND
+                                AttributeModifierSlot.MAINHAND
                         )
                 ).exclusiveSet(
-                        enchantmentLookup.getOrThrow(McdwEnchantmentTags.HEALING_EXCLUSIVE)
+                        enchantmentLookup.getOrThrow(McdwEnchantmentTags.AOE_AND_DAMAGE_EXCLUSIVE)
                 ).addEffect(
-                        McdwEffectComponentTypes.POST_DEATH,
+                        EnchantmentEffectComponentTypes.POST_ATTACK,
                         EnchantmentEffectTarget.ATTACKER,
                         EnchantmentEffectTarget.VICTIM,
-                        new LeechMobEnchantmentEffectType(EnchantmentLevelBasedValueType.linear(0.4f, 0.2f))
+                        AllOfEnchantmentEffectTypes.allOf(
+                            new PlaySoundEnchantmentEffectType(
+                                SoundEventsRegistry.ECHO_SOUND_EVENT,
+                                ConstantFloatProvider.create(0.5f),
+                                ConstantFloatProvider.create(1f)
+                            ),
+                            new AOEEnchantmentEntityEffectType(
+                                EnchantmentLevelBasedValueType.constant(3f),
+                                new DamageTakenRelativeEnchantmentEntityEffectType(
+                                    EnchantmentLevelBasedValueType.constant(1f),
+                                    damageTypeLookup.getOrThrow(DamageTypes.GENERIC)
+                                ),
+                                Optional.of(EnchantmentLevelBasedValueType.linear(1f)),
+                                true
+                            )
+                        ),
+                        () -> new RandomChanceWithEnchantedBonusLootCondition(
+                            EnchantmentLevelBasedValueType.linear(0.15f),
+                            enchantmentLookup.getOrThrow(EnchantmentIds.ECHO)
+                        )
+                )
+        );
+
+        // LEECHING
+        register(
+                entries,
+                EnchantmentIds.LEECHING,
+                Enchantment.builder(
+                    Enchantment.definition(
+                        itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                        1,
+                        3,
+                        Enchantment.leveledCost(1, 10),
+                        Enchantment.leveledCost(16, 10),
+                        2,
+                        AttributeModifierSlot.HAND
+                    )
+                ).exclusiveSet(
+                    enchantmentLookup.getOrThrow(McdwEnchantmentTags.HEALING_EXCLUSIVE)
+                ).addEffect(
+                    McdwEffectComponentTypes.POST_DEATH,
+                    EnchantmentEffectTarget.ATTACKER,
+                    EnchantmentEffectTarget.VICTIM,
+                    new LeechMobEnchantmentEntityEffectType(EnchantmentLevelBasedValueType.linear(0.4f, 0.2f))
+                )
+        );
+
+        // PAIN_CYCLE
+        register(
+                entries,
+                EnchantmentIds.PAIN_CYCLE,
+                Enchantment.builder(
+                    Enchantment.definition(
+                        itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                        1,
+                        3,
+                        Enchantment.leveledCost(1, 10),
+                        Enchantment.leveledCost(16, 10),
+                        2,
+                        AttributeModifierSlot.MAINHAND
+                    )
+                ).exclusiveSet(
+                    enchantmentLookup.getOrThrow(McdwEnchantmentTags.DAMAGE_EXCLUSIVE)
+                ).addEffect(
+                    EnchantmentEffectComponentTypes.DAMAGE,
+                    new MultiplyEnchantmentEffectType(EnchantmentLevelBasedValueType.linear(2f,1f)),
+                    EntityPropertiesLootCondition.builder(
+                        LootContext.EntityTarget.ATTACKER,
+                        EntityPredicate.Builder.create().effects(
+                            EntityEffectPredicate.Builder.create().addEffect(
+                                StatusEffectsRegistry.PAIN_CYCLE,
+                                new EntityEffectPredicate.EffectData(
+                                    NumberRange.IntRange.exactly(4),
+                                    NumberRange.IntRange.ANY,
+                                    Optional.empty(),
+                                    Optional.empty()
+                                )
+                            )
+                        )
+                    )
+                ).addEffect(
+                    EnchantmentEffectComponentTypes.POST_ATTACK,
+                    EnchantmentEffectTarget.ATTACKER,
+                    EnchantmentEffectTarget.ATTACKER,
+                    new ApplyStackingMobEffectEnchantmentEntityEffectType(
+                        RegistryEntryList.of(StatusEffectsRegistry.PAIN_CYCLE),
+                        EnchantmentLevelBasedValueType.constant(120000f),
+                        EnchantmentLevelBasedValueType.constant(0f),
+                        EnchantmentLevelBasedValueType.constant(4f),
+                        true
+                    )
                 )
         );
 
@@ -64,7 +217,7 @@ public class McdwEnchantmentGenerator {
         // SOUL_DEVOURER
         register(
             // the enchantment registerable
-            enchantment,
+            entries,
             // the RegistryKey of SOUL_DEVOURER, kept in the Ids class
             EnchantmentIds.SOUL_DEVOURER,
             //the enchantment builder itself
@@ -90,7 +243,7 @@ public class McdwEnchantmentGenerator {
             // next we add the exclusions. I made new tag holder class, and this is exclusive with the other "Experience" enchants. The tag includes this, by design.
             ).exclusiveSet(
                 enchantmentLookup.getOrThrow(McdwEnchantmentTags.EXPERIENCE_EXCLUSIVE)
-            //Finally, the effect.
+            //Finally, the statusEffect.
             ).addEffect(
                 //the Mob Experience modification hook.
                 EnchantmentEffectComponentTypes.MOB_EXPERIENCE,
@@ -101,25 +254,25 @@ public class McdwEnchantmentGenerator {
 
         // SOUL_SIPHON
         register(
-                enchantment,
+                entries,
                 EnchantmentIds.SOUL_SIPHON,
                 Enchantment.builder(
-                        Enchantment.definition(
-                                itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
-                                1,
-                                3,
-                                Enchantment.leveledCost(1, 10),
-                                Enchantment.leveledCost(16, 10),
-                                2,
-                                AttributeModifierSlot.MAINHAND
-                        )
+                    Enchantment.definition(
+                        itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                        1,
+                        3,
+                        Enchantment.leveledCost(1, 10),
+                        Enchantment.leveledCost(16, 10),
+                        2,
+                        AttributeModifierSlot.MAINHAND
+                    )
                 ).exclusiveSet(
-                        enchantmentLookup.getOrThrow(McdwEnchantmentTags.EXPERIENCE_EXCLUSIVE)
+                    enchantmentLookup.getOrThrow(McdwEnchantmentTags.EXPERIENCE_EXCLUSIVE)
                 ).addEffect(
-                        EnchantmentEffectComponentTypes.MOB_EXPERIENCE,
-                        new AddEnchantmentEffectType(EnchantmentLevelBasedValueType.linear(3f)),
-                        //this addition happens 10% of the time
-                        RandomChanceLootCondition.builder(0.1f)
+                    EnchantmentEffectComponentTypes.MOB_EXPERIENCE,
+                    new AddEnchantmentEffectType(EnchantmentLevelBasedValueType.linear(3f)),
+                    //this addition happens 10% of the time
+                    RandomChanceLootCondition.builder(0.1f)
                 )
         );
 
@@ -127,7 +280,10 @@ public class McdwEnchantmentGenerator {
         // Thundering Enchantment
     }
 
-    private static void register(Registerable<Enchantment> registry, RegistryKey<Enchantment> key, Enchantment.Builder builder) {
-        registry.register(key, builder.build(key.getValue()));
+    private void register(Entries entries,RegistryKey<Enchantment> key, Enchantment.Builder builder) {
+        register(entries, key, builder, new ConfigEnchantmentEnabledCondition(key.getValue()));
+    }
+    private void register(Entries entries, RegistryKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition...resourceConditions) {
+        entries.add(key, builder.build(key.getValue()), resourceConditions);
     }
 }

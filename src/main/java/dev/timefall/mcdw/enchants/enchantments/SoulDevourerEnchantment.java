@@ -13,6 +13,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 
 /*
+ * DONE
+ */
+
+/*
  * Effects Needed:
  */
 

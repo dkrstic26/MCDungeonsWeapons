@@ -1,3 +1,9 @@
+/*
+ * Timefall Development License 1.2
+ * Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+ *
+ * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
+ */
 package dev.timefall.mcdw.enchants.effect.entity;
 
 import com.mojang.serialization.MapCodec;
@@ -10,13 +16,13 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 
-public record LeechMobEnchantmentEffectType(EnchantmentLevelBasedValueType amount)implements EnchantmentEntityEffectType
+public record LeechMobEnchantmentEntityEffectType(EnchantmentLevelBasedValueType amount)implements EnchantmentEntityEffectType
 {
 
-    public static final MapCodec<LeechMobEnchantmentEffectType> CODEC = RecordCodecBuilder.mapCodec(instance ->
+    public static final MapCodec<LeechMobEnchantmentEntityEffectType> CODEC = RecordCodecBuilder.mapCodec(instance ->
                 instance.group(
-                        EnchantmentLevelBasedValueType.CODEC.fieldOf("amount").forGetter(LeechMobEnchantmentEffectType::amount)
-                ).apply(instance, LeechMobEnchantmentEffectType::new)
+                        EnchantmentLevelBasedValueType.CODEC.fieldOf("amount").forGetter(LeechMobEnchantmentEntityEffectType::amount)
+                ).apply(instance, LeechMobEnchantmentEntityEffectType::new)
             );
 
     @Override

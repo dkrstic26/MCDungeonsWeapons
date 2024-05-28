@@ -5,13 +5,6 @@
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
 
-/*
- * Timefall Development License 1.2
- * Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
- *
- * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
- */
-
 package dev.timefall.mcdw.registries.items;
 
 import dev.timefall.mcdw.Mcdw;
@@ -42,10 +35,10 @@ public class McdwAxeItemRegistry {
     public static final McdwAxeItem AXE_FIREBRAND           = register(AXE_FIREBRAND_ID, McdwWeaponStatsConfig.CONFIG.getAxeItemStats().getAxeFirebrand());
 
     public static void register() {
-
     }
 
     private static McdwAxeItem register(Identifier id, IMcdwWeaponStats.MeleeStats stats) {
+        McdwWeaponStatsConfig.CONFIG.registerItemEnableCheck(id,() -> stats.isEnabled);
         return Registry.register(Registries.ITEM, id, makeWeapon(stats));
     }
 

@@ -7,6 +7,9 @@
 package dev.timefall.mcdw;
 
 import dev.timefall.mcdw.configs.CompatibilityFlags;
+import dev.timefall.mcdw.data.ConfigEnchantmentEnabledCondition;
+import dev.timefall.mcdw.data.ConfigItemEnabledCondition;
+import dev.timefall.mcdw.enchants.EnchantmentIds;
 import dev.timefall.mcdw.registries.*;
 import dev.timefall.mcdw.registries.items.*;
 import net.fabricmc.api.ModInitializer;
@@ -25,6 +28,7 @@ public class Mcdw implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        McdwRegistries.register();
         // Register Weapons
         // TODO CHECK ORDER AND MAKE SURE CALLED WHERE NEEDS TO BE CALLED
         McdwAxeItemRegistry.register();
@@ -47,6 +51,9 @@ public class Mcdw implements ModInitializer {
         McdwSwordItemRegistry.register();
         McdwWhipItemRegistry.register();
 
+        EnchantmentIds.init();
+        ConfigEnchantmentEnabledCondition.register();
+        ConfigItemEnabledCondition.register();
         CompatibilityFlags.init();
         CompatRegistry.register();
         EntityAttributesRegistry.register();

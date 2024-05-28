@@ -9,11 +9,11 @@ package dev.timefall.mcdw.data;
 
 import dev.timefall.mcdw.Mcdw;
 import dev.timefall.mcdw.registries.items.*;
-import dev.timefall.mcdw.registries.tag.McdwEnchantmentTags;
 import dev.timefall.mcdw.registries.tag.McdwItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
@@ -196,6 +196,13 @@ public class McdwItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwSwordItemRegistry.SWORD_DARK_KATANA.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwSwordItemRegistry.SWORD_OBSIDIAN_CLAYMORE.toString()))
                 .addOptional(Identifier.of(Mcdw.MOD_ID, McdwSwordItemRegistry.SWORD_THE_STARLESS_NIGHT.toString()));
+
+        getOrCreateTagBuilder(McdwItemTags.ANY_WEAPON_ENCHANTABLE)
+                .setReplace(false)
+                .addTag(ItemTags.TRIDENT_ENCHANTABLE)
+                .addTag(ItemTags.BOW_ENCHANTABLE)
+                .addTag(ItemTags.CROSSBOW_ENCHANTABLE)
+                .addTag(ItemTags.WEAPON_ENCHANTABLE);
     }
 
 }

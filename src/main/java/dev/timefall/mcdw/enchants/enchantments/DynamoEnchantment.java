@@ -11,11 +11,20 @@ import dev.timefall.mcdw.enchantment.types.DamageBoostEnchantment;
 import net.minecraft.item.*;
 
 /*
+ * DONE
+ */
+
+/*
  * Effects Needed:
+ * ON_JUMP -> ComponentType<List<EnchantmentEffectEntry<EnchantmentEntityEffectType>>>
+ * MultiplyStatusValueEffectType -> deal the damage
+ * RemoveMobEffectEnchantmentEntityEffectType -> remove the status
  */
 
 /*
  * Effects Present:
+ * DAMAGE -> deal the damage
+ * POST_ATTACK -> remove the status
  */
 
 public class DynamoEnchantment extends DamageBoostEnchantment {

@@ -61,7 +61,7 @@ public class ProjectileEffectHelper {
         }
     }
 
-    //public static List<LivingEntity> mcdw$getSecondaryTargets(LivingEntity source, double distance) {
+    //public static List<LivingEntity> mcdw$getSecondaryTargets(LivingEntity source, double radius) {
     //    List<LivingEntity> nearbyEntities = AOEHelper.getEntitiesByConfig(source, (float) distance);
     //    if (nearbyEntities.size() < 2) return Collections.emptyList();
 

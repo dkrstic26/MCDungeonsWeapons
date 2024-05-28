@@ -7,15 +7,11 @@
 
 package dev.timefall.mcdw.data;
 
-import dev.timefall.mcdw.Mcdw;
 import dev.timefall.mcdw.enchants.EnchantmentIds;
-import dev.timefall.mcdw.registries.items.*;
 import dev.timefall.mcdw.registries.tag.McdwEnchantmentTags;
-import dev.timefall.mcdw.registries.tag.McdwItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -28,6 +24,21 @@ public class McdwEnchantmentTagGenerator extends FabricTagProvider.EnchantmentTa
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
         // ENCHANTMENT TAGS
+
+        getOrCreateTagBuilder(McdwEnchantmentTags.AOE_EXCLUSIVE)
+                .setReplace(false)
+                .addOptional(EnchantmentIds.ECHO);
+
+        getOrCreateTagBuilder(McdwEnchantmentTags.AOE_AND_DAMAGE_EXCLUSIVE)
+                .setReplace(false)
+                .addTag(McdwEnchantmentTags.AOE_EXCLUSIVE)
+                .addTag(McdwEnchantmentTags.DAMAGE_EXCLUSIVE);
+
+        getOrCreateTagBuilder(McdwEnchantmentTags.DAMAGE_EXCLUSIVE)
+                .setReplace(false)
+                .addOptional(EnchantmentIds.DYNAMO)
+                .addOptional(EnchantmentIds.PAIN_CYCLE);
+
         getOrCreateTagBuilder(McdwEnchantmentTags.EXPERIENCE_EXCLUSIVE)
                 .setReplace(false)
                 .addOptional(EnchantmentIds.ANIMA_CONDUIT)

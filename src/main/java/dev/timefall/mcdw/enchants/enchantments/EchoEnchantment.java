@@ -15,10 +15,16 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Needed:
+ * AOEEnchantmentEntityEffectType
  */
 
 /*
  * Effects Present:
+ * POST_ATTACK -> All Of:
+ *   > RandomChanceWithEnchantedBonusLootCondition: 0.15 per level
+ *   > PlaySound
+ *   > fire the AOE effect
+ * Inside AOE ->
  */
 
 public class EchoEnchantment extends AoEEnchantment {

@@ -8,16 +8,27 @@
 package dev.timefall.mcdw.configs;
 
 import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.enchants.EnchantmentIds;
+import me.fzzyhmstrs.fzzy_config.annotations.IgnoreVisibility;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
 import me.fzzyhmstrs.fzzy_config.config.Config;
+import me.fzzyhmstrs.fzzy_config.validation.collection.ValidatedList;
+import me.fzzyhmstrs.fzzy_config.validation.minecraft.ValidatedIdentifier;
+import net.minecraft.util.Identifier;
 
-import java.util.function.Supplier;
-
+@SuppressWarnings("FieldMayBeFinal")
+@IgnoreVisibility
 public class McdwEnchantmentSettingsConfig extends Config {
-    public static final McdwEnchantmentSettingsConfig CONFIG = ConfigApi.registerAndLoadConfig((Supplier<McdwEnchantmentSettingsConfig>) McdwEnchantmentSettingsConfig::new);
+    public static final McdwEnchantmentSettingsConfig CONFIG = ConfigApi.registerAndLoadConfig(McdwEnchantmentSettingsConfig::new);
 
     public McdwEnchantmentSettingsConfig() {
         super(Mcdw.ID("mcdw_enchantment_settings_config"));
+    }
+
+    private ValidatedList<Identifier> disabledEnchantments = ValidatedIdentifier.ofSuppliedList(() -> EnchantmentIds.ENCHANTMENT_IDS).toList();
+
+    public boolean isEnchantmentEnabled(Identifier id){
+        return !disabledEnchantments.contains(id);
     }
 
 }

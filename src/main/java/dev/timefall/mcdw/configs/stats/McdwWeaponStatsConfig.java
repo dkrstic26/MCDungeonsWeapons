@@ -13,6 +13,13 @@ import dev.timefall.mcdw.configs.stats.item_sections.*;
 import me.fzzyhmstrs.fzzy_config.annotations.IgnoreVisibility;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
 import me.fzzyhmstrs.fzzy_config.config.Config;
+import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.ApiStatus;
+
+import java.beans.Transient;
+import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
+import java.util.function.Supplier;
 
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
@@ -22,6 +29,18 @@ public class McdwWeaponStatsConfig extends Config {
 
     public McdwWeaponStatsConfig() {
         super(Mcdw.ID("mcdw_weapon_stats_config"));
+    }
+
+    transient private LinkedHashMap<Identifier, Supplier<Boolean>> itemEnabledMap = new LinkedHashMap<>();
+
+    @ApiStatus.Internal
+    public void registerItemEnableCheck(Identifier id, Supplier<Boolean> checker){
+        itemEnabledMap.put(id,checker);
+    }
+
+    public boolean isItemEnabled(Identifier id) {
+        //supplier returns isEnabled, we negate that for disabled check
+        return itemEnabledMap.getOrDefault(id, () -> false).get();
     }
 
     private McdwAxeItemStats mcdwAxeItemStats = new McdwAxeItemStats();
