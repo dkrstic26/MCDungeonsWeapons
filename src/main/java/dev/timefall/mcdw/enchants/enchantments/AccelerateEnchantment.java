@@ -16,13 +16,14 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Needed:
- * ACCELERATE_CHARGE_TIME -> New Effect Type, Custom CODEC, pain
+ * ACCELERATE_CHARGE_TIME -> New Effect Type, Custom CODEC, pain: MultiplyStatusValueEffectType
  * APPLY_STACKING_MOB_EFFECT -> Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE
+ * FORMULA = shots * (0.06 + (0.02 * lvl))
+ * BOUNDS = 0..1 > maximum 2x speed up
  */
 
 /*
  * Effects Present:
- *
  */
 
 public class AccelerateEnchantment extends RangedEnchantment {

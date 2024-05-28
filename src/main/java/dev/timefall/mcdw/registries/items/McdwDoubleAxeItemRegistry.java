@@ -4,13 +4,6 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-
-/*
- * Timefall Development License 1.2
- * Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
- *
- * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
- */
 package dev.timefall.mcdw.registries.items;
 
 import dev.timefall.mcdw.Mcdw;
@@ -24,19 +17,27 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 
 public class McdwDoubleAxeItemRegistry {
-    public static final McdwDoubleAxeItem DOUBLE_AXE_CURSED     = register("double_axe_cursed", McdwWeaponStatsConfig.CONFIG.getDoubleAxeItemStats().getDoubleAxeCursed());
-    public static final McdwDoubleAxeItem DOUBLE_AXE_DOUBLE     = register("double_axe_double", McdwWeaponStatsConfig.CONFIG.getDoubleAxeItemStats().getDoubleAxeDouble());
-    public static final McdwDoubleAxeItem DOUBLE_AXE_WHIRLWIND  = register("double_axe_whirlwind", McdwWeaponStatsConfig.CONFIG.getDoubleAxeItemStats().getDoubleAxeWhirlwind());
+
+    public static final Identifier DOUBLE_AXE_CURSED_ID         = Mcdw.ID("double_axe_cursed");
+    public static final Identifier DOUBLE_AXE_DOUBLE_ID         = Mcdw.ID("double_axe_double");
+    public static final Identifier DOUBLE_AXE_WHIRLWIND_ID      = Mcdw.ID("double_axe_whirlwind");
+
+    public static final McdwDoubleAxeItem DOUBLE_AXE_CURSED     = register(DOUBLE_AXE_CURSED_ID, McdwWeaponStatsConfig.CONFIG.getDoubleAxeItemStats().getDoubleAxeCursed());
+    public static final McdwDoubleAxeItem DOUBLE_AXE_DOUBLE     = register(DOUBLE_AXE_DOUBLE_ID, McdwWeaponStatsConfig.CONFIG.getDoubleAxeItemStats().getDoubleAxeDouble());
+    public static final McdwDoubleAxeItem DOUBLE_AXE_WHIRLWIND  = register(DOUBLE_AXE_WHIRLWIND_ID, McdwWeaponStatsConfig.CONFIG.getDoubleAxeItemStats().getDoubleAxeWhirlwind());
 
     public static void register() {
 
     }
 
-    private static McdwDoubleAxeItem register(String name, IMcdwWeaponStats.MeleeStats stats) {
-        return Registry.register(Registries.ITEM, Mcdw.ID(name), makeWeapon(stats));
+    private static McdwDoubleAxeItem register(Identifier id, IMcdwWeaponStats.MeleeStats stats) {
+        McdwWeaponStatsConfig.CONFIG.registerItemEnableCheck(id,() -> stats.isEnabled);
+        return Registry.register(Registries.ITEM, id, makeWeapon(stats));
     }
+
 
     private static McdwDoubleAxeItem makeWeapon(IMcdwWeaponStats.MeleeStats stats) {
         if (CompatibilityFlags.isReachExtensionEnabled) {

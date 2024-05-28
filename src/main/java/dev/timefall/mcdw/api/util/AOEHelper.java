@@ -52,7 +52,7 @@ public class AOEHelper {
         return getEntitiesByPredicate(center, distance, predicate);
     }
 
-    /** Returns targets of an AOE effect from 'attacker' around 'center'. This includes 'center'. */
+    /** Returns targets of an AOE statusEffect from 'attacker' around 'center'. This includes 'center'. */
     public static List<LivingEntity> getEntitiesByPredicate(LivingEntity center, float distance, Predicate<? super LivingEntity> predicate) {
         return center.getEntityWorld().getEntitiesByClass(LivingEntity.class,
                 new Box(center.getBlockPos()).expand(distance), predicate

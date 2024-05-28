@@ -4,13 +4,6 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-
-/*
- * Timefall Development License 1.2
- * Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
- *
- * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
- */
 package dev.timefall.mcdw.registries.items;
 
 import dev.timefall.mcdw.Mcdw;
@@ -21,11 +14,17 @@ import dev.timefall.mcdw.configs.stats.McdwWeaponStatsConfig;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 
 public class McdwLongbowItemRegistry {
-    public static final McdwLongbowItem LONGBOW_GUARDIAN_BOW    = register("longbow_guardian_bow", McdwWeaponStatsConfig.CONFIG.getLongbowItemStats().getLongbowGuardianBow());
-    public static final McdwLongbowItem LONGBOW_LONGBOW         = register("longbow_longbow", McdwWeaponStatsConfig.CONFIG.getLongbowItemStats().getLongbowLongbow());
-    public static final McdwLongbowItem LONGBOW_RED_SNAKE       = register("longbow_red_snake", McdwWeaponStatsConfig.CONFIG.getLongbowItemStats().getLongbowRedSnake());
+
+    public static final Identifier LONGBOW_GUARDIAN_BOW_ID      = Mcdw.ID("longbow_guardian_bow");
+    public static final Identifier LONGBOW_LONGBOW_ID           = Mcdw.ID("longbow_longbow");
+    public static final Identifier LONGBOW_RED_SNAKE_ID         = Mcdw.ID("longbow_red_snake");
+
+    public static final McdwLongbowItem LONGBOW_GUARDIAN_BOW    = register(LONGBOW_GUARDIAN_BOW_ID, McdwWeaponStatsConfig.CONFIG.getLongbowItemStats().getLongbowGuardianBow());
+    public static final McdwLongbowItem LONGBOW_LONGBOW         = register(LONGBOW_LONGBOW_ID, McdwWeaponStatsConfig.CONFIG.getLongbowItemStats().getLongbowLongbow());
+    public static final McdwLongbowItem LONGBOW_RED_SNAKE       = register(LONGBOW_RED_SNAKE_ID, McdwWeaponStatsConfig.CONFIG.getLongbowItemStats().getLongbowRedSnake());
 
     //@Override
     //public double getProjectileDamage() {
@@ -40,8 +39,9 @@ public class McdwLongbowItemRegistry {
 
     }
 
-    private static McdwLongbowItem register(String name, IMcdwWeaponStats.RangedStats stats) {
-        return Registry.register(Registries.ITEM, Mcdw.ID(name), makeWeapon(stats));
+    private static McdwLongbowItem register(Identifier id, IMcdwWeaponStats.RangedStats stats) {
+        McdwWeaponStatsConfig.CONFIG.registerItemEnableCheck(id,() -> stats.isEnabled);
+        return Registry.register(Registries.ITEM, id, makeWeapon(stats));
     }
 
     private static McdwLongbowItem makeWeapon(IMcdwWeaponStats.RangedStats stats) {

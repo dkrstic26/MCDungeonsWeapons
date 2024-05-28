@@ -4,6 +4,11 @@
   "compatibilityLevel": "JAVA_8",
   "plugin": "dev.timefall.mcdw.mixin.old_mixins.McdwMixinPlugin",
   "mixins": [
+    "EnchantmentAccessor",
+    "EnchantmentHelperAccessor",
+    "EnchantmentHelperMixin",
+    "LivingEntityAccessor",
+    "LivingEntityMixin"
   ],
   "client": [
   ],

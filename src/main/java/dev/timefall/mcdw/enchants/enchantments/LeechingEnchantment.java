@@ -13,7 +13,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 
 /*
+ * DONE
+ */
+
+/*
  * Effects Needed:
+ * POST_DEATH -> need new ComponentType<List<TargetedEnchantmentEffectType<EnchantmentEntityEffectType>>>
+ * LEECH_ENTITY -> new EnchantmentEntityEffectType
  */
 
 /*

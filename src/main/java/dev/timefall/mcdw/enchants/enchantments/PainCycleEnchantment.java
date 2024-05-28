@@ -13,11 +13,25 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 
 /*
+ * DONE
+ */
+
+/*
  * Effects Needed:
+ * DAMAGE -> deal the damage
+ *    > EntityPropertiesLootCondition -> Check if pain cycle is at stack 5
+ *    > MultiplyEnchantmentEffectType -> multiply by constant 2
  */
 
 /*
  * Effects Present:
+ *
+ * POST_ATTACK -> to apply the pain cycle
+ *    > EntityPropertiesLootCondition -> Check if pain cycle is below 5,
+ *    > ApplyStackingMobEffectEnchantmentEntityEffectType > max 5 > damage event moved to the status itself
+ * POST_ATTACK -> to remove the pain cycle
+ *    > EntityPropertiesLootCondition -> Check if pain cycle is at stack 5
+ *    > RemoveMobEffectEnchantmentEntityEffectType > remove pain cycle
  */
 
 public class PainCycleEnchantment extends DamageBoostEnchantment {

@@ -13,8 +13,7 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Needed:
- * BONUS_ARROWS_COUNT -> AddEnchantmentEffectType (add from MutableFloat of zero);
- * would be like: ComponentType<List<EnchantmentEffectEntry<EnchantmentValueEffectType>>> DAMAGE
+ * ON_JUMP -> ComponentType<List<EnchantmentEffectEntry<EnchantmentEntityEffectType>>>
  */
 
 /*
