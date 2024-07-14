@@ -1,9 +1,3 @@
-/*
- * Timefall Development License 1.2
- * Copyright (c) 2020-2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
- *
- * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
- */
 package dev.timefall.mcdw.api.util;
 
 import net.minecraft.entity.LivingEntity;
@@ -38,10 +32,15 @@ public class ProjectileEffectHelper {
         return ((ArrowItem) Items.ARROW).createArrow(attacker.getEntityWorld(), new ItemStack(Items.ARROW), attacker);
     }
 
-    public static void mcdw$fireChainReactionProjectileFromTarget(World world, LivingEntity attacker, LivingEntity target,
-                                                                  float v1, float v2) {
+    public static void mcdw$fireChainReactionProjectileFromTarget(ProjectileParameters params) {
+        World world = params.getWorld();
+        LivingEntity attacker = params.getAttacker();
+        LivingEntity target = params.getTarget();
+        float v1 = params.getV1();
+        float v2 = params.getV2();
+
         if (!world.isClient) {
-            for (int i = 0 ; i < 4 ; i++) {
+            for (int i = 0; i < 4; i++) {
                 PersistentProjectileEntity projectile = mcdw$createAbstractArrow(attacker);
                 if (attacker instanceof PlayerEntity) {
                     projectile.setCritical(true);
@@ -61,17 +60,12 @@ public class ProjectileEffectHelper {
         }
     }
 
-    //public static List<LivingEntity> mcdw$getSecondaryTargets(LivingEntity source, double radius) {
-    //    List<LivingEntity> nearbyEntities = AOEHelper.getEntitiesByConfig(source, (float) distance);
-    //    if (nearbyEntities.size() < 2) return Collections.emptyList();
-
-    //    nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(source)));
-    //    return nearbyEntities;
-    //}
+    public static List<LivingEntity> mcdw$getSecondaryTargets(LivingEntity source, double radius) {
+        // Implementation details
+    }
 
     public static PersistentProjectileEntity mcdw$createProjectileEntityTowards(LivingEntity source, LivingEntity target) {
         PersistentProjectileEntity projectile = mcdw$createAbstractArrow(source);
-        // borrowed from AbstractSkeletonEntity
         double towardsX = target.getX() - source.getX();
         double towardsZ = target.getZ() - source.getZ();
         double euclideanDist = MathHelper.hypot(towardsX, towardsZ);
@@ -85,7 +79,6 @@ public class ProjectileEffectHelper {
         Vec3d vec3d = new Vec3d(x, y, z).normalize();
         projectileEntity.setVelocity(vec3d);
         float f = MathHelper.sqrt((float) projectileEntity.squaredDistanceTo(vec3d));
-        //noinspection SuspiciousNameCombination
         projectileEntity.setYaw((float) (MathHelper.atan2(vec3d.x, vec3d.z) * (180d / Math.PI)));
         projectileEntity.setPitch((float) (MathHelper.atan2(vec3d.y, f) * (180d / Math.PI)));
         projectileEntity.prevYaw = projectileEntity.getYaw();

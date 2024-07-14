@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 public interface IOffhandAttack {
     default TypedActionResult<ItemStack> useOffhand(World world, PlayerEntity player, Hand hand) {
         if (CompatibilityFlags.noOffhandConflicts) {
-            if (hand == Hand.OFF_HAND && world.isClient && (player.getOffHandStack().getItem() instanceof IOffhandAttack && PlayerAttackHelper.mixAndMatchWeapons(player))) {
+            if (isOffHand(hand) && isClientWorld(world) && hasOffHandAttack(player) && canMixAndMatchWeapons(player)) {
                 //OffhandAttackChecker.checkForOffhandAttack();
                 ItemStack offhand = player.getStackInHand(hand);
                 return new TypedActionResult<>(ActionResult.SUCCESS, offhand);
@@ -26,4 +26,21 @@ public interface IOffhandAttack {
         }
         return new TypedActionResult<>(ActionResult.PASS, player.getStackInHand(hand));
     }
+
+    private boolean isOffHand(Hand hand) {
+        return hand == Hand.OFF_HAND;
+    }
+
+    private boolean isClientWorld(World world) {
+        return world.isClient;
+    }
+
+    private boolean hasOffHandAttack(PlayerEntity player) {
+        return player.getOffHandStack().getItem() instanceof IOffhandAttack;
+    }
+
+    private boolean canMixAndMatchWeapons(PlayerEntity player) {
+        return PlayerAttackHelper.mixAndMatchWeapons(player);
+    }
 }
+
